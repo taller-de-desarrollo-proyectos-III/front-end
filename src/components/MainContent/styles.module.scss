@@ -1,0 +1,22 @@
+@import "~$styles/_variables";
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.narrow {
+  margin: ($navBarHeight + $spacing-xxl) auto $spacing-xxl;
+  width: $detailContainerWidth;
+}
+
+.fullWidth {
+  margin-top: $navBarHeight;
+  width: 100%;
+}
+
+@media (max-width: $mobileContainerThreshold) {
+  .mainContent.narrow {
+    width: 90vw;
+  }
+}

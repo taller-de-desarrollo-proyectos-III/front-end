@@ -5,6 +5,7 @@ menlo,
 courier,
 monospace;
 
+$navBarHeight: 60px;
 $pageMargin: 1.5vw;
 
 $spacing-xxl: 30px;
@@ -24,6 +25,7 @@ $darkGrey: #40403f;
 $mainBlue: #0095db;
 $bodyBackgroundColor: #ededed;
 
+$detailContainerWidth: 900px;
 $largeContainerThreshold: 1440px;
-$mobileContainerThreshold: 900px + 2 * 20px;
+$mobileContainerThreshold: $detailContainerWidth + 2 * 20px;
 $smallMobileContainerThreshold: 320px;
