@@ -9,11 +9,11 @@ export const Home: FunctionComponent = () => (
   <MainContent>
     <NavBar />
     <header className={styles.header}>
-      <div className={styles.logo}>
-        logo
-      </div>
-      <p className={styles.text}>
-        Trabajo Práctico
+      <h1 className={styles.title}>
+        Home
+      </h1>
+      <p className={styles.description}>
+        Esta en la pantalla principal
       </p>
     </header>
   </MainContent>
