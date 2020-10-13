@@ -1,0 +1,29 @@
+$monospace: sfmono-regular,
+consolas,
+"Liberation Mono",
+menlo,
+courier,
+monospace;
+
+$pageMargin: 1.5vw;
+
+$spacing-xxl: 30px;
+$spacing-xl: 24px;
+$spacing-l: 20px;
+$spacing-m: 14px;
+$spacing-s: 8px;
+
+$fontSize-xxl: 36px;
+$fontSize-xl: 30px;
+$fontSize-l: 20px;
+$fontSize-m: 16px;
+$fontSize-s: 14px;
+
+$white: #fff;
+$darkGrey: #40403f;
+$mainBlue: #0095db;
+$bodyBackgroundColor: #ededed;
+
+$largeContainerThreshold: 1440px;
+$mobileContainerThreshold: 900px + 2 * 20px;
+$smallMobileContainerThreshold: 320px;
