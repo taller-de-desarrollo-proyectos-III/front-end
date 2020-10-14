@@ -34,6 +34,7 @@
     "typescript-logging": "^1.0.0"
   },
   "devDependencies": {
+    "husky": "4.3.0",
     "stylelint": "13.7.2",
     "stylelint-config-sass-guidelines": "7.1.0",
     "stylelint-config-standard": "20.0.0",
@@ -75,5 +76,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
   }
 }
