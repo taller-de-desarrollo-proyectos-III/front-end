@@ -31,7 +31,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
     "typescript": "3.7.2",
-    "typescript-logging": "^1.0.0"
+    "typescript-logging": "1.0.0"
   },
   "devDependencies": {
     "husky": "4.3.0",

@@ -11649,7 +11649,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-logging@^1.0.0:
+typescript-logging@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/typescript-logging/-/typescript-logging-1.0.0.tgz#efc42ae828de4a35e1a941234a94e119322b5ad1"
   integrity sha512-qeHtadCVKOt6ju4Ts20FgWRdlISditeTuplRlNTA+gFy7ENVK3czZ7YCET7yOZSZVnU00R+hGwls4dZv3+IBSg==
