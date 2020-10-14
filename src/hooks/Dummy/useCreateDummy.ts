@@ -1,4 +1,4 @@
-import { usePost } from "../usePost";
+import { usePost } from "$hooks/usePost";
 
 export const useCreateDummy = () => {
   const { post } = usePost<IUseCreateDummyVariables, IDummy>({

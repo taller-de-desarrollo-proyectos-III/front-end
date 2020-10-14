@@ -64,7 +64,7 @@
     "$styles": "./src/styles",
     "$components": "./src/components",
     "$pages": "./src/pages",
-    "$services": "./src/services"
+    "$hooks": "./src/hooks"
   },
   "eslintConfig": {
     "extends": "react-app"

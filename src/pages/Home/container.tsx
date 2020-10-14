@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Home } from "./component";
-import { useCreateDummy } from "../../hooks";
+import { useCreateDummy } from "$hooks";
 
 export const HomeContainer: FunctionComponent = () => {
   const [dummy, setDummy] = useState({ uuid: "", welcomeMessage: "" });
