@@ -1,3 +1,4 @@
+import { BackendConfig } from "../config";
 import useFetch from "use-http";
 import { useHistory } from "react-router-dom";
 
@@ -7,7 +8,7 @@ export const usePost = <TVariables extends object, TData extends object | {}>(
   }: UsePost
 ) => {
   const history = useHistory();
-  const { post } = useFetch<TData>("http://localhost:5000", {
+  const { post } = useFetch<TData>(BackendConfig.url, {
     method: "POST",
     responseType: "json",
     onError: ({ error }) => {

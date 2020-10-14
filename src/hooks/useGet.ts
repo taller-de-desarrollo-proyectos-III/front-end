@@ -1,3 +1,4 @@
+import { BackendConfig } from "../config";
 import { useHistory } from "react-router-dom";
 import useFetch from "use-http";
 import { stringify, StringifiableRecord } from "query-string";
@@ -9,8 +10,9 @@ export const useGet = <TVariables extends StringifiableRecord, TData extends obj
   }: UseGet<TVariables>
 ) => {
   const history = useHistory();
+  const queryParams = stringify(params || {}, { arrayFormat: "comma" });
   const { data, loading } = useFetch<TData>(
-    `http://localhost:5000/${endpoint}/${stringify(params || {}, { arrayFormat: "comma" })}`,
+    `${BackendConfig.url}/${endpoint}/${queryParams}`,
     {
       method: "GET",
       onError: () =>  history.push("/error"),
