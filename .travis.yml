@@ -1,0 +1,10 @@
+language: node_js
+script:
+  - yarn lint && yarn test
+notifications:
+  email:
+    recipients:
+      - sebastian.e.blanco@gmail.com
+      - nerenap@gmail.com
+      - sebastian.leo.perez@gmail.com
+      - lautarodelosheros@gmail.com
