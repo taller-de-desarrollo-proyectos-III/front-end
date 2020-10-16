@@ -1,6 +1,6 @@
 export const BackendConfig = {
   production: {
-    url: "http://localhost:5000"
+    url: "https://tdp3-backend.herokuapp.com"
   },
   development: {
     url: "http://localhost:5000"
