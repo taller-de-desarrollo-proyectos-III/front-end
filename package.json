@@ -46,6 +46,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "heroku-postbuild": "yarn install && yarn build",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
