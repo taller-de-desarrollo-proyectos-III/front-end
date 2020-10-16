@@ -1,4 +1,4 @@
-import { BackendConfig } from "../config";
+import { BackendConfig } from "$config";
 import useFetch from "use-http";
 import { useHistory } from "react-router-dom";
 
