@@ -1,28 +1,48 @@
 # Front end
 
+## Install Tools
+
+- __`nvm`__: You can follow the following [instructions](https://github.com/nvm-sh/nvm)
+- __`yarn`__: You can follow the following [instructions](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+- __`node`__: ```nvm install 12.14.0```
+
+### Set node version
+Stand on the repository root and execute: ```nvm use```
+
+## Install dependencies
+
+```bash
+yarn install
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+```bash
+yarn start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Tests
 
-### `yarn test`
+Runs the tests:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+yarn test
+```
 
-### `yarn build`
+Runs all the linters
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+yarn lint
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder:
+
+```bash
+yarn build
+```
