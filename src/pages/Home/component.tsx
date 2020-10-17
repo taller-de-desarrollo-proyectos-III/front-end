@@ -4,24 +4,44 @@ import { IDummy } from "$hooks";
 
 import { NavBar } from "$components/NavBar";
 import { MainContent } from "$components/MainContent";
+import { Button } from "$components/Button";
+import { Field } from "$components/Field";
 
 import styles from "./styles.module.scss";
 
-export const Home: FunctionComponent<IComponentProps> = ({ onClick, dummy }) => (
+export const Home: FunctionComponent<IComponentProps> = (
+  {
+    onSubmit,
+    dummy,
+    setWelcomeMessage
+  }
+) => (
   <MainContent>
     <NavBar />
     <header className={styles.header}>
       <h1 className={styles.title}>
-        Home: {dummy.uuid}
+        Bienvenido
       </h1>
-      <p className={styles.description} onClick={onClick}>
-        {`Esta en la pantalla principal: ${dummy.welcomeMessage}`}
-      </p>
+      {
+        dummy &&
+        <p className={styles.description}>
+          {`Dummy: ${dummy.uuid}-${dummy.welcomeMessage}`}
+        </p>
+      }
+      <Field
+        name="welcomeMessage"
+        label="welcomeMessage"
+        onChange={event => setWelcomeMessage(event.target.value)}
+      />
+      <Button onClick={onSubmit}>
+        Crear
+      </Button>
     </header>
   </MainContent>
 );
 
 interface IComponentProps {
-  onClick: () => void;
-  dummy: IDummy;
+  onSubmit: () => void;
+  dummy?: IDummy;
+  setWelcomeMessage: (welcomeMessage: string) => void;
 }
