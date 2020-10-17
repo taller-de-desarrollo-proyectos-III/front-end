@@ -1,19 +1,21 @@
 import React, { FunctionComponent, useState } from "react";
 import { Home } from "./component";
-import { useCreateDummy } from "$hooks";
+import { useCreateDummy, IDummy } from "$hooks";
 
 export const HomeContainer: FunctionComponent = () => {
-  const [dummy, setDummy] = useState({ uuid: "", welcomeMessage: "" });
+  const [dummy, setDummy] = useState<IDummy | undefined>(undefined);
+  const [welcomeMessage, setWelcomeMessage] = useState("");
   const { createDummy } = useCreateDummy();
 
-  const onClick = async () => {
-    setDummy(await createDummy( { welcomeMessage: "hello" }));
+  const onSubmit = async () => {
+    setDummy(await createDummy( { welcomeMessage }));
   };
 
   return (
     <Home
+      setWelcomeMessage={setWelcomeMessage}
       dummy={dummy}
-      onClick={onClick}
+      onSubmit={onSubmit}
     />
   );
 };
