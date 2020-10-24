@@ -1,6 +1,45 @@
 @import "$styles/_variables";
 
-div.textInput {
-  min-height: $buttonHeight;
-  width: $buttonWeight;
+.main {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  flex-shrink: 0;
+  font-style: normal;
+  font-weight: bold;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 85px;
+  outline: none;
+  padding: 1px 14px;
+  width: fit-content;
+}
+
+.text {
+  color: $darkGrey;
+  font-size: $fontSize-s;
+  line-height: 17px;
+  margin: 0;
+  word-break: break-word;
+}
+
+.color {
+  background-color: $mainBlue;
+  border: 1px solid $mainBlue;
+  color: $white;
+
+  &:hover {
+    background-color: lighten($mainBlue, 3%);
+  }
+
+  &:active {
+    background-color: darken($mainBlue, 3%);
+  }
+
+  &:disabled {
+    background-color: darken(desaturate($mainBlue, 80%), 5%);
+    border-color: transparentize(desaturate($mainBlue, 80%), 0.15);
+    color: transparentize(desaturate($white, 80%), 0.15);
+    cursor: not-allowed;
+  }
 }

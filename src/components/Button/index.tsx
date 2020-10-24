@@ -1,16 +1,26 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, HTMLProps } from "react";
 import classNames from "classnames";
-
-import { TextField, TextFieldProps } from "@material-ui/core";
-
 import styles from "./styles.module.scss";
 
-export const Field: FunctionComponent<TextFieldProps> = (
-  {
-    className,
-    ...props
-  }
+export const Button: FunctionComponent<IButtonProps> = (
+    {
+        className,
+        children,
+        ...props
+    }
 ) => (
-  <TextField className={classNames(styles.textInput, className)} {...props} />
-
+    <button
+        className={classNames(styles.main, styles.text, styles.color, styles.fitContent, className)}
+        {...props}
+    >
+        {children}
+    </button>
 );
+
+export interface IButtonProps extends HTMLProps<HTMLButtonElement> {
+    className?: string;
+    onClick?: (state: object) => void;
+    disabled?: boolean;
+    autoFocus?: boolean;
+    type?: "button" | "submit" | "reset" | undefined;
+}
