@@ -1,21 +1,21 @@
 import React, { FunctionComponent, useState } from "react";
+
 import { Home } from "./component";
-import { useCreateDummy, IDummy } from "$hooks";
+import { useGetVolunteer, useGetCommission } from "$hooks";
+import {} from "../../hooks/Commissions";
 
 export const HomeContainer: FunctionComponent = () => {
-  const [dummy, setDummy] = useState<IDummy | undefined>(undefined);
-  const [welcomeMessage, setWelcomeMessage] = useState("");
-  const { createDummy } = useCreateDummy();
 
-  const onSubmit = async () => {
-    setDummy(await createDummy( { welcomeMessage }));
-  };
+  const [commission, setCommission] = useState<string>("");
+  const volunteersList = useGetVolunteer;
+  const commissionList = useGetCommission;
 
   return (
     <Home
-      setWelcomeMessage={setWelcomeMessage}
-      dummy={dummy}
-      onSubmit={onSubmit}
+      commission={commission}
+      volunteersList={volunteersList}
+      commissionList={commissionList}
+      setCommission={setCommission}
     />
   );
 };

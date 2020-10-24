@@ -5,8 +5,16 @@ $monospace: sfmono-regular,
   courier,
   monospace;
 
+$buttonFormWidth: 150;
+
+$buttonWeight: 100%;
+$fieldWeight: 100%;
+
+$headerHeight: 10vh;
+$buttonHeight: 77px;
 $navBarHeight: 60px;
 $pageMargin: 1.5vw;
+$tableMargin: 5vh;
 
 $spacing-xxl: 30px;
 $spacing-xl: 24px;
@@ -24,6 +32,7 @@ $white: #fff;
 $darkGrey: #40403f;
 $mainBlue: #0095db;
 $bodyBackgroundColor: #ededed;
+$greenTableHeader: #96bb7c;
 
 $detailContainerWidth: 900px;
 $largeContainerThreshold: 1440px;

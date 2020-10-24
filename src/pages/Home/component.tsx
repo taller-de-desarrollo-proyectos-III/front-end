@@ -1,47 +1,46 @@
 import React, { FunctionComponent } from "react";
-
-import { IDummy } from "$hooks";
-
-import { NavBar } from "$components/NavBar";
+import { Volunteers } from "$components/VolunteersTable";
 import { MainContent } from "$components/MainContent";
-import { Button } from "$components/Button";
-import { Field } from "$components/Field";
+import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+
+import { IVolunteer, ICommission } from "$hooks";
 
 import styles from "./styles.module.scss";
 
 export const Home: FunctionComponent<IComponentProps> = (
-  {
-    onSubmit,
-    dummy,
-    setWelcomeMessage
-  }
+    {
+        commission,
+        volunteersList,
+        commissionList,
+        setCommission
+    }
 ) => (
-  <MainContent>
-    <NavBar />
-    <header className={styles.header}>
-      <h1 className={styles.title}>
-        Bienvenido
-      </h1>
-      {
-        dummy &&
-        <p className={styles.description}>
-          {`Dummy: ${dummy.uuid}-${dummy.welcomeMessage}`}
-        </p>
-      }
-      <Field
-        name="welcomeMessage"
-        label="welcomeMessage"
-        onChange={event => setWelcomeMessage(event.target.value)}
-      />
-      <Button onClick={onSubmit}>
-        Crear
-      </Button>
-    </header>
-  </MainContent>
+    <MainContent>
+        <NavBarVolunteerList />
+        <div>
+            <FormControl className={styles.buttonFormControl}>
+                <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
+                <Select
+                    value={commission}
+                    onChange={event => setCommission(event.target.value as string)}
+                >
+                    {commissionList.map(item => (
+                        <MenuItem value = {item.name}> {item.name} </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+            <Volunteers volunteers={volunteersList}/>
+        </div>
+    </MainContent>
 );
 
 interface IComponentProps {
-  onSubmit: () => void;
-  dummy?: IDummy;
-  setWelcomeMessage: (welcomeMessage: string) => void;
+  setCommission: (commission:string) => void;
+  volunteersList: IVolunteer[];
+  commissionList: ICommission[];
+  commission?: string;
 }

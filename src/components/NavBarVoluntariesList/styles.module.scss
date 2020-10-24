@@ -1,0 +1,18 @@
+@import "~$styles/_variables";
+
+.centralize {
+  text-align: center;
+}
+
+.header {
+  align-items: center;
+  background-color: #282c34;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  font-size: $fontSize-xxl;
+  font-style: normal;
+  justify-content: center;
+  min-height: $headerHeight;
+  padding: 0 $pageMargin;
+}
