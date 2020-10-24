@@ -1,13 +1,14 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks";
+import { VolunteerItem } from "./VolunteerItem";
 import styles from "./styles.module.scss";
 
 interface VolunteersProps {
     volunteers: IVolunteer[];
 }
 
-export const Volunteers: React.FC<VolunteersProps> = ({volunteers}: VolunteersProps) => {
-    return <div className={styles.tableOverview}>
+export const VolunteersTable: FunctionComponent<VolunteersProps> = ({volunteers}) => (
+    <div className={styles.tableOverview}>
         <table>
             <tbody>
             <tr className={styles.tableHeader}>
@@ -28,32 +29,12 @@ export const Volunteers: React.FC<VolunteersProps> = ({volunteers}: VolunteersPr
                 return <VolunteerItem
                         uuid = {item.uuid}
                         firstName = {item.firstName}
-                        lastName = { item.lastName}
-                        documentNumber = {item.documentNumber}
+                        surname = { item.surname}
+                        dni = {item.dni}
                         commission = {item.commission}>
                     </VolunteerItem>;
             })}
             </tbody>
         </table>
-    </div>;
-};
-
-const VolunteerItem: React.FC<IVolunteer> =
-    ({firstName, lastName, documentNumber, commission}: IVolunteer) => {
-
-    return <tr>
-        <td>
-            <h5>{documentNumber}</h5>
-        </td>
-        <td>
-            <h5>{lastName}</h5>
-        </td>
-        <td>
-            <h5>{firstName}</h5>
-        </td>
-        <td>
-            <h5>{commission}</h5>
-        </td>
-    </tr>;
-};
-
+    </div>
+);

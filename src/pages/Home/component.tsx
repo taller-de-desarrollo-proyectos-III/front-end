@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Volunteers } from "$components/VolunteersTable";
+import { VolunteersTable } from "$components/VolunteersTable";
 import { MainContent } from "$components/MainContent";
 import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -33,7 +33,7 @@ export const Home: FunctionComponent<IComponentProps> = (
                     ))}
                 </Select>
             </FormControl>
-            <Volunteers volunteers={volunteersList}/>
+            <VolunteersTable volunteers={volunteersList}/>
         </div>
     </MainContent>
 );
