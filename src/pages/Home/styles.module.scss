@@ -21,15 +21,3 @@
   margin: $spacing-xxl;
   min-width: $buttonFormWidth;
 }
-
-table {
-  border: 1px $greenTableHeader;
-  display: flex;
-  justify-content: center;
-  margin: $tableMargin;
-}
-
-td {
-  border: 1px $greenTableHeader;
-  width: 30em;
-}
