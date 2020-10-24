@@ -1,11 +1,5 @@
 @import "~$styles/variables";
 
-.header {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
   font-size: $spacing-xxl;
   margin-bottom: $spacing-m;
@@ -14,4 +8,16 @@
 .description {
   font-size: $spacing-l;
   margin-bottom: $spacing-m;
+}
+
+.labelFilter {
+  display: inline-block;
+  font-palette: light;
+  font-size: $spacing-m;
+}
+
+.buttonFormControl {
+  border-color: $greenTableHeader;
+  margin: $spacing-xxl;
+  min-width: $buttonFormWidth;
 }
