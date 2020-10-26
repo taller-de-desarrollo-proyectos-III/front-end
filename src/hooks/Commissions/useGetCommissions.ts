@@ -1,17 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BackendService } from "../../services/Backend";
 
-export const useGetCommissions = ({ setCommissions }: IUseGetCommissions) =>
+export const useGetCommissions = () => {
+  const [commissions, setCommissions] = useState<ICommission[]>([]);
   useEffect(
     () => {
       BackendService.getCommissions().then(({ body }) => setCommissions(body));
     },
-    [setCommissions]
+    []
   );
-
-export interface IUseGetCommissions {
-  setCommissions: (commissions: ICommission[]) => void;
-}
+  return commissions;
+};
 
 
 export interface ICommission {
