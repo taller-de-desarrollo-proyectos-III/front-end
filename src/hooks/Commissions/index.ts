@@ -1,1 +1,1 @@
-export * from "./useGetCommission";
+export * from "./useGetCommissions";

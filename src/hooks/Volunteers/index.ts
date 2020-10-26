@@ -1,1 +1,1 @@
-export * from "./useGetVolunteer";
+export * from "./useGetVolunteers";
