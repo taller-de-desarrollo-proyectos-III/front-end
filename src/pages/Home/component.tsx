@@ -1,11 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { VolunteersTable } from "$components/VolunteersTable";
 import { MainContent } from "$components/MainContent";
+import { Selector } from "$components/Selector";
+import { NavBar } from "$components/NavBar";
 import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 
 import { IVolunteer, ICommission } from "$hooks";
 
@@ -16,31 +14,28 @@ export const Home: FunctionComponent<IComponentProps> = (
     commission,
     volunteers,
     commissions,
-    setCommission
+    setCommissionUuid
   }
 ) => (
   <MainContent>
+    <NavBar/>
     <NavBarVolunteerList />
-    <div>
-      <FormControl className={styles.buttonFormControl}>
-        <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
-        <Select
-          value={commission}
-          onChange={event => setCommission(event.target.value as string)}
-        >
-          {commissions.map(item => (
-            <MenuItem value = {item.name}> {item.name} </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <VolunteersTable volunteers={volunteers}/>
+    <div className={styles.tableContainer}>
+      <Selector
+        onChange={uuid => setCommissionUuid(uuid)}
+        selectedValue={commission}
+        options={commissions}
+        getOptionLabel={({ name }) => name}
+        getOptionId={({ uuid }) => uuid}
+      />
+      <VolunteersTable volunteers={volunteers} />
     </div>
   </MainContent>
 );
 
 interface IComponentProps {
-  setCommission: (commission:string) => void;
+  setCommissionUuid: (uuid: string) => void;
   volunteers: IVolunteer[];
   commissions: ICommission[];
-  commission?: string;
+  commission?: ICommission;
 }

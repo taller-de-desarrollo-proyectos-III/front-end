@@ -1,11 +1,5 @@
 @import "~$styles/variables";
 
-.tableContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: $spacing-m;
-}
-
 .formControl {
   border-color: $greenTableHeader;
   display: flex;

@@ -1,9 +1,19 @@
-import { useGet } from "$hooks/useGet";
+import { useEffect, useState } from "react";
+import { BackendService } from "../../services/Backend";
 
-export const useGetCommissions = () =>
-    useGet<{},ICommission[]>({ endpoint: "commissions" });
+export const useGetCommissions = () => {
+  const [commissions, setCommissions] = useState<ICommission[]>([]);
+  useEffect(
+    () => {
+      BackendService.getCommissions().then(({ body }) => setCommissions(body));
+    },
+    []
+  );
+  return commissions;
+};
+
 
 export interface ICommission {
-    uuid: number;
-    name: string;
+  uuid: string;
+  name: string;
 }
