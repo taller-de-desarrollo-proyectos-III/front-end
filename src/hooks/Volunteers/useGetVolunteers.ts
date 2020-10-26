@@ -1,12 +1,16 @@
-import { useGet } from "$hooks/useGet";
+import { useEffect } from "react";
 import { ICommission } from "../Commissions";
+import { BackendService } from "../../services/Backend";
 
-export const useGetVolunteers = (commissionUuids: string[]) => {
-  const { get, ...result } = useGet<IUseGetVolunteers, IVolunteer[]>({
-    params: { commissionUuids },
-    endpoint: "volunteers"
-  });
-  return { ...result, getVolunteers: () => get && get() };
+export const useGetVolunteers = ({ commissions, setVolunteers }: IUseGetVolunteers) => {
+  useEffect(
+    () => {
+      BackendService
+        .getVolunteers(commissions.map(({ uuid }) => uuid))
+        .then(({ body }) => setVolunteers(body));
+    },
+    [commissions, setVolunteers]
+  );
 };
 
 export interface IVolunteer {
@@ -18,5 +22,6 @@ export interface IVolunteer {
 }
 
 interface IUseGetVolunteers {
-  commissionUuids: string[];
+  commissions: ICommission[];
+  setVolunteers: (volunteers: IVolunteer[]) => void;
 }
