@@ -21,7 +21,11 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = (
       <h5>{name}</h5>
     </td>
     <td>
-      <h5>{commissions[0].name}</h5>
+      {commissions.map(commission =>
+        <h5>
+          {commission.name}
+        </h5>
+      )}
     </td>
   </tr>
 );
