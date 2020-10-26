@@ -1,20 +1,23 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { Fragment, FunctionComponent, useState } from "react";
 
 import { Home } from "./component";
 import { useGetVolunteer, useGetCommission } from "$hooks";
-import {} from "../../hooks/Commissions";
 
 export const HomeContainer: FunctionComponent = () => {
 
   const [commission, setCommission] = useState<string>("");
-  const volunteersList = useGetVolunteer;
-  const commissionList = useGetCommission;
+  const volunteers = useGetVolunteer();
+  const commissions = useGetCommission();
+
+  if (volunteers.loading) return <Fragment/>;
+
+  if (commissions.loading) return <Fragment/>;
 
   return (
     <Home
+      commissions={commissions.data}
+      volunteers={volunteers.data}
       commission={commission}
-      volunteersList={volunteersList}
-      commissionList={commissionList}
       setCommission={setCommission}
     />
   );

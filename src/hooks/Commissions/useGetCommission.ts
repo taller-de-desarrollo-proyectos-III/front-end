@@ -1,10 +1,11 @@
-/*import { useGet } from "$hooks/useGet";
+import { useGet } from "$hooks/useGet";
 
 export const useGetCommission = () => {
     return useGet<{},ICommission[]>({
-        endpoint: "/getCommission"})
-};*/
+        endpoint: "/commission"});
+};
 
+/*
 export const useGetCommission = [
     {
         uuid: 1,
@@ -19,6 +20,7 @@ export const useGetCommission = [
         name: "Egresades"
     }
 ];
+*/
 
 export interface ICommission {
     uuid: number;

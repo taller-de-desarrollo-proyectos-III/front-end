@@ -1,11 +1,11 @@
-/*import { useGet } from "$hooks/useGet";
+import { useGet } from "$hooks/useGet";
 
 export const useGetVolunteer = () => {
     return useGet<{},IVolunteer[]>({
-        endpoint: "/getVolunteers"}))
-};*/
+        endpoint: "/volunteers"});
+};
 
-export const useGetVolunteer = [
+/* export const useGetVolunteer = [
     {
         uuid: 1,
         firstName: "Alberto",
@@ -27,7 +27,7 @@ export const useGetVolunteer = [
         dni: 20345543,
         commission: "Egresades"
     }
-];
+]; */
 
 export interface IVolunteer {
     uuid: number;

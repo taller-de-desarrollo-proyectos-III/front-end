@@ -14,8 +14,8 @@ import styles from "./styles.module.scss";
 export const Home: FunctionComponent<IComponentProps> = (
     {
         commission,
-        volunteersList,
-        commissionList,
+        volunteers,
+        commissions,
         setCommission
     }
 ) => (
@@ -28,19 +28,19 @@ export const Home: FunctionComponent<IComponentProps> = (
                     value={commission}
                     onChange={event => setCommission(event.target.value as string)}
                 >
-                    {commissionList.map(item => (
+                    {commissions.map(item => (
                         <MenuItem value = {item.name}> {item.name} </MenuItem>
                     ))}
                 </Select>
             </FormControl>
-            <VolunteersTable volunteers={volunteersList}/>
+            <VolunteersTable volunteers={volunteers}/>
         </div>
     </MainContent>
 );
 
 interface IComponentProps {
   setCommission: (commission:string) => void;
-  volunteersList: IVolunteer[];
-  commissionList: ICommission[];
+  volunteers: IVolunteer[];
+  commissions: ICommission[];
   commission?: string;
 }
