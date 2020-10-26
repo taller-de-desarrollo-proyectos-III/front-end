@@ -1,9 +1,9 @@
 import { BackendConfig } from "$config";
 import { useHistory } from "react-router-dom";
 import useFetch from "use-http";
-import { stringify, StringifiableRecord } from "query-string";
+import { stringify } from "query-string";
 
-export const useGet = <TVariables extends StringifiableRecord, TData extends object>(
+export const useGet = <TVariables extends object, TData extends object>(
   {
     endpoint,
     params
@@ -11,19 +11,23 @@ export const useGet = <TVariables extends StringifiableRecord, TData extends obj
 ) => {
   const history = useHistory();
   const queryParams = stringify(params || {}, { arrayFormat: "comma" });
-  const { data, loading } = useFetch<TData>(
-    `${BackendConfig.url}/${endpoint}/${queryParams}`,
+  const { data, loading, get } = useFetch<TData>(
+    `${BackendConfig.url}/${endpoint}?${queryParams}`,
     {
       method: "GET",
-      onError: () =>  history.push("/error"),
-      responseType: "json",
-      headers: {
-        "Access-Control-Allow-Origin": "http://localhost:5000"
-      }
+      onError: error => {
+        alert(JSON.stringify(error));
+        history.push("/error");
+      },
+      responseType: "json"
     },
     []
   );
-  return { data, loading } as UseGetResult<TData>;
+  return {
+    data,
+    loading,
+    get: (newVariables?: TVariables) => get(stringify(newVariables || {}))
+  } as UseGetResult<TVariables, TData>;
 };
 
 type UseGet<TVariables> = {
@@ -31,14 +35,16 @@ type UseGet<TVariables> = {
   params?: TVariables;
 };
 
-type UseGetResult<TData> = (ILoading | ISuccessful<TData>);
+type UseGetResult<TVariables, TData> = (ILoading | ISuccessful<TVariables, TData>);
 
 type ILoading = {
+  get: undefined;
   data: undefined;
   loading: true;
 };
 
-type ISuccessful<TData> = {
+type ISuccessful<TVariables, TData> = {
   data: TData;
+  get: (variables?: TVariables) => Promise<TData>;
   loading: false;
 };

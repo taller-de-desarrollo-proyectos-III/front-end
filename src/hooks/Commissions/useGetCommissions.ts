@@ -4,6 +4,6 @@ export const useGetCommissions = () =>
     useGet<{},ICommission[]>({ endpoint: "commissions" });
 
 export interface ICommission {
-    uuid: number;
+    uuid: string;
     name: string;
 }

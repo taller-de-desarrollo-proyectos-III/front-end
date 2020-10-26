@@ -16,7 +16,7 @@ export const Home: FunctionComponent<IComponentProps> = (
     commission,
     volunteers,
     commissions,
-    setCommission
+    setCommissionUuid
   }
 ) => (
   <MainContent>
@@ -25,11 +25,11 @@ export const Home: FunctionComponent<IComponentProps> = (
       <FormControl className={styles.buttonFormControl}>
         <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
         <Select
-          value={commission}
-          onChange={event => setCommission(event.target.value as string)}
+          value={commission?.uuid || ""}
+          onChange={event => setCommissionUuid(event.target.value as string)}
         >
-          {commissions.map(item => (
-            <MenuItem value = {item.name}> {item.name} </MenuItem>
+          {commissions.map(({ uuid, name }) => (
+            <MenuItem value={uuid} key={uuid}>{name}</MenuItem>
           ))}
         </Select>
       </FormControl>
@@ -39,8 +39,8 @@ export const Home: FunctionComponent<IComponentProps> = (
 );
 
 interface IComponentProps {
-  setCommission: (commission:string) => void;
+  setCommissionUuid: (uuid: string) => void;
   volunteers: IVolunteer[];
   commissions: ICommission[];
-  commission?: string;
+  commission?: ICommission;
 }
