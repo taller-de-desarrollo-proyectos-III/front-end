@@ -1,0 +1,12 @@
+@import "~$styles/variables";
+
+.formControl {
+  border-color: $greenTableHeader;
+  display: flex;
+  max-width: 20%;
+}
+
+.labelFilter {
+  display: flex;
+  font-palette: light;
+}
