@@ -12,30 +12,30 @@ import { IVolunteer, ICommission } from "$hooks";
 import styles from "./styles.module.scss";
 
 export const Home: FunctionComponent<IComponentProps> = (
-    {
-        commission,
-        volunteers,
-        commissions,
-        setCommission
-    }
+  {
+    commission,
+    volunteers,
+    commissions,
+    setCommission
+  }
 ) => (
-    <MainContent>
-        <NavBarVolunteerList />
-        <div>
-            <FormControl className={styles.buttonFormControl}>
-                <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
-                <Select
-                    value={commission}
-                    onChange={event => setCommission(event.target.value as string)}
-                >
-                    {commissions.map(item => (
-                        <MenuItem value = {item.name}> {item.name} </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-            <VolunteersTable volunteers={volunteers}/>
-        </div>
-    </MainContent>
+  <MainContent>
+    <NavBarVolunteerList />
+    <div>
+      <FormControl className={styles.buttonFormControl}>
+        <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
+        <Select
+          value={commission}
+          onChange={event => setCommission(event.target.value as string)}
+        >
+          {commissions.map(item => (
+            <MenuItem value = {item.name}> {item.name} </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <VolunteersTable volunteers={volunteers}/>
+    </div>
+  </MainContent>
 );
 
 interface IComponentProps {

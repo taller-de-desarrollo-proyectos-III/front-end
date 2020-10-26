@@ -9,9 +9,7 @@ export const HomeContainer: FunctionComponent = () => {
   const volunteers = useGetVolunteer();
   const commissions = useGetCommission();
 
-  if (volunteers.loading) return <Fragment/>;
-
-  if (commissions.loading) return <Fragment/>;
+  if (volunteers.loading || commissions.loading) return <Fragment/>;
 
   return (
     <Home
