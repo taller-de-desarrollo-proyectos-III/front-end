@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { VolunteersTable } from "$components/VolunteersTable";
 import { MainContent } from "$components/MainContent";
+import { NavBar } from "$components/NavBar";
 import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -20,9 +21,10 @@ export const Home: FunctionComponent<IComponentProps> = (
   }
 ) => (
   <MainContent>
+    <NavBar/>
     <NavBarVolunteerList />
-    <div>
-      <FormControl className={styles.buttonFormControl}>
+    <div className={styles.tableContainer}>
+      <FormControl className={styles.formControl}>
         <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
         <Select
           value={commission?.uuid || ""}
@@ -33,7 +35,7 @@ export const Home: FunctionComponent<IComponentProps> = (
           ))}
         </Select>
       </FormControl>
-      <VolunteersTable volunteers={volunteers}/>
+      <VolunteersTable volunteers={volunteers} />
     </div>
   </MainContent>
 );

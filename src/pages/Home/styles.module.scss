@@ -1,23 +1,18 @@
 @import "~$styles/variables";
 
-.title {
-  font-size: $spacing-xxl;
-  margin-bottom: $spacing-m;
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: $spacing-m;
 }
 
-.description {
-  font-size: $spacing-l;
-  margin-bottom: $spacing-m;
+.formControl {
+  border-color: $greenTableHeader;
+  display: flex;
+  max-width: 20%;
 }
 
 .labelFilter {
-  display: inline-block;
+  display: flex;
   font-palette: light;
-  font-size: $spacing-m;
-}
-
-.buttonFormControl {
-  border-color: $greenTableHeader;
-  margin: $spacing-xxl;
-  min-width: $buttonFormWidth;
 }
