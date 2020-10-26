@@ -1,7 +1,7 @@
 import { useGet } from "$hooks/useGet";
 
 export const useGetVolunteers = () =>
-    useGet<{},IVolunteer[]>({ endpoint: "/volunteers"});
+    useGet<{},IVolunteer[]>({ endpoint: "volunteers"});
 
 export interface IVolunteer {
     uuid: number;

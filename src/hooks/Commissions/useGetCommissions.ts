@@ -1,7 +1,7 @@
 import { useGet } from "$hooks/useGet";
 
 export const useGetCommissions = () =>
-    useGet<{},ICommission[]>({ endpoint: "/commission" });
+    useGet<{},ICommission[]>({ endpoint: "commissions" });
 
 export interface ICommission {
     uuid: number;
