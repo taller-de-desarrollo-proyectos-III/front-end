@@ -2,12 +2,10 @@ import { Logger } from "./libs";
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
-  // [::1] is the IPv6 localhost address.
-  window.location.hostname === "[::1]" ||
-  // 127.0.0.0/8 are considered localhost for IPv4.
-  window.location.hostname.match(
-    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-  )
+    // [::1] is the IPv6 localhost address.
+    window.location.hostname === "[::1]" ||
+    // 127.0.0.0/8 are considered localhost for IPv4.
+    window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
 type Config = {
@@ -28,7 +26,7 @@ export const register = (config?: Config) => {
         navigator.serviceWorker.ready.then(() => {
           Logger.info(
             "This web app is being served cache-first by a service " +
-            "worker. To learn more, visit https://bit.ly/CRA-PWA"
+              "worker. To learn more, visit https://bit.ly/CRA-PWA"
           );
         });
       } else {
@@ -40,31 +38,31 @@ export const register = (config?: Config) => {
 
 const registerValidSW = (swUrl: string, config?: Config) => {
   navigator.serviceWorker
-  .register(swUrl)
-  .then(registration => {
-    registration.onupdatefound = () => {
-      const installingWorker = registration.installing;
-      if (installingWorker == null) return;
+    .register(swUrl)
+    .then(registration => {
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        if (installingWorker == null) return;
 
-      installingWorker.onstatechange = () => {
-        if (installingWorker.state === "installed") {
-          if (navigator.serviceWorker.controller) {
-            Logger.info(
-              "New content is available and will be used when all " +
-              "tabs for this page are closed. See https://bit.ly/CRA-PWA."
-            );
-            if (config && config.onUpdate) {
-              config.onUpdate(registration);
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === "installed") {
+            if (navigator.serviceWorker.controller) {
+              Logger.info(
+                "New content is available and will be used when all " +
+                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
+              );
+              if (config && config.onUpdate) {
+                config.onUpdate(registration);
+              }
+            } else {
+              Logger.info("Content is cached for offline use.");
+              if (config && config.onSuccess) config.onSuccess(registration);
             }
-          } else {
-            Logger.info("Content is cached for offline use.");
-            if (config && config.onSuccess) config.onSuccess(registration);
           }
-        }
+        };
       };
-    };
-  })
-  .catch(error => Logger.error("Error during service worker registration:", error));
+    })
+    .catch(error => Logger.error("Error during service worker registration:", error));
 };
 
 const checkValidServiceWorker = (swUrl: string, config?: Config) => {
