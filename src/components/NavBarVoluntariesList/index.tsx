@@ -4,6 +4,6 @@ import styles from "./styles.module.scss";
 
 export const NavBarVolunteerList: FunctionComponent = () => (
   <div className={styles.centralize}>
-     <header className={styles.header}>Listado de Voluntaries</header>
+    <header className={styles.header}>Listado de Voluntaries</header>
   </div>
 );

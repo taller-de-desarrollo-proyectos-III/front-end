@@ -12,6 +12,5 @@ export const BackendService = {
   },
   getVolunteers: (commissionUuids?: string[]) =>
     BackendService.get("volunteers", { commissionUuids }),
-  getCommissions: () =>
-    BackendService.get("commissions")
+  getCommissions: () => BackendService.get("commissions")
 };

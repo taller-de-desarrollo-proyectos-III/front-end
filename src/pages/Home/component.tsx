@@ -9,16 +9,14 @@ import { IVolunteer, ICommission } from "$hooks";
 
 import styles from "./styles.module.scss";
 
-export const Home: FunctionComponent<IComponentProps> = (
-  {
-    commission,
-    volunteers,
-    commissions,
-    setCommissionUuid
-  }
-) => (
+export const Home: FunctionComponent<IComponentProps> = ({
+  commission,
+  volunteers,
+  commissions,
+  setCommissionUuid
+}) => (
   <MainContent>
-    <NavBar/>
+    <NavBar />
     <NavBarVolunteerList />
     <div className={styles.tableContainer}>
       <Selector

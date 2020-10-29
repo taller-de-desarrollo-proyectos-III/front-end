@@ -1,17 +1,18 @@
 # Front end
 
-## Production: 
+## Production:
 
-* Build: [![Build Status](https://travis-ci.com/taller-de-desarrollo-proyectos-III/front-end.svg?branch=main)](https://travis-ci.com/taller-de-desarrollo-proyectos-III/front-end)
+- Build: [![Build Status](https://travis-ci.com/taller-de-desarrollo-proyectos-III/front-end.svg?branch=main)](https://travis-ci.com/taller-de-desarrollo-proyectos-III/front-end)
 
 ## Install Tools
 
-- __`nvm`__: You can follow the following [instructions](https://github.com/nvm-sh/nvm)
-- __`yarn`__: You can follow the following [instructions](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-- __`node`__: ```nvm install 12.14.0```
+- **`nvm`**: You can follow the following [instructions](https://github.com/nvm-sh/nvm)
+- **`yarn`**: You can follow the following [instructions](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
+- **`node`**: `nvm install 12.14.0`
 
 ### Set node version
-Stand on the repository root and execute: ```nvm use```
+
+Stand on the repository root and execute: `nvm use`
 
 ## Install dependencies
 

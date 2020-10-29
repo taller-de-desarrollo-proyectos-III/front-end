@@ -2,13 +2,7 @@ import React, { FunctionComponent, HTMLProps } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-export const Button: FunctionComponent<IButtonProps> = (
-  {
-    className,
-    children,
-    ...props
-  }
-) => (
+export const Button: FunctionComponent<IButtonProps> = ({ className, children, ...props }) => (
   <button
     className={classNames(styles.main, styles.text, styles.color, styles.fitContent, className)}
     {...props}
