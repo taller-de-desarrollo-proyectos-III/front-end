@@ -2,8 +2,8 @@ import { BackendService } from "../../services/Backend";
 
 export const useCreateVolunteer = () => {
   const createVolunteer = ({ name, surname, dni }: IUseCreateVolunteerVariables) => {
-      BackendService.createVolunteer({ name, surname, dni }).then();
-    };
+    BackendService.createVolunteer({ name, surname, dni }).then();
+  };
   return { createVolunteer };
 };
 

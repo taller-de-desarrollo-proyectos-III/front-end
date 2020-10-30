@@ -15,7 +15,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validationSchema={ Yup.object().shape({
+      validationSchema={Yup.object().shape({
         name: Yup.string().required("Tenés que completar el nombre"),
         surname: Yup.string().required("Tenés que completar el apellido"),
         dni: Yup.number()
@@ -24,27 +24,28 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
           .required("Tenés que completar el DNI")
       })}
     >
-      {(props => {
-        const {
-          isSubmitting
-        } = props;
-        return(
+      {props => {
+        const { isSubmitting } = props;
+        return (
           <Form className={styles.form}>
             <div className={styles.formRow}>
               <div className={styles.field}>
                 <TextField
-                  name={"name"} label={"Nombre"} autoFocus disabled={isSubmitting} fullWidth />
+                  name={"name"}
+                  label={"Nombre"}
+                  autoFocus
+                  disabled={isSubmitting}
+                  fullWidth
+                />
               </div>
               <div className={styles.field}>
-                <TextField
-                  name={"surname"} label={"Apellido"} disabled={isSubmitting} fullWidth />
+                <TextField name={"surname"} label={"Apellido"} disabled={isSubmitting} fullWidth />
               </div>
             </div>
 
             <div className={styles.formRow}>
               <div className={styles.field}>
-                <TextField
-                  name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
+                <TextField name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
               </div>
             </div>
 
@@ -55,7 +56,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
             </div>
           </Form>
         );
-      })}
+      }}
     </Formik>
   </Card>
 );
