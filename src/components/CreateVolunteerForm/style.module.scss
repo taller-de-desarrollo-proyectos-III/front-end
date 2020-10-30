@@ -1,0 +1,22 @@
+@import "$styles/_variables";
+
+.form {
+  width: 100%;
+}
+
+.formRow {
+  margin-bottom: $spacing-m;
+}
+
+.field {
+  display: inline-flex;
+  width: 50%;
+}
+
+.card {
+  display: flex;
+}
+
+.button {
+  float: right;
+}

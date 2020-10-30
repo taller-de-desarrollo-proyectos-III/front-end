@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "$pages/Home";
-import { AddVolunteer } from "$pages/AddVolunteer";
+import { CreateVolunteer } from "$pages/CreateVolunteer";
 
 export const Routes: FunctionComponent = () => (
   <Router>
@@ -9,8 +9,8 @@ export const Routes: FunctionComponent = () => (
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path={"/addVolunteer"}>
-        <AddVolunteer />
+      <Route exact path={"/volunteers/create"}>
+        <CreateVolunteer />
       </Route>
     </Switch>
   </Router>
