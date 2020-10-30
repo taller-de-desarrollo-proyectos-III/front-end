@@ -11,7 +11,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
   initialValues,
   onSubmit
 }) => (
-  <Card className={styles.card}>
+  <Card>
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
@@ -20,35 +20,42 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
         surname: Yup.string().required("Tenés que completar el apellido"),
         dni: Yup.number()
           .typeError("El DNI debe ser un número")
-          .integer("El DNI debe ser un número entero")
+          .integer("Completá el DNI sin puntos")
           .required("Tenés que completar el DNI")
       })}
     >
       {props => {
         const { isSubmitting } = props;
         return (
-          <Form className={styles.form}>
-            <div className={styles.formRow}>
-              <div className={styles.field}>
-                <TextField
-                  name={"name"}
-                  label={"Nombre"}
-                  autoFocus
-                  disabled={isSubmitting}
-                  fullWidth
-                />
+          <Form>
+            <div className={styles.form}>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"name"}
+                    label={"Nombre"}
+                    autoFocus
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
               </div>
-              <div className={styles.field}>
-                <TextField name={"surname"} label={"Apellido"} disabled={isSubmitting} fullWidth />
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"surname"}
+                    label={"Apellido"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
+                </div>
               </div>
             </div>
-
-            <div className={styles.formRow}>
-              <div className={styles.field}>
-                <TextField name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
-              </div>
-            </div>
-
             <div className={styles.button}>
               <Button type={"submit"} disabled={isSubmitting}>
                 Guardar

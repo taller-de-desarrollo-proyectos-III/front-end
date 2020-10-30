@@ -1,22 +1,21 @@
 @import "$styles/_variables";
 
 .form {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
 }
 
-.formRow {
-  margin-bottom: $spacing-m;
-}
-
-.field {
-  display: inline-flex;
+.fieldContainer {
+  height: $formFieldHeight;
   width: 50%;
 }
 
-.card {
-  display: flex;
+.field {
+  margin: $spacing-m;
 }
 
 .button {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
 }
