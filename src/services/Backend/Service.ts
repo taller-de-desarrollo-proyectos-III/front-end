@@ -1,6 +1,6 @@
 import { stringify } from "query-string";
 import { BackendConfig } from "$config";
-import { IUseCreateVolunteerVariables } from "../../hooks/Volunteers/useCreateVolunteer";
+import { IUseCreateVolunteerVariables } from "$hooks";
 
 export const BackendService = {
   get: async <TParams>(endpoint: string, params?: TParams) => {
