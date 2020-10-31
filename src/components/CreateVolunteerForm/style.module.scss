@@ -1,0 +1,21 @@
+@import "$styles/_variables";
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.fieldContainer {
+  height: $formFieldHeight;
+  width: 50%;
+}
+
+.field {
+  margin: $spacing-m;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
