@@ -1,5 +1,10 @@
 @import "~$styles/variables";
 
+.title {
+  color: $darkGrey;
+  font-size: $fontSize-xxl;
+}
+
 .tableContainer {
   display: flex;
   flex-direction: column;

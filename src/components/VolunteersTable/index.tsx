@@ -9,20 +9,17 @@ interface VolunteersProps {
 
 export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
   <div className={styles.tableOverview}>
-    <table>
+    <table className={styles.table}>
       <tbody>
         <tr className={styles.tableHeader}>
           <td>
-            <h4>NÚMERO DE DOCUMENTO</h4>
+            <h4 className={styles.columnName}>NÚMERO DE DOCUMENTO</h4>
           </td>
           <td>
-            <h4>APELLIDO</h4>
+            <h4 className={styles.columnName}>APELLIDO</h4>
           </td>
           <td>
-            <h4>NOMBRE</h4>
-          </td>
-          <td>
-            <h4>COMISIÓN</h4>
+            <h4 className={styles.columnName}>NOMBRE</h4>
           </td>
         </tr>
         {volunteers.map(item => (
