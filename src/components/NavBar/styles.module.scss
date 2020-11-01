@@ -20,3 +20,14 @@
     height: $navBarHeight;
   }
 }
+
+.logo {
+  height: $navBarLogoHeight;
+  margin: $spacing-m;
+  width: $navBarLogoWidth;
+}
+
+.link {
+  color: $white;
+  text-decoration: none;
+}
