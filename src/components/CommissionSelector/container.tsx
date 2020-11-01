@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
-import { MenuItem } from "@material-ui/core";
 import { useGetCommissions } from "$hooks";
 import { CommissionSelector } from "./component";
 
@@ -11,13 +10,5 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
     setFieldValue(props.name, event.target.value);
   };
 
-  return (
-    <CommissionSelector onChange={onChange} {...props}>
-      {commissions.map(commission => (
-        <MenuItem key={commission.uuid} value={commission.uuid}>
-          {commission.name}
-        </MenuItem>
-      ))}
-    </CommissionSelector>
-  );
+  return <CommissionSelector onChange={onChange} commissions={commissions} {...props} />;
 };

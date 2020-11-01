@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import { RoutesBuilder } from "$models";
-import { Logo } from "../Logo";
+import { Logo } from "$components/Logo";
 
 export const NavBar: FunctionComponent = () => (
   <div className={styles.navBar}>
