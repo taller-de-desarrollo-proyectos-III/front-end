@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { RoutesBuilder } from "../../models";
 
 export const NavBar: FunctionComponent = () => (
@@ -14,8 +14,12 @@ export const NavBar: FunctionComponent = () => (
         }
       />
     </Link>
-    <Link className={styles.link} to={RoutesBuilder.volunteers.create()}>
-      <h3>Crear voluntarie</h3>
-    </Link>
+    <NavLink
+      className={styles.link}
+      activeClassName={styles.activeLink}
+      to={RoutesBuilder.volunteers.create()}
+    >
+      <h3 className={styles.linkLabel}>Crear voluntarie</h3>
+    </NavLink>
   </div>
 );
