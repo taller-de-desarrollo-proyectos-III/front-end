@@ -1,8 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { FunctionComponent } from "react";
 import { CreateVolunteer } from "./component";
 import { IUseCreateVolunteerVariables, useCreateVolunteer } from "$hooks";
+import { useHistory } from "react-router-dom";
+import { RoutesBuilder } from "$models";
 
 export const CreateVolunteerContainer: FunctionComponent = () => {
   const { createVolunteer } = useCreateVolunteer();
@@ -10,7 +11,12 @@ export const CreateVolunteerContainer: FunctionComponent = () => {
 
   const onSubmit = async (variables: IUseCreateVolunteerVariables) => {
     await createVolunteer(variables);
-    history.push("/");
+    history.push(RoutesBuilder.volunteers.home());
   };
-  return <CreateVolunteer initialValues={{ name: "", surname: "", dni: "" }} onSubmit={onSubmit} />;
+  return (
+    <CreateVolunteer
+      initialValues={{ name: "", surname: "", dni: "", commissionUuids: [] }}
+      onSubmit={onSubmit}
+    />
+  );
 };
