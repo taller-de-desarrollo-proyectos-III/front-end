@@ -1,8 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { FunctionComponent } from "react";
 import { CreateVolunteer } from "./component";
 import { IUseCreateVolunteerVariables, useCreateVolunteer } from "$hooks";
+import { useHistory } from "react-router-dom";
 
 export const CreateVolunteerContainer: FunctionComponent = () => {
   const { createVolunteer } = useCreateVolunteer();
@@ -12,5 +12,10 @@ export const CreateVolunteerContainer: FunctionComponent = () => {
     await createVolunteer(variables);
     history.push("/");
   };
-  return <CreateVolunteer initialValues={{ name: "", surname: "", dni: "" }} onSubmit={onSubmit} />;
+  return (
+    <CreateVolunteer
+      initialValues={{ name: "", surname: "", dni: "", commissionUuids: [] }}
+      onSubmit={onSubmit}
+    />
+  );
 };

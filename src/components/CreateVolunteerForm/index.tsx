@@ -6,6 +6,7 @@ import { IUseCreateVolunteerVariables } from "$hooks";
 import { Card } from "$components/Card";
 import styles from "./style.module.scss";
 import { TextField } from "../TextField";
+import { CommissionSelector } from "../CommissionSelector";
 
 export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> = ({
   initialValues,
@@ -53,6 +54,16 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
               <div className={styles.fieldContainer}>
                 <div className={styles.field}>
                   <TextField name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <CommissionSelector
+                    name={"commissionUuids"}
+                    label={"Comisiones"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
                 </div>
               </div>
             </div>
