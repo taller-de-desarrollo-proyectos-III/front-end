@@ -12,7 +12,8 @@
 }
 
 .tableHeader {
-  background-color: $greenTableHeader;
+  background-color: $lightgray;
+  color: $black;
   text-align: center;
 }
 
@@ -26,7 +27,6 @@ td {
 }
 
 table {
-  border: $borderTable;
   display: flex;
   justify-content: center;
   margin: 3px;

@@ -19,14 +19,19 @@ export const Home: FunctionComponent<IComponentProps> = ({
     <NavBar />
     <NavBarVolunteerList />
     <div className={styles.tableContainer}>
-      <Selector
-        onChange={uuid => setCommissionUuid(uuid)}
-        selectedValue={commission}
-        options={commissions}
-        getOptionLabel={({ name }) => name}
-        getOptionId={({ uuid }) => uuid}
-      />
-      <VolunteersTable volunteers={volunteers} />
+      <div className={styles.columnFilter}>
+        <h3>FILTROS:</h3>
+        <Selector
+          onChange={uuid => setCommissionUuid(uuid)}
+          selectedValue={commission}
+          options={commissions}
+          getOptionLabel={({ name }) => name}
+          getOptionId={({ uuid }) => uuid}
+        />
+      </div>
+      <div className={styles.tableContent}>
+        <VolunteersTable volunteers={volunteers} />
+      </div>
     </div>
   </MainContent>
 );

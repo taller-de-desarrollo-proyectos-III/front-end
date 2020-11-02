@@ -13,7 +13,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
       <tbody>
         <tr className={styles.tableHeader}>
           <td>
-            <h4 className={styles.columnName}>NÚMERO DE DOCUMENTO</h4>
+            <h4 className={styles.columnName}>DOCUMENTO</h4>
           </td>
           <td>
             <h4 className={styles.columnName}>APELLIDO</h4>

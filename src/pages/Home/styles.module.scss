@@ -6,9 +6,17 @@
 }
 
 .tableContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: $spacing-m;
+  margin-top: $spacing-s;
+}
+
+.columnFilter {
+  float: left;
+  width: 20%;
+}
+
+.tableContent {
+  float: right;
+  width: 75%;
 }
 
 .formControl {
