@@ -6,12 +6,12 @@
 
 .header {
   align-items: center;
-  background-color: #282c34;
-  color: $white;
+  color: $mainBlue;
   display: flex;
   flex-direction: column;
   font-size: $fontSize-xxl;
   font-style: normal;
+  font-weight: bold;
   justify-content: center;
   min-height: $headerHeight;
   padding: 0 $pageMargin;

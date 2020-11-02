@@ -7,17 +7,22 @@
 }
 
 .tableHeader {
-  background-color: $greenTableHeader;
+  background-color: $mainBlue;
+  color: $white;
   text-align: center;
 }
 
 td {
-  border: $borderTable;
   width: 30em;
 }
 
+.tableHeader td {
+  line-height: 0px;
+}
+
 table {
-  border: $borderTable;
+  border-collapse: collapse;
+  border-spacing: 0;
   display: flex;
   justify-content: center;
   margin: 3px;

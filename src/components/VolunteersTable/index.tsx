@@ -13,7 +13,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
       <tbody>
         <tr className={styles.tableHeader}>
           <td>
-            <h4>NÚMERO DE DOCUMENTO</h4>
+            <h4>DOCUMENTO</h4>
           </td>
           <td>
             <h4>APELLIDO</h4>
@@ -25,6 +25,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
             <h4>COMISIÓN</h4>
           </td>
         </tr>
+
         {volunteers.map(item => (
           <VolunteerItem
             key={item.uuid}
