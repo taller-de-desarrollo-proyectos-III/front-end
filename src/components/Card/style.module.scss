@@ -1,7 +1,7 @@
 @import "$styles/_variables";
 
 .card {
-  background: $bodyBackgroundColor;
+  background: $cardBackgroundColor;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   padding: $spacing-xl;
