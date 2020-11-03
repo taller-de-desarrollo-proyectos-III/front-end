@@ -7,6 +7,8 @@ import { Card } from "$components/Card";
 import styles from "./style.module.scss";
 import { TextField } from "../TextField";
 import { CommissionSelector } from "../CommissionSelector";
+import { number, string } from "yup";
+import { RegExBuilder } from "$models/RegExBuilder";
 
 export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> = ({
   initialValues,
@@ -22,7 +24,21 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
         dni: Yup.number()
           .typeError("El DNI debe ser un número")
           .integer("Completá el DNI sin puntos")
-          .required("Tenés que completar el DNI")
+          .required("Tenés que completar el DNI"),
+        email: Yup.string()
+          .email("Ese no parece ser un email válido")
+          .required("Tenés que completar el correo electrónico"),
+        phoneNumber: Yup.string()
+          .matches(RegExBuilder.phoneNumber(), "Ese no parece un número válido")
+          .required("Tenés que completar el número de teléfono"),
+        admissionYear: number()
+          .typeError("Ingresá un número")
+          .max(new Date().getFullYear(), "Tiene que ser un año anterior o igual al actual"),
+        graduationYear: number()
+          .typeError("Ingresá un número")
+          .min(Yup.ref("admissionYear"), "El año de egreso no puede ser menor al de ingreso")
+          .max(new Date().getFullYear(), "Tiene que ser un año anterior o igual al actual"),
+        country: string().typeError("Ingresá un nombre de país válido")
       })}
     >
       {props => {
@@ -61,6 +77,76 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
                   <CommissionSelector
                     name={"commissionUuids"}
                     label={"Comisiones"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"email"}
+                    label={"Correo electrónico"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"linkedin"}
+                    label={"Perfil de Linkedin"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"phoneNumber"}
+                    label={"Número de teléfono"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"telegram"}
+                    label={"Telegram"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"admissionYear"}
+                    label={"Año de ingreso"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"graduationYear"}
+                    label={"Año de egreso"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"country"}
+                    label={"Nacionalidad"}
                     disabled={isSubmitting}
                     fullWidth
                   />
