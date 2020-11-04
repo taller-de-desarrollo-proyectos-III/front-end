@@ -15,7 +15,14 @@ export const CreateVolunteerContainer: FunctionComponent = () => {
   };
   return (
     <CreateVolunteer
-      initialValues={{ name: "", surname: "", dni: "", commissionUuids: [] }}
+      initialValues={{
+        name: "",
+        surname: "",
+        dni: "",
+        email: "",
+        phoneNumber: "",
+        commissionUuids: []
+      }}
       onSubmit={onSubmit}
     />
   );
