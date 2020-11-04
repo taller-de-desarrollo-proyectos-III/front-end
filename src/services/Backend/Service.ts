@@ -13,6 +13,7 @@ export const BackendService = {
   },
   getVolunteers: (commissionUuids?: string[]) =>
     BackendService.get("volunteers", { commissionUuids }),
+  getVolunteerByUuid: (uuid: string) => BackendService.get(`volunteers/${uuid}`),
   getCommissions: () => BackendService.get("commissions"),
   post: async <TParams>(endpoint: string, params?: TParams) => {
     const response = await fetch(`${BackendConfig.url}/${endpoint}`, {
