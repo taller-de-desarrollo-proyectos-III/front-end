@@ -1,7 +1,7 @@
 import { ICommission } from "../Commissions";
 
 export interface IVolunteer {
-  uuid: number;
+  uuid: string;
   name: string;
   surname: string;
   dni: string;
