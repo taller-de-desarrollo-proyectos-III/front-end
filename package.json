@@ -83,7 +83,8 @@
     "$pages": "./src/pages",
     "$hooks": "./src/hooks",
     "$config": "./src/config",
-    "$models": "./src/models"
+    "$models": "./src/models",
+    "$services": "./src/services"
   },
   "eslintConfig": {
     "extends": "react-app"

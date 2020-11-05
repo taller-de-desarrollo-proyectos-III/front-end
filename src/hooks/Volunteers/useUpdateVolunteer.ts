@@ -1,4 +1,4 @@
-import { BackendService } from "../../services/Backend";
+import { BackendService } from "$services";
 import { IUseCreateVolunteerVariables } from "$hooks";
 
 export const useUpdateVolunteer = () => {
