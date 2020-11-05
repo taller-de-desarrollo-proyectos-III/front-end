@@ -5,10 +5,10 @@ import { Title } from "$components/Title";
 import { CreateVolunteerForm, ICreateVolunteerFormProps } from "$components/CreateVolunteerForm";
 import { NavBar } from "$components/NavBar";
 
-export const CreateVolunteer: FunctionComponent<ICreateVolunteerFormProps> = formValues => (
+export const EditVolunteer: FunctionComponent<ICreateVolunteerFormProps> = formValues => (
   <MainContent>
     <NavBar />
-    <Title title={"Crear Voluntarie"} />
+    <Title title={"Editar Voluntarie"} />
     <CreateVolunteerForm {...formValues} />
   </MainContent>
 );

@@ -1,0 +1,17 @@
+@import "$styles/_variables";
+
+.link {
+  color: $white;
+  text-decoration: none;
+}
+
+.linkLabel {
+  margin: $spacing-m;
+}
+
+.activeLink {
+  background: #96bb7c;
+  border-radius: 10px;
+  color: $white;
+  text-decoration: none;
+}

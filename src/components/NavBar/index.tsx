@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
 
 import styles from "./styles.module.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { NavBarLink } from "./NavBarLink";
 import { RoutesBuilder } from "$models";
 import { Logo } from "$components/Logo";
 
@@ -10,12 +11,6 @@ export const NavBar: FunctionComponent = () => (
     <Link to={RoutesBuilder.volunteers.home()}>
       <Logo />
     </Link>
-    <NavLink
-      className={styles.link}
-      activeClassName={styles.activeLink}
-      to={RoutesBuilder.volunteers.create()}
-    >
-      <h3 className={styles.linkLabel}>Crear voluntarie</h3>
-    </NavLink>
+    <NavBarLink label={"Crear voluntarie"} to={RoutesBuilder.volunteers.create()} />
   </div>
 );

@@ -20,6 +20,7 @@
     "@testing-library/user-event": "7.1.2",
     "@types/classnames": "2.2.10",
     "@types/jest": "24.0.0",
+    "@types/lodash": "4.14.164",
     "@types/node": "12.0.0",
     "@types/node-sass": "4.11.1",
     "@types/query-string": "6.3.0",
@@ -31,13 +32,14 @@
     "formik": "2.2.1",
     "formik-material-ui": "3.0.0",
     "link-module-alias": "1.2.0",
+    "lodash": "4.17.20",
     "node-sass": "4.14.1",
     "normalize.css": "8.0.1",
     "query-string": "6.13.5",
     "react": "16.14.0",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "3.4.4",
     "typescript": "3.7.2",
     "typescript-logging": "1.0.0",
     "yup": "0.29.3"
@@ -61,15 +63,15 @@
     "start": "react-scripts start",
     "heroku-postbuild": "yarn install && yarn build",
     "build": "react-scripts build",
-    "test": "jest --runInBand --colors --config ./test/jest.config.js",
+    "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "preinstall": "which link-module-alias && link-module-alias clean || echo",
     "postinstall": "link-module-alias",
     "lint": "yarn prettier --check . && yarn lint:src:ts && yarn lint:src:tsx && yarn lint:test:ts && yarn lint:test:tsx && yarn build:lint && yarn lint:scss",
     "lint:src:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:src:tsx": "tslint -c tslint.json 'src/**/*.tsx'",
-    "lint:test:ts": "tslint -c tslint.json 'test/**/*.ts'",
-    "lint:test:tsx": "tslint -c tslint.json 'test/**/*.tsx'",
+    "lint:test:ts": "tslint -c tslint.json 'src/test/**/*.ts'",
+    "lint:test:tsx": "tslint -c tslint.json 'src/test/**/*.tsx'",
     "build:lint": "tsc --noEmit -p .",
     "lint:scss": "yarn stylelint '**/*.scss'",
     "format:all": "yarn prettier --write ."
@@ -81,7 +83,8 @@
     "$pages": "./src/pages",
     "$hooks": "./src/hooks",
     "$config": "./src/config",
-    "$models": "./src/models"
+    "$models": "./src/models",
+    "$services": "./src/services"
   },
   "eslintConfig": {
     "extends": "react-app"

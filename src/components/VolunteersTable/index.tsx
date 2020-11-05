@@ -26,14 +26,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
           </td>
         </tr>
         {volunteers.map(item => (
-          <VolunteerItem
-            key={item.uuid}
-            uuid={item.uuid}
-            name={item.name}
-            surname={item.surname}
-            dni={item.dni}
-            commissions={item.commissions}
-          />
+          <VolunteerItem key={item.uuid} {...item} />
         ))}
       </tbody>
     </table>

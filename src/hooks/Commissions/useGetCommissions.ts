@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BackendService } from "../../services/Backend";
+import { BackendService } from "$services";
 
 export const useGetCommissions = () => {
   const [commissions, setCommissions] = useState<ICommission[]>([]);
