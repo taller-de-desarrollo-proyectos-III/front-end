@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { EditVolunteer } from "./component";
 import { useGetVolunteerByUuid, useUpdateVolunteer, IUseCreateVolunteerVariables } from "$hooks";
 import { useHistory } from "react-router-dom";
+import { nullToUndefined } from "$models";
 import { RoutesBuilder } from "$models";
 
 export const EditVolunteerContainer: FunctionComponent = () => {
@@ -21,7 +22,7 @@ export const EditVolunteerContainer: FunctionComponent = () => {
   return (
     <EditVolunteer
       initialValues={{
-        ...volunteer,
+        ...nullToUndefined(volunteer),
         commissionUuids: volunteer.commissions.map(commission => commission.uuid)
       }}
       onSubmit={onSubmit}
