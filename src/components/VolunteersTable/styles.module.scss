@@ -7,9 +7,17 @@
 }
 
 .tableHeader {
-  background-color: $mainBlue;
+  background-color: $greenTableHeader;
   color: $white;
   text-align: center;
+}
+
+.firstleft {
+  border-radius: 15px 0 0;
+}
+
+.firstright {
+  border-radius: 0 15px 0 0;
 }
 
 td {

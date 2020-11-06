@@ -24,16 +24,16 @@
 }
 
 .color {
-  background-color: $mainBlue;
-  border: 1px solid $mainBlue;
+  background-color: $greenTableHeader;
+  border: 1px solid $greenTableHeader;
   color: $white;
 
   &:hover {
-    background-color: lighten($mainBlue, 3%);
+    background-color: lighten($greenTitle, 3%);
   }
 
   &:active {
-    background-color: darken($mainBlue, 3%);
+    background-color: darken($greenTitle, 3%);
   }
 
   &:disabled {

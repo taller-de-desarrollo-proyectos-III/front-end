@@ -12,7 +12,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
     <table>
       <tbody>
         <tr className={styles.tableHeader}>
-          <td>
+          <td className={styles.firstleft}>
             <h4>DOCUMENTO</h4>
           </td>
           <td>
@@ -21,7 +21,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
           <td>
             <h4>NOMBRE</h4>
           </td>
-          <td>
+          <td className={styles.firstright}>
             <h4>COMISIÓN</h4>
           </td>
         </tr>
