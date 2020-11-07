@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ICommission } from "../Commissions";
-import { BackendService } from "../../services/Backend";
+import { IVolunteer } from "$hooks";
+import { BackendService } from "$services";
 
 export const useGetVolunteers = ({ commissions }: IUseGetVolunteers) => {
   const [volunteers, setVolunteers] = useState<IVolunteer[]>([]);
@@ -11,14 +12,6 @@ export const useGetVolunteers = ({ commissions }: IUseGetVolunteers) => {
   }, [commissions]);
   return volunteers;
 };
-
-export interface IVolunteer {
-  uuid: number;
-  name: string;
-  surname: string;
-  dni: number;
-  commissions: ICommission[];
-}
 
 interface IUseGetVolunteers {
   commissions: ICommission[];
