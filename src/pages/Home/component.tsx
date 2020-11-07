@@ -4,6 +4,7 @@ import { MainContent } from "$components/MainContent";
 import { Selector } from "$components/Selector";
 import { NavBar } from "$components/NavBar";
 import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
+import { Card } from "$components/Card";
 
 import { IVolunteer, ICommission } from "$hooks";
 
@@ -20,14 +21,16 @@ export const Home: FunctionComponent<IComponentProps> = ({
     <NavBarVolunteerList />
     <div className={styles.tableContainer}>
       <div className={styles.columnFilter}>
-        <h3>FILTROS:</h3>
-        <Selector
-          onChange={uuid => setCommissionUuid(uuid)}
-          selectedValue={commission}
-          options={commissions}
-          getOptionLabel={({ name }) => name}
-          getOptionId={({ uuid }) => uuid}
-        />
+        <Card>
+          <h3>FILTROS:</h3>
+          <Selector
+            onChange={uuid => setCommissionUuid(uuid)}
+            selectedValue={commission}
+            options={commissions}
+            getOptionLabel={({ name }) => name}
+            getOptionId={({ uuid }) => uuid}
+          />
+        </Card>
       </div>
       <div className={styles.tableContent}>
         <VolunteersTable volunteers={volunteers} />
