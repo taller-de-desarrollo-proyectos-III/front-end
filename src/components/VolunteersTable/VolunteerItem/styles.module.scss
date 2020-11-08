@@ -19,5 +19,5 @@
 
 tr.tableItem:nth-child(even) { background: $superlightgray; }
 tr.tableItem:nth-child(odd) { background: $white; }
-tr.tableItem:last-child .first { border-radius: 0 0 0 15px; }
-tr.tableItem:last-child .editVolunteer { border-radius: 0 0 15px; }
+tr.tableItem:last-child .first { border-radius: 0 0 0 $spacing-m; }
+tr.tableItem:last-child .editVolunteer { border-radius: 0 0 $spacing-m; }
