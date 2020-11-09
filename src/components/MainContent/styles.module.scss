@@ -7,7 +7,8 @@
 
 .narrow {
   margin: ($navBarHeight + $spacing-xxl) auto $spacing-xxl;
-  width: $detailContainerWidth;
+  padding: 0 $spacing-s;
+  width: calc(100% - 10em);
 }
 
 .fullWidth {

@@ -2,7 +2,8 @@
 
 .navBar {
   align-items: center;
-  background: #1da1f2;
+  background-color: $white;
+  border-bottom: 5px solid $greenTableHeader;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: $white;
   display: flex;
