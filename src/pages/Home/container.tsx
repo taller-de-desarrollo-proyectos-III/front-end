@@ -10,6 +10,10 @@ export const HomeContainer: FunctionComponent = () => {
   if (filter.length === 0) return <Fragment />;
 
   const setCommissionUuids = async ({ commissionUuids }: { commissionUuids: string[] }) => {
+    if (commissionUuids.length === 0) {
+      setFilter(commissions);
+      return;
+    }
     const selectedCommissions = commissionUuids.map(uuid => {
       const commission = commissions.find(c => c.uuid === uuid);
       if (!commission) throw new Error("no commission found");
@@ -21,7 +25,7 @@ export const HomeContainer: FunctionComponent = () => {
   return (
     <Home
       volunteers={volunteers}
-      selectedCommissionUuids={filter.map(c => c.uuid)}
+      selectedCommissionUuids={[]}
       setCommissionUuids={setCommissionUuids}
     />
   );
