@@ -13,9 +13,7 @@ export const CommissionSelector: FunctionComponent<IComponentProps> = ({
     className={styles.selector}
     component={TextField}
     select
-    SelectProps={{
-      multiple: true
-    }}
+    SelectProps={{ multiple: true }}
     variant={"outlined"}
     {...props}
   >
