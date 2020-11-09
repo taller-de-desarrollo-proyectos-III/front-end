@@ -7,18 +7,20 @@ export const HomeContainer: FunctionComponent = () => {
   const volunteers = useGetVolunteers({ commissions: filter });
   const commissions = useGetCommissions();
 
-  const onChange = async (selectedCommissionUuid: string) => {
-    const selectedCommission = commissions.find(c => c.uuid === selectedCommissionUuid);
-    if (!selectedCommission) return;
-    setFilter([selectedCommission]);
+  const setCommissionUuids = async ({ commissionUuids }: { commissionUuids: string[] }) => {
+    const selectedCommissions = commissionUuids.map(uuid => {
+      const commission = commissions.find(c => c.uuid === uuid);
+      if (!commission) throw new Error("no commission found");
+      return commission;
+    });
+    setFilter(selectedCommissions);
   };
 
   return (
     <Home
-      commissions={commissions}
       volunteers={volunteers}
-      commission={filter[0]}
-      setCommissionUuid={onChange}
+      selectedCommissionUuids={filter.map(c => c.uuid)}
+      setCommissionUuids={setCommissionUuids}
     />
   );
 };

@@ -11,14 +11,16 @@ export const Selector = <Option,>({
   onChange,
   options,
   getOptionLabel,
-  selectedValue,
-  getOptionId
+  selectedValues,
+  getOptionId,
+  multiple
 }: IComponentProps<Option>) => (
   <FormControl className={styles.formControl}>
     <InputLabel className={styles.labelFilter}>Comisión</InputLabel>
     <Select
-      value={selectedValue ? getOptionId(selectedValue) : ""}
-      onChange={event => onChange(event.target.value as string)}
+      multiple={multiple}
+      value={selectedValues.map(getOptionId)}
+      onChange={event => onChange(event.target.value as string[])}
     >
       {options.map(option => (
         <MenuItem key={getOptionId(option)} value={getOptionId(option)}>
@@ -30,9 +32,10 @@ export const Selector = <Option,>({
 );
 
 interface IComponentProps<Option> {
-  onChange: (id: string) => void;
+  onChange: (ids: string[]) => void;
   options: Option[];
-  selectedValue?: Option;
+  selectedValues: Option[];
   getOptionLabel: (option: Option) => string;
   getOptionId: (option: Option) => string;
+  multiple: boolean;
 }
