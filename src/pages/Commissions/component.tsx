@@ -10,7 +10,7 @@ export const Commissions: FunctionComponent<IComponentProps> = ({ commissions })
   <MainContent>
     <NavBar />
     <div className={styles.body}>
-      <Title className={styles.title} title={"Comisiones"} />
+      <Title className={styles.title} title={"Listado de comisiones"} />
       <CommissionsTable className={styles.table} commissions={commissions} />
     </div>
   </MainContent>
