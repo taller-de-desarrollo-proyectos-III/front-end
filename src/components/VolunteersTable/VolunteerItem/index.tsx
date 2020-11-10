@@ -9,7 +9,7 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
   const history = useHistory();
   return (
     <tr className={styles.tableItem}>
-      <td className={styles.first}>
+      <td>
         <h5>{dni}</h5>
       </td>
       <td>

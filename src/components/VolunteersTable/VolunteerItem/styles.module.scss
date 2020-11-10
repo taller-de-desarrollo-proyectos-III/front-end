@@ -2,11 +2,8 @@
 
 .tableItem {
   background-color: $white;
+  line-height: 0;
   text-align: center;
-}
-
-.tableItem td {
-  line-height: 0px;
 }
 
 .editVolunteer {
@@ -17,7 +14,5 @@
   display: unset;
 }
 
-tr.tableItem:nth-child(even) { background: $superlightgray; }
-tr.tableItem:nth-child(odd) { background: $white; }
-tr.tableItem:last-child .first { border-radius: 0 0 0 $spacing-m; }
-tr.tableItem:last-child .editVolunteer { border-radius: 0 0 $spacing-m; }
+.tableItem:nth-child(even) { background: $superlightgray; }
+.tableItem:nth-child(odd) { background: $white; }

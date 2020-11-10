@@ -10,20 +10,15 @@ interface VolunteersProps {
 export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
   <div className={styles.tableOverview}>
     <table>
-      <tbody>
+      <thead>
         <tr className={styles.tableHeader}>
-          <td className={styles.firstLeft}>
-            <h4>DOCUMENTO</h4>
-          </td>
-          <td>
-            <h4>APELLIDO</h4>
-          </td>
-          <td>
-            <h4>NOMBRE</h4>
-          </td>
-          <td className={styles.firstRight} />
+          <th>DOCUMENTO</th>
+          <th>APELLIDO</th>
+          <th>NOMBRE</th>
+          <th />
         </tr>
-
+      </thead>
+      <tbody>
         {volunteers.map(item => (
           <VolunteerItem key={item.uuid} {...item} />
         ))}
