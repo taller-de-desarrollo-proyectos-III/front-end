@@ -1,18 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 
-export const Table: FunctionComponent<IComponentProps> = ({ header, body }) => (
+export const Table: FunctionComponent<IComponentProps> = ({ children, body }) => (
   <div className={styles.tableOverview}>
     <table>
-      <thead>
-        <tr className={styles.tableHeader}>{header}</tr>
-      </thead>
+      {children}
       <tbody>{body}</tbody>
     </table>
   </div>
 );
 
 interface IComponentProps {
-  header: React.ReactNode;
   body: React.ReactNode;
 }

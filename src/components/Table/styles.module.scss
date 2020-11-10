@@ -14,27 +14,8 @@ table {
   margin: 3px;
 }
 
-.tableHeader {
-  background-color: $greenTableHeader;
-  color: $white;
-  text-align: center;
-}
-
-th {
-  height: 44px;
-}
-
-td,
-th {
+td {
   width: 30em;
-}
-
-th:first-child {
-  border-top-left-radius: 15px;
-}
-
-th:last-child {
-  border-top-right-radius: 15px;
 }
 
 tbody tr:last-child {

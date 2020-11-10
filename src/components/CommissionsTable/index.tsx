@@ -1,16 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { ICommission } from "$hooks";
 import { Table } from "$components/Table";
+import { TableHeader } from "$components/Table/TableHeader";
 import { CommissionItem } from "./CommissionItem";
 
 export const CommissionsTable: FunctionComponent<IComponentProps> = ({ commissions }) => (
   <Table
-    header={
-      <>
-        <th>NOMBRE</th>
-        <th />
-      </>
-    }
     body={
       <>
         {commissions.map(item => (
@@ -18,7 +13,12 @@ export const CommissionsTable: FunctionComponent<IComponentProps> = ({ commissio
         ))}
       </>
     }
-  />
+  >
+    <TableHeader>
+      <th>NOMBRE</th>
+      <th />
+    </TableHeader>
+  </Table>
 );
 
 interface IComponentProps {
