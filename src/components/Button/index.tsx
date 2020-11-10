@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 export const Button: FunctionComponent<IButtonProps> = ({ className, children, ...props }) => (
   <button
-    className={classNames(styles.main, styles.text, styles.color, styles.fitContent, className)}
+    className={classNames(className, styles.main, styles.text, styles.color, styles.fitContent)}
     {...props}
   >
     {children}

@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks/Volunteers";
-import { Button } from "$components/Button";
 import { TableItem } from "$components/Table/TableItem";
+import { ActionItem } from "$components/Table/ActionItem";
 import { useHistory } from "react-router-dom";
-import styles from "./styles.module.scss";
 import { RoutesBuilder } from "$models";
 
 export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surname, dni }) => {
@@ -19,14 +18,9 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
       <td>
         <h5>{name}</h5>
       </td>
-      <td className={styles.editVolunteer}>
-        <Button
-          className={styles.editButton}
-          onClick={() => history.push(RoutesBuilder.volunteers.edit(uuid))}
-        >
-          Editar
-        </Button>
-      </td>
+      <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.edit(uuid))}>
+        Editar
+      </ActionItem>
     </TableItem>
   );
 };
