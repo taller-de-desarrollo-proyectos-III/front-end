@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ICommission } from "$hooks";
-import { TableItem } from "$components/TableItem";
+import { TableItem } from "$components/Table/TableItem";
 
 export const CommissionItem: FunctionComponent<ICommission> = ({ name }) => {
   return (

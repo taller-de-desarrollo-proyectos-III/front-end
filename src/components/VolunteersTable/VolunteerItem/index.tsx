@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks/Volunteers";
 import { Button } from "$components/Button";
-import { TableItem } from "$components/TableItem";
+import { TableItem } from "$components/Table/TableItem";
 import { useHistory } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { RoutesBuilder } from "$models";
