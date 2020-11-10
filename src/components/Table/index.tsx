@@ -1,15 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 
-export const Table: FunctionComponent<IComponentProps> = ({ children, body }) => (
+export const Table: FunctionComponent = ({ children }) => (
   <div className={styles.tableOverview}>
-    <table>
-      {children}
-      <tbody>{body}</tbody>
-    </table>
+    <table>{children}</table>
   </div>
 );
-
-interface IComponentProps {
-  body: React.ReactNode;
-}

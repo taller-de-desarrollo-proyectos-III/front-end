@@ -13,17 +13,3 @@ table {
   justify-content: center;
   margin: 3px;
 }
-
-td {
-  width: 30em;
-}
-
-tbody tr:last-child {
-  td:first-child {
-    border-bottom-left-radius: 15px;
-  }
-
-  td:last-child {
-    border-bottom-right-radius: 15px;
-  }
-}
