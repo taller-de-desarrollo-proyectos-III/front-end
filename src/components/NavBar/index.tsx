@@ -12,5 +12,6 @@ export const NavBar: FunctionComponent = () => (
       <Logo />
     </Link>
     <NavBarLink label={"Crear voluntarie"} to={RoutesBuilder.volunteers.create()} />
+    <NavBarLink label={"Comisiones"} to={RoutesBuilder.commissions.list()} />
   </div>
 );
