@@ -1,0 +1,15 @@
+@import "~$styles/variables";
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  align-self: center;
+}
+
+.table {
+  align-self: center;
+  max-width: 40%;
+}

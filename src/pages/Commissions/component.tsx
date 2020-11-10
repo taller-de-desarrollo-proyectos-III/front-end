@@ -4,12 +4,15 @@ import { CommissionsTable } from "$components/CommissionsTable";
 import { NavBar } from "$components/NavBar";
 import { Title } from "$components/Title";
 import { MainContent } from "$components/MainContent";
+import styles from "./styles.module.scss";
 
 export const Commissions: FunctionComponent<IComponentProps> = ({ commissions }) => (
   <MainContent>
     <NavBar />
-    <Title title={"Comisiones"} />
-    <CommissionsTable commissions={commissions} />
+    <div className={styles.body}>
+      <Title className={styles.title} title={"Comisiones"} />
+      <CommissionsTable className={styles.table} commissions={commissions} />
+    </div>
   </MainContent>
 );
 

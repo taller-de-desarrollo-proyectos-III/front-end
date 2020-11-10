@@ -5,8 +5,11 @@ import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
 import { CommissionItem } from "./CommissionItem";
 
-export const CommissionsTable: FunctionComponent<IComponentProps> = ({ commissions }) => (
-  <Table>
+export const CommissionsTable: FunctionComponent<IComponentProps> = ({
+  commissions,
+  className
+}) => (
+  <Table className={className}>
     <TableHeader>
       <th>NOMBRE</th>
       <th />
@@ -20,5 +23,6 @@ export const CommissionsTable: FunctionComponent<IComponentProps> = ({ commissio
 );
 
 interface IComponentProps {
+  className?: string;
   commissions: ICommission[];
 }
