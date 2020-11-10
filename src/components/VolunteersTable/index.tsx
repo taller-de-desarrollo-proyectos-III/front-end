@@ -12,7 +12,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
     <table>
       <tbody>
         <tr className={styles.tableHeader}>
-          <td className={styles.firstleft}>
+          <td className={styles.firstLeft}>
             <h4>DOCUMENTO</h4>
           </td>
           <td>
@@ -21,7 +21,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
           <td>
             <h4>NOMBRE</h4>
           </td>
-          <td className={styles.firstright}></td>
+          <td className={styles.firstRight} />
         </tr>
 
         {volunteers.map(item => (
