@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks/Volunteers";
 import { Button } from "$components/Button";
+import { TableItem } from "$components/TableItem";
 import { useHistory } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { RoutesBuilder } from "$models";
@@ -8,7 +9,7 @@ import { RoutesBuilder } from "$models";
 export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surname, dni }) => {
   const history = useHistory();
   return (
-    <tr className={styles.tableItem}>
+    <TableItem>
       <td>
         <h5>{dni}</h5>
       </td>
@@ -26,6 +27,6 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
           Editar
         </Button>
       </td>
-    </tr>
+    </TableItem>
   );
 };

@@ -1,11 +1,5 @@
 @import "~$styles/variables";
 
-.tableItem {
-  background-color: $white;
-  line-height: 0;
-  text-align: center;
-}
-
 .editVolunteer {
   vertical-align: middle;
 }
@@ -13,6 +7,3 @@
 .editButton {
   display: unset;
 }
-
-.tableItem:nth-child(even) { background: $superlightgray; }
-.tableItem:nth-child(odd) { background: $white; }
