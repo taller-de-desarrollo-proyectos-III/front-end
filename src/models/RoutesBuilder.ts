@@ -3,5 +3,8 @@ export const RoutesBuilder = {
     home: () => "/",
     create: () => "/volunteers/create",
     edit: (uuid: string) => `/volunteers/edit/${uuid}`
+  },
+  commissions: {
+    list: () => "/commissions"
   }
 };

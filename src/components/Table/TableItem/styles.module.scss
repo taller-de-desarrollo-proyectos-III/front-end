@@ -1,0 +1,10 @@
+@import "~$styles/variables";
+
+.tableItem {
+  background-color: $white;
+  line-height: 0;
+  text-align: center;
+}
+
+.tableItem:nth-child(odd) { background: $superlightgray; }
+.tableItem:nth-child(even) { background: $white; }

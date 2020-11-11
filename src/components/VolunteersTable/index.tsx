@@ -1,33 +1,26 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks";
 import { VolunteerItem } from "./VolunteerItem";
-import styles from "./styles.module.scss";
+import { Table } from "$components/Table";
+import { TableHeader } from "$components/Table/TableHeader";
+import { TableBody } from "$components/Table/TableBody";
+
+export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
+  <Table>
+    <TableHeader>
+      <th>DOCUMENTO</th>
+      <th>APELLIDO</th>
+      <th>NOMBRE</th>
+      <th />
+    </TableHeader>
+    <TableBody>
+      {volunteers.map(item => (
+        <VolunteerItem key={item.uuid} {...item} />
+      ))}
+    </TableBody>
+  </Table>
+);
 
 interface VolunteersProps {
   volunteers: IVolunteer[];
 }
-
-export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
-  <div className={styles.tableOverview}>
-    <table>
-      <tbody>
-        <tr className={styles.tableHeader}>
-          <td className={styles.firstleft}>
-            <h4>DOCUMENTO</h4>
-          </td>
-          <td>
-            <h4>APELLIDO</h4>
-          </td>
-          <td>
-            <h4>NOMBRE</h4>
-          </td>
-          <td className={styles.firstright}></td>
-        </tr>
-
-        {volunteers.map(item => (
-          <VolunteerItem key={item.uuid} {...item} />
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
