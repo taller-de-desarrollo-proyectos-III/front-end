@@ -1,7 +1,7 @@
 import { stringify } from "query-string";
 import { BackendConfig } from "$config";
 import { IUseCreateVolunteerVariables, IUseUpdateVolunteerVariables } from "$hooks";
-import { IUseCreateCommissionVariables } from "$hooks";
+import { IUseCreateCommissionVariables, IUseUpdateCommissionVariables } from "$hooks";
 
 export const BackendService = {
   get: async <TParams>(endpoint: string, params?: TParams) => {
@@ -39,5 +39,7 @@ export const BackendService = {
   updateVolunteer: (variables: IUseUpdateVolunteerVariables) =>
     BackendService.put("volunteers", variables),
   createCommission: (variables: IUseCreateCommissionVariables) =>
-    BackendService.post("commissions", variables)
+    BackendService.post("commissions", variables),
+  updateCommission: (variables: IUseUpdateCommissionVariables) =>
+    BackendService.put("commissions", variables)
 };
