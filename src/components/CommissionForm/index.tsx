@@ -15,7 +15,7 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
 }) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
-      <span className={styles.title}>{"title"}</span>
+      <span className={styles.title}>{"Escriba el nombre de la comisión"}</span>
     </DialogTitle>
     <DialogContent>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>

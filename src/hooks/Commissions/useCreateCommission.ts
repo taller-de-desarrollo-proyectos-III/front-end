@@ -1,4 +1,4 @@
-import { BackendService } from "../../services/Backend";
+import { BackendService } from "$services";
 
 export const useCreateCommission = () => {
   const createCommission = (variables: IUseCreateCommissionVariables) =>
