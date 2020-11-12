@@ -1,18 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { useHistory } from "react-router-dom";
-import { useCreateCommission } from "$hooks";
+import { useUpdateCommission, IUseUpdateCommissionVariables } from "$hooks";
 import { CommissionForm } from "$components/CommissionForm";
 import { RoutesBuilder } from "$models";
 
-export const CreateCommissionFormContainer: FunctionComponent<IContainerProps> = ({
+export const EditCommissionFormContainer: FunctionComponent<IContainerProps> = ({
   isOpen,
-  onClose
+  onClose,
+  initialValues: { uuid, name }
 }) => {
-  const { createCommission } = useCreateCommission();
+  const { updateCommission } = useUpdateCommission();
   const history = useHistory();
 
-  const onSubmit = async ({ name }: { name: string }) => {
-    await createCommission({ name });
+  const onSubmit = async (values: { name: string }) => {
+    await updateCommission({ ...values, uuid });
     redirectToCommissionsList();
   };
 
@@ -25,13 +26,14 @@ export const CreateCommissionFormContainer: FunctionComponent<IContainerProps> =
     <CommissionForm
       isOpen={isOpen}
       onClose={redirectToCommissionsList}
-      initialValues={{ name: "" }}
+      initialValues={{ name }}
       onSubmit={onSubmit}
     />
   );
 };
 
 interface IContainerProps {
+  initialValues: IUseUpdateCommissionVariables;
   isOpen: boolean;
   onClose: () => void;
 }
