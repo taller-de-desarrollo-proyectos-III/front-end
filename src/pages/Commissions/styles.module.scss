@@ -1,15 +1,21 @@
 @import "~$styles/variables";
 
 .body {
+  align-self: center;
   display: flex;
   flex-direction: column;
+  max-width: 50%;
 }
 
 .title {
-  align-self: center;
+  align-self: flex-start;
 }
 
 .table {
   align-self: center;
-  max-width: 40%;
+}
+
+.addCommission {
+  align-self: flex-end;
+  margin-bottom: $spacing-xxl;
 }
