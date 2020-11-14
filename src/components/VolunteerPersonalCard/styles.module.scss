@@ -7,17 +7,13 @@
 
 .card {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin-right: $spacing-xl;
   width: 50%;
 }
 
 .card h3 {
   color: $greenTitle;
-}
-
-.commissionsTitle {
-  justify-self: flex-start;
 }
 
 .commissions {

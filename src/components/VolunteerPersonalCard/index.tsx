@@ -113,7 +113,7 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
       </form>
     </Card>
     <Card className={classNames(styles.commissions, styles.card)}>
-      <h3 className={styles.commissionsTitle}>Comisiones</h3>
+      <h3>Comisiones</h3>
       <CommissionsTable
         readonly
         className={styles.commissionsTable}
