@@ -1,4 +1,5 @@
 import { Card } from "$components/Card";
+import classNames from "classnames";
 import React, { FunctionComponent } from "react";
 import styles from "./styles.module.scss";
 import { CommissionsTable } from "$components/CommissionsTable";
@@ -111,9 +112,13 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
         )}
       </form>
     </Card>
-    <Card className={styles.card}>
-      <h3>Comisiones</h3>
-      <CommissionsTable commissions={props.commissions} />
+    <Card className={classNames(styles.commissions, styles.card)}>
+      <h3 className={styles.commissionsTitle}>Comisiones</h3>
+      <CommissionsTable
+        readonly
+        className={styles.commissionsTable}
+        commissions={props.commissions}
+      />
     </Card>
   </div>
 );

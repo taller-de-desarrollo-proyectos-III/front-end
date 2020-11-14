@@ -16,6 +16,19 @@
   color: $greenTitle;
 }
 
+.commissionsTitle {
+  justify-self: flex-start;
+}
+
+.commissions {
+  display: flex;
+  flex-direction: column;
+}
+
+.commissionsTable {
+  align-self: center;
+}
+
 .form {
   display: flex;
   flex-wrap: wrap;
