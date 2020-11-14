@@ -7,13 +7,23 @@
 
 .card {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: fit-content;
   margin-right: $spacing-xl;
   width: 50%;
 }
 
 .card h3 {
   color: $greenTitle;
+}
+
+.commissions {
+  display: flex;
+  flex-direction: column;
+}
+
+.commissionsTable {
+  align-self: center;
 }
 
 .form {
