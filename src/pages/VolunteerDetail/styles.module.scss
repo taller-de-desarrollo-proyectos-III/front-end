@@ -1,0 +1,18 @@
+@import "~$styles/variables";
+
+.titleContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.linkedinLogo {
+  align-self: center;
+  height: $linkedinLogoHeight;
+  margin: $spacing-l;
+  width: $linkedinLogoWidth;
+}
+
+.button {
+  align-self: center;
+  margin: $spacing-l;
+}
