@@ -7,22 +7,24 @@ import { CommissionItem } from "./CommissionItem";
 
 export const CommissionsTable: FunctionComponent<IComponentProps> = ({
   commissions,
-  className
+  className,
+  readonly
 }) => (
   <Table className={className}>
     <TableHeader>
       <th>NOMBRE</th>
-      <th />
+      {!readonly && <th />}
     </TableHeader>
     <TableBody>
-      {commissions.map(item => (
-        <CommissionItem key={item.uuid} {...item} />
+      {commissions.map(commission => (
+        <CommissionItem readonly={readonly} key={commission.uuid} commission={commission} />
       ))}
     </TableBody>
   </Table>
 );
 
 interface IComponentProps {
+  readonly?: boolean;
   className?: string;
   commissions: ICommission[];
 }

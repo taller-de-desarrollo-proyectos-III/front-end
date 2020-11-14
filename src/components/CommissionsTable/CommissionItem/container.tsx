@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react";
-import { ICommission } from "$hooks";
 import { CommissionItem } from "./component";
+import { IContainerProps } from "./interfaces";
 
-export const CommissionItemContainer: FunctionComponent<ICommission> = commission => {
+export const CommissionItemContainer: FunctionComponent<IContainerProps> = props => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return <CommissionItem commission={commission} isOpen={isOpen} setIsOpen={setIsOpen} />;
+  return <CommissionItem {...props} isOpen={isOpen} setIsOpen={setIsOpen} />;
 };
