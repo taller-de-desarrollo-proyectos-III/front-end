@@ -4,6 +4,7 @@ import { Home } from "$pages/Home";
 import { EditVolunteer } from "$pages/EditVolunteer";
 import { CreateVolunteer } from "$pages/CreateVolunteer";
 import { Commissions } from "$pages/Commissions";
+import { VolunteerDetail } from "$pages/VolunteerDetail";
 import { RoutesBuilder } from "$models";
 
 export const Routes: FunctionComponent = () => (
@@ -20,6 +21,9 @@ export const Routes: FunctionComponent = () => (
       </Route>
       <Route exact path={RoutesBuilder.commissions.list()}>
         <Commissions />
+      </Route>
+      <Route exact path={RoutesBuilder.volunteers.detail(":uuid")}>
+        <VolunteerDetail />
       </Route>
     </Switch>
   </Router>
