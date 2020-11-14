@@ -49,3 +49,26 @@ code {
     "Courier New",
     monospace;
 }
+
+::-webkit-scrollbar {
+  height: $spacing-s;
+  width: $spacing-s;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0 4px 4px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $darkGrey;
+  border-radius: 4px;
+
+  &:hover {
+    background: darken($darkGrey, 7%);
+  }
+
+  &:active {
+    background: darken($darkGrey, 14%);
+  }
+}

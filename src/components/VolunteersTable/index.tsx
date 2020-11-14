@@ -4,6 +4,7 @@ import { VolunteerItem } from "./VolunteerItem";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
+import styles from "./styles.module.scss";
 
 export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
   <Table>
@@ -13,7 +14,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
       <th>NOMBRE</th>
       <th />
     </TableHeader>
-    <TableBody>
+    <TableBody className={styles.body}>
       {volunteers.map(item => (
         <VolunteerItem key={item.uuid} {...item} />
       ))}
