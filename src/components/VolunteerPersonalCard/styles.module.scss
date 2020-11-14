@@ -8,6 +8,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  height: fit-content;
   margin-right: $spacing-xl;
   width: 50%;
 }
