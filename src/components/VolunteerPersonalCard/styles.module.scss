@@ -1,19 +1,19 @@
 @import "$styles/_variables";
 
-.card {
+.mainContainer {
   display: flex;
   width: 100%;
 }
 
-.card h3 {
-  color: $greenTitle;
-}
-
-.cardColumn {
+.card {
   display: flex;
   flex-wrap: wrap;
   margin-right: $spacing-xl;
   width: 50%;
+}
+
+.card h3 {
+  color: $greenTitle;
 }
 
 .form {

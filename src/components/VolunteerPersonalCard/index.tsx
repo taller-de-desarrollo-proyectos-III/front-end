@@ -6,8 +6,8 @@ import { ICommission } from "$hooks/Commissions";
 import { TextField } from "@material-ui/core";
 
 export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = props => (
-  <div className={styles.card}>
-    <Card className={styles.cardColumn}>
+  <div className={styles.mainContainer}>
+    <Card className={styles.card}>
       <h3>Información personal</h3>
       <form className={styles.form}>
         <div className={styles.fieldContainer}>
@@ -111,7 +111,7 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
         )}
       </form>
     </Card>
-    <Card className={styles.cardColumn}>
+    <Card className={styles.card}>
       <h3>Comisiones</h3>
       <CommissionsTable commissions={props.commissions} />
     </Card>
