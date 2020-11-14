@@ -19,7 +19,7 @@ export const VolunteerDetail: FunctionComponent<IVolunteer> = volunteer => {
         <Title title={`${volunteer.name} ${volunteer.surname}`} />
         {volunteer.linkedin && (
           <a href={volunteer.linkedin} target={"_blank"} rel={"noopener noreferrer"}>
-            <img className={styles.linkedinLogo} src={linkedinLogo} />
+            <img className={styles.linkedinLogo} src={linkedinLogo} alt="linkedin-logo" />
           </a>
         )}
         <Button
