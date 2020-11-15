@@ -18,7 +18,12 @@ export const VolunteerDetail: FunctionComponent<IVolunteer> = volunteer => {
       <div className={styles.titleContainer}>
         <Title title={`${volunteer.name} ${volunteer.surname}`} />
         {volunteer.linkedin && (
-          <a href={volunteer.linkedin} target={"_blank"} rel={"noopener noreferrer"}>
+          <a
+            className={styles.linkedinLink}
+            href={volunteer.linkedin}
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+          >
             <img className={styles.linkedinLogo} src={linkedinLogo} alt="linkedin-logo" />
           </a>
         )}
