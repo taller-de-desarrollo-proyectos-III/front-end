@@ -18,8 +18,8 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
       <td>
         <h5>{name}</h5>
       </td>
-      <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.edit(uuid))}>
-        Editar
+      <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(uuid))}>
+        Ver
       </ActionItem>
     </TableItem>
   );
