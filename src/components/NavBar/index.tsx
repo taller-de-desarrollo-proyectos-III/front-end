@@ -13,5 +13,6 @@ export const NavBar: FunctionComponent = () => (
     </Link>
     <NavBarLink label={"Crear voluntarie"} to={RoutesBuilder.volunteers.create()} />
     <NavBarLink label={"Comisiones"} to={RoutesBuilder.commissions.list()} />
+    <NavBarLink label={"Roles"} to={RoutesBuilder.roles.list()} />
   </div>
 );
