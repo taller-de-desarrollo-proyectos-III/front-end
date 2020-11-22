@@ -1,5 +1,8 @@
 export const BackendConfig = {
   production: {
+    url: "https://nahual-datos-voluntaries.herokuapp.com"
+  },
+  staging: {
     url: "https://tdp3-backend.herokuapp.com"
   },
   development: {
