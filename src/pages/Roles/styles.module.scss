@@ -1,0 +1,21 @@
+@import "~$styles/variables";
+
+.body {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.title {
+  align-self: flex-start;
+}
+
+.table {
+  align-self: center;
+}
+
+.addRole {
+  align-self: flex-end;
+  margin-bottom: $spacing-xxl;
+}

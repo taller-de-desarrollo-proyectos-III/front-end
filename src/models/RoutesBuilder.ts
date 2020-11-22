@@ -7,5 +7,8 @@ export const RoutesBuilder = {
   },
   commissions: {
     list: () => "/commissions"
+  },
+  roles: {
+    list: () => "/roles"
   }
 };
