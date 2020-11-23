@@ -5,7 +5,7 @@ export const useGetRoles = <T>(dependencies?: T[]) => {
   const [roles, setRoles] = useState<IRole[]>([]);
   useEffect(() => {
     BackendService.getRoles().then(({ body }) => setRoles(body));
-  }, [dependencies]);
+  }, dependencies);
   return roles;
 };
 

@@ -5,7 +5,7 @@ export const useGetCommissions = <T>(dependencies?: T[]) => {
   const [commissions, setCommissions] = useState<ICommission[]>([]);
   useEffect(() => {
     BackendService.getCommissions().then(({ body }) => setCommissions(body));
-  }, [dependencies]);
+  }, dependencies);
   return commissions;
 };
 
