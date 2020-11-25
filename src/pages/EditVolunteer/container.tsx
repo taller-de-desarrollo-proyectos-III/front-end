@@ -23,7 +23,8 @@ export const EditVolunteerContainer: FunctionComponent = () => {
     <EditVolunteer
       initialValues={{
         ...nullToUndefined(volunteer),
-        commissionUuids: volunteer.commissions.map(commission => commission.uuid)
+        commissionUuids: volunteer.commissions.map(commission => commission.uuid),
+        roleUuids: volunteer.roles.map(role => role.uuid)
       }}
       onSubmit={onSubmit}
     />

@@ -5,10 +5,12 @@ import styles from "./styles.module.scss";
 import { CommissionsTable } from "$components/CommissionsTable";
 import { ICommission } from "$hooks/Commissions";
 import { TextField } from "@material-ui/core";
+import { RolesTable } from "$components/RolesTable";
+import { IRole } from "../../hooks/Roles";
 
 export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = props => (
   <div className={styles.mainContainer}>
-    <Card className={styles.card}>
+    <Card className={styles.cardPersonalData}>
       <h3>Información personal</h3>
       <form className={styles.form}>
         <div className={styles.fieldContainer}>
@@ -120,6 +122,12 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
         commissions={props.commissions}
       />
     </Card>
+    {props.roles.length > 0 && (
+      <Card className={classNames(styles.roles, styles.card)}>
+        <h3>Roles</h3>
+        <RolesTable readonly className={styles.rolesTable} roles={props.roles} />
+      </Card>
+    )}
   </div>
 );
 
@@ -132,4 +140,5 @@ export interface IVolunteerPersonalCard {
   graduationYear?: string;
   country?: string;
   commissions: ICommission[];
+  roles: IRole[];
 }

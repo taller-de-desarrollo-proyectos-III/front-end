@@ -7,6 +7,7 @@ import { Card } from "$components/Card";
 import styles from "./style.module.scss";
 import { TextField } from "../TextField";
 import { CommissionSelector } from "../CommissionSelector";
+import { RoleSelector } from "../RoleSelector";
 import { number, string } from "yup";
 import { RegExBuilder } from "$models/RegExBuilder";
 
@@ -77,6 +78,16 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
                   <CommissionSelector
                     name={"commissionUuids"}
                     label={"Comisiones"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <RoleSelector
+                    name={"roleUuids"}
+                    label={"Roles"}
                     disabled={isSubmitting}
                     fullWidth
                   />

@@ -1,4 +1,5 @@
 import { ICommission } from "../Commissions";
+import { IRole } from "../Roles";
 
 export interface IVolunteer {
   uuid: string;
@@ -13,4 +14,5 @@ export interface IVolunteer {
   graduationYear?: string;
   country?: string;
   commissions: ICommission[];
+  roles: IRole[];
 }
