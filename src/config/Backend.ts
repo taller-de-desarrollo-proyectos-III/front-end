@@ -1,3 +1,5 @@
+type Env = "production" | "staging" | "development" | "test";
+
 export const BackendConfig = {
   production: {
     url: "https://nahual-datos-voluntaries.herokuapp.com"
@@ -11,4 +13,4 @@ export const BackendConfig = {
   test: {
     url: "http://localhost:5000"
   }
-}[process.env.NODE_ENV];
+}[(process.env.REACT_APP_STAGE || process.env.NODE_ENV) as Env];
