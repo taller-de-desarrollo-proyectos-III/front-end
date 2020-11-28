@@ -10,7 +10,15 @@
   flex-direction: column;
   height: fit-content;
   margin-right: $spacing-xl;
-  width: 50%;
+  width: 40%;
+}
+
+.cardPersonalData {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin-right: $spacing-xl;
+  width: 100%;
 }
 
 .card h3 {
@@ -23,6 +31,15 @@
 }
 
 .commissionsTable {
+  align-self: center;
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+}
+
+.rolesTable {
   align-self: center;
 }
 

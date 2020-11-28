@@ -43,6 +43,7 @@ export const VolunteerDetail: FunctionComponent<IVolunteer> = volunteer => {
         graduationYear={volunteer.graduationYear}
         country={volunteer.country}
         commissions={volunteer.commissions}
+        roles={volunteer.roles}
       />
     </MainContent>
   );
