@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import { Home } from "./component";
 import { ICommission, useGetVolunteers, useGetCommissions } from "$hooks";
 
@@ -7,7 +7,6 @@ export const HomeContainer: FunctionComponent = () => {
   const volunteers = useGetVolunteers({ commissions: filter });
   const commissions = useGetCommissions();
   useEffect(() => setFilter(commissions), [commissions]);
-  if (filter.length === 0) return <Fragment />;
 
   const setCommissionUuids = async ({ commissionUuids }: { commissionUuids: string[] }) => {
     if (commissionUuids.length === 0) {
