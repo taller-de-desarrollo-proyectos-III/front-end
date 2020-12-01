@@ -30,9 +30,6 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
       <Button onClick={onClose} kind="secondary">
         Cancelar
       </Button>
-      <Button form={formName} kind="primary" type="submit">
-        Confirmar
-      </Button>
     </DialogActions>
   </Dialog>
 );

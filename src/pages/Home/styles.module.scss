@@ -33,3 +33,15 @@
 .applyButton {
   margin-top: $spacing-m;
 }
+
+.downloadButton {
+  color: #fff;
+}
+
+.downloadForm {
+  border-color: $greenTableHeader;
+  display: inline-flex;
+  margin-top: $spacing-m;
+  max-width: 50%;
+  position: center;
+}
