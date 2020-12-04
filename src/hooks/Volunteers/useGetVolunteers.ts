@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react";
-import { ICommission } from "../Commissions";
 import { IVolunteer } from "$hooks";
 import { BackendService } from "$services";
+import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
-export const useGetVolunteers = ({ commissions }: IUseGetVolunteers) => {
+export const useGetVolunteers = ({ commissionUuids }: IInitialValues) => {
   const [volunteers, setVolunteers] = useState<IVolunteer[]>([]);
   useEffect(() => {
-    BackendService.getVolunteers(commissions.map(({ uuid }) => uuid)).then(({ body }) =>
-      setVolunteers(body)
-    );
-  }, [commissions]);
+    BackendService.getVolunteers(commissionUuids).then(({ body }) => setVolunteers(body));
+  }, [commissionUuids]);
   return volunteers;
 };
-
-interface IUseGetVolunteers {
-  commissions: ICommission[];
-}
