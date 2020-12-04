@@ -26,7 +26,7 @@ export const Home: FunctionComponent<IComponentProps> = ({ volunteers, setFilter
 );
 
 interface IComponentProps {
-  filter: IInitialValues;
+  filter?: IInitialValues;
   setFilter: (values: IInitialValues) => void;
   volunteers: IVolunteer[];
 }

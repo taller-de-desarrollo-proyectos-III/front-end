@@ -7,13 +7,10 @@ export const VolunteersFilterContainer: FunctionComponent<IContainerProps> = ({
   initialValues,
   onApplyFilter
 }) => {
-  if (initialValues.commissionUuids.length === 0) return <Fragment />;
+  if (!initialValues) return <Fragment />;
 
-  const onSubmit = (
-    { commissionUuids }: IInitialValues,
-    { setSubmitting }: FormikHelpers<IInitialValues>
-  ) => {
-    onApplyFilter({ commissionUuids });
+  const onSubmit = (values: IInitialValues, { setSubmitting }: FormikHelpers<IInitialValues>) => {
+    onApplyFilter(values);
     setSubmitting(false);
   };
 
