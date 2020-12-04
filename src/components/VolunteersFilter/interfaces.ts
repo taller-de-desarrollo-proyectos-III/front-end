@@ -4,13 +4,16 @@ interface ICommonProps {
   initialValues: IInitialValues;
 }
 
-export interface IContainerProps extends Partial<ICommonProps> {
+export interface IContainerProps extends ICommonProps {
   onApplyFilter: (values: IInitialValues) => void;
 }
 
+export type TRoleUuids = string[] | "ALL";
+export type TCommissionUuids = string[] | "ALL";
+
 export interface IInitialValues {
-  commissionUuids: string[];
-  roleUuids: string[];
+  commissionUuids: TCommissionUuids;
+  roleUuids: TRoleUuids;
 }
 
 export interface IComponentProps extends ICommonProps {

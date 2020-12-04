@@ -1,19 +1,14 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Home } from "./component";
-import { useGetCommissions, useGetVolunteers, useGetRoles } from "$hooks";
+import { useGetVolunteers } from "$hooks";
 import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
 export const HomeContainer: FunctionComponent = () => {
-  const commissions = useGetCommissions();
-  const roles = useGetRoles();
-  const [filter, setFilter] = useState<IInitialValues | undefined>(undefined);
-  const volunteers = useGetVolunteers(filter);
-  useEffect(() => {
-    setFilter({
-      commissionUuids: commissions.map(({ uuid }) => uuid),
-      roleUuids: roles.map(({ uuid }) => uuid)
-    });
-  }, [commissions, roles]);
+  const [filter, setFilter] = useState<IInitialValues>({
+    commissionUuids: "ALL",
+    roleUuids: "ALL"
+  });
+  const volunteers = useGetVolunteers({ filter });
 
   return <Home volunteers={volunteers} filter={filter} setFilter={setFilter} />;
 };

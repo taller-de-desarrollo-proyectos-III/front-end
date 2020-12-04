@@ -3,11 +3,14 @@ import { IVolunteer } from "$hooks";
 import { BackendService } from "$services";
 import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
-export const useGetVolunteers = (attributes?: IInitialValues) => {
+export const useGetVolunteers = ({ filter }: IUseGetVolunteers) => {
   const [volunteers, setVolunteers] = useState<IVolunteer[]>([]);
   useEffect(() => {
-    if (!attributes) return;
-    BackendService.getVolunteers(attributes).then(({ body }) => setVolunteers(body));
-  }, [attributes]);
+    BackendService.getVolunteers(filter).then(({ body }) => setVolunteers(body));
+  }, [filter]);
   return volunteers;
 };
+
+interface IUseGetVolunteers {
+  filter: IInitialValues;
+}

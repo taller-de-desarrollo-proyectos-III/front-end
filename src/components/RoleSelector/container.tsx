@@ -1,14 +1,46 @@
-import React, { ChangeEvent, FunctionComponent } from "react";
+import React, { FunctionComponent, Fragment } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
-import { useGetRoles } from "$hooks";
-import { RoleSelector } from "./component";
+import { IRole, useGetRoles } from "$hooks";
+import { Selector } from "$components/Selector";
+import { FastField } from "formik";
+import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
-export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = props => {
+export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
+  className,
+  label,
+  ...props
+}) => {
   const roles = useGetRoles();
-  const { setFieldValue } = useFormikContext();
-  const onChange = (event: ChangeEvent<{ value: string[] }>) => {
-    setFieldValue(props.name, event.target.value);
+  const { values, setFieldValue } = useFormikContext<IInitialValues>();
+  if (!roles || roles.length === 0) return <Fragment />;
+
+  const onChange = (selectedRoles: IRole[]) => {
+    if (selectedRoles.map(({ uuid }) => uuid).includes("ALL")) {
+      return setFieldValue("roleUuids", "ALL");
+    }
+    setFieldValue(
+      "roleUuids",
+      selectedRoles.map(({ uuid }) => uuid)
+    );
   };
 
-  return <RoleSelector onChange={onChange} roles={roles} {...props} />;
+  const isAll = () => values.roleUuids === "ALL";
+  const allOption = { uuid: "ALL", name: "TODOS" };
+  const selectedOptions = isAll()
+    ? [allOption]
+    : roles.filter(role => values.roleUuids.includes(role.uuid)) || [];
+
+  return (
+    <FastField {...props}>
+      {() => (
+        <Selector
+          label={label}
+          className={className}
+          options={[allOption].concat(roles)}
+          setSelectedOptions={onChange}
+          selectedOptions={selectedOptions}
+        />
+      )}
+    </FastField>
+  );
 };
