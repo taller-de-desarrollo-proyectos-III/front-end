@@ -3,6 +3,7 @@ import { BackendConfig } from "$config";
 import { IUseCreateVolunteerVariables, IUseUpdateVolunteerVariables } from "$hooks";
 import { IUseCreateCommissionVariables, IUseUpdateCommissionVariables } from "$hooks";
 import { IUseCreateRoleVariables, IUseUpdateRoleVariables } from "$hooks";
+import { IUseCreateStateVariables, IUseUpdateStateVariables } from "$hooks";
 
 export const BackendService = {
   get: async <TParams>(endpoint: string, params?: TParams) => {
@@ -45,5 +46,8 @@ export const BackendService = {
     BackendService.put("commissions", variables),
   getRoles: () => BackendService.get("roles"),
   createRole: (variables: IUseCreateRoleVariables) => BackendService.post("roles", variables),
-  updateRole: (variables: IUseUpdateRoleVariables) => BackendService.put("roles", variables)
+  updateRole: (variables: IUseUpdateRoleVariables) => BackendService.put("roles", variables),
+  getStates: () => BackendService.get("states"),
+  createState: (variables: IUseCreateStateVariables) => BackendService.post("states", variables),
+  updateState: (variables: IUseUpdateStateVariables) => BackendService.put("states", variables)
 };
