@@ -1,7 +1,8 @@
-import React, { FunctionComponent, Fragment } from "react";
+import React, { FunctionComponent } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { IRole, useGetRoles } from "$hooks";
 import { Selector } from "$components/Selector";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FastField } from "formik";
 import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
@@ -12,7 +13,7 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
 }) => {
   const roles = useGetRoles();
   const { values, setFieldValue } = useFormikContext<IInitialValues>();
-  if (!roles || roles.length === 0) return <Fragment />;
+  if (!roles) return <LoadingSpinner />;
 
   const onChange = (selectedRoles: IRole[]) => {
     if (selectedRoles.map(({ uuid }) => uuid).includes("ALL")) {

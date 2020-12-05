@@ -1,8 +1,9 @@
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { useGetCommissions, ICommission } from "$hooks";
 import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 import { Selector } from "$components/Selector";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FastField } from "formik";
 
 export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
@@ -12,7 +13,7 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
 }) => {
   const commissions = useGetCommissions();
   const { values, setFieldValue } = useFormikContext<IInitialValues>();
-  if (!commissions || commissions.length === 0) return <Fragment />;
+  if (!commissions) return <LoadingSpinner />;
 
   const onChange = (selectedCommissions: ICommission[]) => {
     if (selectedCommissions.map(({ uuid }) => uuid).includes("ALL")) {
