@@ -10,5 +10,8 @@ export const RoutesBuilder = {
   },
   roles: {
     list: () => "/roles"
+  },
+  states: {
+    list: () => "/states"
   }
 };
