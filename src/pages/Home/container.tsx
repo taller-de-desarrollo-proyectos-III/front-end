@@ -20,7 +20,6 @@ export const HomeContainer: FunctionComponent = () => {
     });
     setFilter(selectedCommissions);
   };
-
   return (
     <Home
       volunteers={volunteers}

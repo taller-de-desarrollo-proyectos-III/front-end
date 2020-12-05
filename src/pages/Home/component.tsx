@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { CSVLink } from "react-csv";
 import { Form, Formik } from "formik";
 import { VolunteersTable } from "$components/VolunteersTable";
 import { MainContent } from "$components/MainContent";
@@ -42,6 +43,17 @@ export const Home: FunctionComponent<IComponentProps> = ({
               </Form>
             )}
           </Formik>
+        </Card>
+        <Card className={styles.downloadForm}>
+          <Button>
+            <CSVLink
+              data={volunteers}
+              filename={"Voluntaries.csv"}
+              className={styles.downloadButton}
+            >
+              Exportar a CSV
+            </CSVLink>
+          </Button>
         </Card>
       </div>
       <div className={styles.tableContent}>
