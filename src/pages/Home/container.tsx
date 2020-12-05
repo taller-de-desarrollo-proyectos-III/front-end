@@ -9,6 +9,5 @@ export const HomeContainer: FunctionComponent = () => {
     roleUuids: "ALL"
   });
   const volunteers = useGetVolunteers({ filter });
-
   return <Home volunteers={volunteers} filter={filter} setFilter={setFilter} />;
 };
