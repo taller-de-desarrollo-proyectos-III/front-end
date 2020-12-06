@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { IRole, useGetRoles } from "$hooks";
 import { Selector } from "$components/Selector";
@@ -13,7 +13,12 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
 }) => {
   const roles = useGetRoles();
   const { values, setFieldValue } = useFormikContext<IInitialValues>();
-  if (!roles) return <LoadingSpinner />;
+  useEffect(() => {
+    if (!roles) return;
+    if (roles.length === 0) setFieldValue("roleUuids", []);
+  }, [roles]);
+
+  if (roles === undefined) return <LoadingSpinner />;
 
   const onChange = (selectedRoles: IRole[]) => {
     if (selectedRoles.map(({ uuid }) => uuid).includes("ALL")) {
@@ -29,7 +34,7 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
   const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOptions = isAll()
     ? [allOption]
-    : roles.filter(role => values.roleUuids.includes(role.uuid)) || [];
+    : roles.filter(role => values.roleUuids.includes(role.uuid));
 
   return (
     <FastField {...props}>
@@ -37,7 +42,7 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
         <Selector
           label={label}
           className={className}
-          options={[allOption].concat(roles)}
+          options={roles}
           setSelectedOptions={onChange}
           selectedOptions={selectedOptions}
         />

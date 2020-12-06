@@ -14,15 +14,30 @@ export const Selector: FunctionComponent<IComponent> = ({
   label,
   options,
   selectedOptions,
-  setSelectedOptions
+  setSelectedOptions,
+  initialValues
 }) => {
-  const [defaultValue] = useState(selectedOptions);
+  const allOption = { uuid: "ALL", name: "TODOS" };
+  const getOptions = () => {
+    if (options.length === 0) return [];
+    return [allOption].concat(options);
+  };
+
+  const getDefaultValue = () => {
+    if (initialValues) return initialValues;
+    if (options.length === 0) return [];
+    if (options.length === selectedOptions.length) return [allOption];
+    return selectedOptions;
+  };
+
+  const [defaultValue] = useState(getDefaultValue());
+
   return (
     <Autocomplete
       className={className}
       multiple
       defaultValue={defaultValue}
-      options={options}
+      options={getOptions()}
       disableCloseOnSelect
       getOptionSelected={(option, value) => option.uuid === value.uuid}
       onChange={(_, selected) => setSelectedOptions(selected)}
@@ -55,5 +70,6 @@ interface IComponent {
   className?: string;
   options: IOption[];
   selectedOptions: IOption[];
+  initialValues?: IOption[];
   setSelectedOptions: (options: IOption[]) => void;
 }

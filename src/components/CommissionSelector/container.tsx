@@ -29,7 +29,7 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
   const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOptions = isAll()
     ? [allOption]
-    : commissions.filter(commission => values.commissionUuids.includes(commission.uuid)) || [];
+    : commissions.filter(commission => values.commissionUuids.includes(commission.uuid));
 
   return (
     <FastField {...props}>
@@ -37,7 +37,7 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
         <Selector
           label={label}
           className={className}
-          options={[allOption].concat(commissions)}
+          options={commissions}
           setSelectedOptions={onChange}
           selectedOptions={selectedOptions}
         />
