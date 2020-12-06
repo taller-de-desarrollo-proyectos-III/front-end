@@ -16,7 +16,7 @@ export const EditVolunteerContainer: FunctionComponent = () => {
 
   const onSubmit = async (variables: IUseCreateVolunteerVariables) => {
     await updateVolunteer({ ...variables, uuid });
-    history.push(RoutesBuilder.volunteers.home());
+    history.push(RoutesBuilder.volunteers.detail(uuid));
   };
 
   return (
