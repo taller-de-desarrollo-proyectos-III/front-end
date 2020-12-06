@@ -1,30 +1,13 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Home } from "./component";
-import { ICommission, useGetVolunteers, useGetCommissions } from "$hooks";
+import { useGetVolunteers } from "$hooks";
+import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
 export const HomeContainer: FunctionComponent = () => {
-  const [filter, setFilter] = useState<ICommission[]>([]);
-  const volunteers = useGetVolunteers({ commissions: filter });
-  const commissions = useGetCommissions();
-  useEffect(() => setFilter(commissions), [commissions]);
-
-  const setCommissionUuids = async ({ commissionUuids }: { commissionUuids: string[] }) => {
-    if (commissionUuids.length === 0) {
-      setFilter(commissions);
-      return;
-    }
-    const selectedCommissions = commissionUuids.map(uuid => {
-      const commission = commissions.find(c => c.uuid === uuid);
-      if (!commission) throw new Error("no commission found");
-      return commission;
-    });
-    setFilter(selectedCommissions);
-  };
-  return (
-    <Home
-      volunteers={volunteers}
-      selectedCommissionUuids={[]}
-      setCommissionUuids={setCommissionUuids}
-    />
-  );
+  const [filter, setFilter] = useState<IInitialValues>({
+    commissionUuids: "ALL",
+    roleUuids: "ALL"
+  });
+  const volunteers = useGetVolunteers({ filter });
+  return <Home volunteers={volunteers} filter={filter} setFilter={setFilter} />;
 };

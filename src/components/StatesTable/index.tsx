@@ -6,7 +6,7 @@ import { TableBody } from "$components/Table/TableBody";
 import { StateItem } from "./StateItem";
 
 export const StatesTable: FunctionComponent<IComponentProps> = ({
-  states: states,
+  states,
   className,
   readonly
 }) => (

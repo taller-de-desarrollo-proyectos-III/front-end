@@ -1,4 +1,5 @@
 import { BackendService } from "$services";
+import { TCommissionUuids, TRoleUuids } from "$components/VolunteersFilter/interfaces";
 
 export const useCreateVolunteer = () => {
   const createVolunteer = (volunteer: IUseCreateVolunteerVariables) =>
@@ -17,6 +18,6 @@ export interface IUseCreateVolunteerVariables {
   admissionYear?: string;
   graduationYear?: string;
   country?: string;
-  commissionUuids: string[];
-  roleUuids: string[];
+  commissionUuids: TCommissionUuids;
+  roleUuids: TRoleUuids;
 }
