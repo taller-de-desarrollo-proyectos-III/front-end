@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { VolunteerSerializer } from "$models";
 import { CSVLink } from "react-csv";
 import { VolunteersTable } from "$components/VolunteersTable";
 import { Card } from "$components/Card";
@@ -23,7 +24,7 @@ export const Home: FunctionComponent<IComponentProps> = ({ volunteers, setFilter
         <Card className={styles.downloadForm}>
           <Button>
             <CSVLink
-              data={volunteers}
+              data={volunteers.map(VolunteerSerializer.serialize)}
               filename={"Voluntaries.csv"}
               className={styles.downloadButton}
             >
