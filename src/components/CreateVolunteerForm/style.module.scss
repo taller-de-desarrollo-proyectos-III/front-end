@@ -7,8 +7,12 @@
 }
 
 .fieldContainer {
-  height: $formFieldHeight;
+  min-height: $formFieldHeight;
   width: 50%;
+}
+
+.notesFieldContainer {
+  width: 100%;
 }
 
 .field {
