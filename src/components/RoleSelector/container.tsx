@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent } from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { IRole, useGetRoles } from "$hooks";
 import { Selector } from "$components/Selector";
@@ -13,10 +13,6 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
 }) => {
   const roles = useGetRoles();
   const { values, setFieldValue } = useFormikContext<IInitialValues>();
-  useEffect(() => {
-    if (!roles) return;
-    if (roles.length === 0) setFieldValue("roleUuids", []);
-  }, [roles]);
 
   if (roles === undefined) return <LoadingSpinner />;
 
