@@ -112,6 +112,22 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             </div>
           </div>
         )}
+        {props.notes && (
+          <div className={styles.notesFieldContainer}>
+            <div className={styles.field}>
+              <TextField
+                label={"Notas"}
+                defaultValue={props.notes}
+                variant={"outlined"}
+                multiline
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            </div>
+          </div>
+        )}
       </form>
     </Card>
     <Card className={classNames(styles.commissions, styles.card)}>
@@ -139,6 +155,7 @@ export interface IVolunteerPersonalCard {
   admissionYear?: string;
   graduationYear?: string;
   country?: string;
+  notes?: string;
   commissions: ICommission[];
   roles: IRole[];
 }

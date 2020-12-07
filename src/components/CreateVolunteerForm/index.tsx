@@ -163,6 +163,17 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
                   />
                 </div>
               </div>
+              <div className={styles.notesFieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"notes"}
+                    label={"Notas"}
+                    disabled={isSubmitting}
+                    multiline
+                    fullWidth
+                  />
+                </div>
+              </div>
             </div>
             <div className={styles.button}>
               <Button type={"submit"} disabled={isSubmitting}>

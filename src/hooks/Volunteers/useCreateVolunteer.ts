@@ -18,6 +18,7 @@ export interface IUseCreateVolunteerVariables {
   admissionYear?: string;
   graduationYear?: string;
   country?: string;
+  notes?: string;
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
 }

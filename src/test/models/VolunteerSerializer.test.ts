@@ -12,7 +12,8 @@ describe("VolunteerSerializer", () => {
     telegram: "@JohnD",
     admissionYear: "2016",
     graduationYear: "2016",
-    country: "Argentina"
+    country: "Argentina",
+    notes: "Notes"
   };
 
   it("serializes a volunteer with commissions an roles", async () => {
