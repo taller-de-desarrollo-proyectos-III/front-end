@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks/Volunteers";
-import { TableItem } from "$components/Table/TableItem";
+import { TableRow } from "$components/Table/TableRow";
 import { ActionItem } from "$components/Table/ActionItem";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models";
@@ -8,7 +8,7 @@ import { RoutesBuilder } from "$models";
 export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surname, dni }) => {
   const history = useHistory();
   return (
-    <TableItem>
+    <TableRow>
       <td>
         <h5>{dni}</h5>
       </td>
@@ -21,6 +21,6 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
       <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(uuid))}>
         Ver
       </ActionItem>
-    </TableItem>
+    </TableRow>
   );
 };

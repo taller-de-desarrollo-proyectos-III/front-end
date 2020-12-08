@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { EditCommissionForm } from "$components/EditCommissionForm";
-import { TableItem } from "$components/Table/TableItem";
+import { TableRow } from "$components/Table/TableRow";
 import { ActionItem } from "$components/Table/ActionItem";
 import { IComponentProps } from "./interfaces";
 
@@ -11,12 +11,12 @@ export const CommissionItem: FunctionComponent<IComponentProps> = ({
   readonly
 }) => (
   <>
-    <TableItem>
+    <TableRow>
       <td>
         <h5>{commission.name}</h5>
       </td>
       {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
-    </TableItem>
+    </TableRow>
     {!readonly && (
       <EditCommissionForm
         initialValues={commission}
