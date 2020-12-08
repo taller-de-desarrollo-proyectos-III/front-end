@@ -5,6 +5,7 @@ export const useGetStates = <T>(dependencies: T[] = []) => {
   const [states, setStates] = useState<IState[]>([]);
   useEffect(() => {
     BackendService.getStates().then(({ body }) => setStates(body));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
   return states;
 };
