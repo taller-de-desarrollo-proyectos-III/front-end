@@ -32,8 +32,8 @@ describe("VolunteerSerializer", () => {
     const { uuid, commissions, roles, ...attributes } = volunteer;
     expect(serializedVolunteer).toEqual({
       ...attributes,
-      commissions: "firstCommission,secondCommission",
-      roles: "firstRole,secondRole"
+      commissions: "firstCommission, secondCommission",
+      roles: "firstRole, secondRole"
     });
   });
 

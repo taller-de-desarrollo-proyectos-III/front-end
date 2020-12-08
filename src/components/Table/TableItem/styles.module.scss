@@ -1,10 +1,12 @@
 @import "~$styles/variables";
 
 .tableItem {
-  background-color: $white;
-  line-height: 0;
+  align-self: center;
+  display: flex;
+  flex: 1;
+  font-size: $fontSize-m;
+  justify-content: center;
+  padding: $spacing-s;
   text-align: center;
+  word-break: break-word;
 }
-
-.tableItem:nth-child(odd) { background: $superlightgray; }
-.tableItem:nth-child(even) { background: $white; }

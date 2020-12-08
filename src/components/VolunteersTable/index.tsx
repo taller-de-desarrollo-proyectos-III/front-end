@@ -4,17 +4,18 @@ import { VolunteerItem } from "./VolunteerItem";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
-import styles from "./styles.module.scss";
+import { TableItem } from "$components/Table/TableItem";
 
 export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
   <Table>
     <TableHeader>
-      <th>DOCUMENTO</th>
-      <th>APELLIDO</th>
-      <th>NOMBRE</th>
-      <th />
+      <TableItem>NOMBRE</TableItem>
+      <TableItem>APELLIDO</TableItem>
+      <TableItem>Comisiones</TableItem>
+      <TableItem>Roles</TableItem>
+      <TableItem />
     </TableHeader>
-    <TableBody className={styles.body}>
+    <TableBody>
       {volunteers.map(item => (
         <VolunteerItem key={item.uuid} {...item} />
       ))}

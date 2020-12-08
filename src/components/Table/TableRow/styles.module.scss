@@ -1,0 +1,16 @@
+@import "~$styles/variables";
+
+.row {
+  display: flex;
+  flex: 1;
+  min-height: $spacing-xxl;
+  padding: 0 $spacing-m 0 $spacing-s;
+
+  &:nth-child(odd) {
+    background-color: $superlightgray;
+  }
+
+  &:hover {
+    background-color: #dde6ee;
+  }
+}
