@@ -11,8 +11,8 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
     <TableHeader>
       <TableItem>NOMBRE</TableItem>
       <TableItem>APELLIDO</TableItem>
-      <TableItem>Comisiones</TableItem>
-      <TableItem>Roles</TableItem>
+      <TableItem>COMISIONES</TableItem>
+      <TableItem>ROLES</TableItem>
       <TableItem />
     </TableHeader>
     <TableBody>
