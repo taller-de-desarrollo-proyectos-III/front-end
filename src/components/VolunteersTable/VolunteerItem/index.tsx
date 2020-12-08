@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { IVolunteer } from "$hooks/Volunteers";
 import { TableRow } from "$components/Table/TableRow";
+import { TableItem } from "$components/Table/TableItem";
 import { ActionItem } from "$components/Table/ActionItem";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models";
@@ -9,15 +10,9 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surna
   const history = useHistory();
   return (
     <TableRow>
-      <td>
-        <h5>{dni}</h5>
-      </td>
-      <td>
-        <h5>{surname}</h5>
-      </td>
-      <td>
-        <h5>{name}</h5>
-      </td>
+      <TableItem>{dni}</TableItem>
+      <TableItem>{surname}</TableItem>
+      <TableItem>{name}</TableItem>
       <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(uuid))}>
         Ver
       </ActionItem>

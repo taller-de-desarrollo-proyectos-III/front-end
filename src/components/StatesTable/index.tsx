@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { IState } from "$hooks";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
+import { TableItem } from "$components/Table/TableItem";
 import { TableBody } from "$components/Table/TableBody";
 import { StateItem } from "./StateItem";
 
@@ -12,8 +13,8 @@ export const StatesTable: FunctionComponent<IComponentProps> = ({
 }) => (
   <Table className={className}>
     <TableHeader>
-      <th>NOMBRE</th>
-      {!readonly && <th />}
+      <TableItem>NOMBRE</TableItem>
+      {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>
       {states.map(state => (

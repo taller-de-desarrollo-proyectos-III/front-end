@@ -3,6 +3,7 @@ import { ICommission } from "$hooks";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
+import { TableItem } from "$components/Table/TableItem";
 import { CommissionItem } from "./CommissionItem";
 
 export const CommissionsTable: FunctionComponent<IComponentProps> = ({
@@ -12,8 +13,8 @@ export const CommissionsTable: FunctionComponent<IComponentProps> = ({
 }) => (
   <Table className={className}>
     <TableHeader>
-      <th>NOMBRE</th>
-      {!readonly && <th />}
+      <TableItem>NOMBRE</TableItem>
+      {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>
       {commissions.map(commission => (

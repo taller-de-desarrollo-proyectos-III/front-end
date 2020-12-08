@@ -2,19 +2,11 @@
 
 .tableHeader {
   background-color: $greenTableHeader;
+  box-shadow: 0 0 $spacing-s rgba(0, 0, 0, 0.15);
   color: $white;
-  text-align: center;
-}
-
-th {
-  height: 44px;
-  width: 30em;
-}
-
-th:first-child {
-  border-top-left-radius: 15px;
-}
-
-th:last-child {
-  border-top-right-radius: 15px;
+  display: flex;
+  flex: 1;
+  padding: 0 $spacing-m 0 $spacing-s;
+  position: sticky;
+  top: 0;
 }

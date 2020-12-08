@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { EditCommissionForm } from "$components/EditCommissionForm";
 import { TableRow } from "$components/Table/TableRow";
 import { ActionItem } from "$components/Table/ActionItem";
+import { TableItem } from "$components/Table/TableItem";
 import { IComponentProps } from "./interfaces";
 
 export const CommissionItem: FunctionComponent<IComponentProps> = ({
@@ -12,9 +13,7 @@ export const CommissionItem: FunctionComponent<IComponentProps> = ({
 }) => (
   <>
     <TableRow>
-      <td>
-        <h5>{commission.name}</h5>
-      </td>
+      <TableItem>{commission.name}</TableItem>
       {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
     </TableRow>
     {!readonly && (

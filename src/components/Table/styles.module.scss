@@ -1,15 +1,10 @@
 @import "~$styles/variables";
 
 .tableOverview {
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  display: block;
-  justify-content: center;
-  margin: 3px;
+  overflow-y: auto;
+  padding: 0;
+  width: 100%;
 }

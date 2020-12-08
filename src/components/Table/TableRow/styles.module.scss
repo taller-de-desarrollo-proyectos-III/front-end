@@ -1,10 +1,16 @@
 @import "~$styles/variables";
 
-.tableItem {
-  background-color: $white;
-  line-height: 0;
-  text-align: center;
-}
+.row {
+  display: flex;
+  flex: 1;
+  min-height: $spacing-xxl;
+  padding: 0 $spacing-m 0 $spacing-s;
 
-.tableItem:nth-child(odd) { background: $superlightgray; }
-.tableItem:nth-child(even) { background: $white; }
+  &:nth-child(odd) {
+    background-color: $superlightgray;
+  }
+
+  &:hover {
+    background-color: #dde6ee;
+  }
+}

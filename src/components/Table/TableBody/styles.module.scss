@@ -1,15 +1,7 @@
 @import "~$styles/variables";
 
-td {
-  width: 30em;
-}
-
-.body tr:last-child {
-  td:first-child {
-    border-bottom-left-radius: 15px;
-  }
-
-  td:last-child {
-    border-bottom-right-radius: 15px;
-  }
+.body {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
