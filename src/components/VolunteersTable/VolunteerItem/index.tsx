@@ -6,14 +6,15 @@ import { ActionItem } from "$components/Table/ActionItem";
 import { useHistory } from "react-router-dom";
 import { RoutesBuilder } from "$models";
 
-export const VolunteerItem: FunctionComponent<IVolunteer> = ({ uuid, name, surname, dni }) => {
+export const VolunteerItem: FunctionComponent<IVolunteer> = volunteer => {
   const history = useHistory();
   return (
     <TableRow>
-      <TableItem>{dni}</TableItem>
-      <TableItem>{surname}</TableItem>
-      <TableItem>{name}</TableItem>
-      <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(uuid))}>
+      <TableItem>{volunteer.name}</TableItem>
+      <TableItem>{volunteer.surname}</TableItem>
+      <TableItem>{volunteer.commissions.map(commission => commission.name).join(",")}</TableItem>
+      <TableItem>{volunteer.roles.map(role => role.name).join(",")}</TableItem>
+      <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(volunteer.uuid))}>
         Ver
       </ActionItem>
     </TableRow>

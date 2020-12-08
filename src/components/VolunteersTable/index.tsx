@@ -9,9 +9,10 @@ import { TableItem } from "$components/Table/TableItem";
 export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers }) => (
   <Table>
     <TableHeader>
-      <TableItem>DOCUMENTO</TableItem>
-      <TableItem>APELLIDO</TableItem>
       <TableItem>NOMBRE</TableItem>
+      <TableItem>APELLIDO</TableItem>
+      <TableItem>Comisiones</TableItem>
+      <TableItem>Roles</TableItem>
       <TableItem />
     </TableHeader>
     <TableBody>
