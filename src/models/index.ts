@@ -3,3 +3,4 @@ export * from "./RegExBuilder";
 export * from "./nullToUndefined";
 export * from "./VolunteerSerializer";
 export * from "./CommissionsSerializer";
+export * from "./RolesSerializer";
