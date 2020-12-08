@@ -7,7 +7,7 @@ describe("CommissionsSerializer", () => {
       { uuid: "uuid", name: "secondCommission" }
     ];
     const serializedCommissions = CommissionsSerializer.serialize(commissions);
-    expect(serializedCommissions).toEqual("firstCommission,secondCommission");
+    expect(serializedCommissions).toEqual("firstCommission, secondCommission");
   });
 
   it("return an empty string if given an empty array", async () => {

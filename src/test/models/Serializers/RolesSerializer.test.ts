@@ -7,7 +7,7 @@ describe("RolesSerializer", () => {
       { uuid: "uuid", name: "secondRole" }
     ];
     const serializedRoles = RolesSerializer.serialize(commissions);
-    expect(serializedRoles).toEqual("firstRole,secondRole");
+    expect(serializedRoles).toEqual("firstRole, secondRole");
   });
 
   it("return an empty string if given an empty array", async () => {
