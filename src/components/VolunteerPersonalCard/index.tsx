@@ -1,63 +1,72 @@
-import { Card } from "$components/Card";
-import classNames from "classnames";
 import React, { FunctionComponent } from "react";
-import styles from "./styles.module.scss";
+import classNames from "classnames";
+import { Card } from "$components/Card";
 import { CommissionsTable } from "$components/CommissionsTable";
-import { ICommission } from "$hooks/Commissions";
 import { TextField } from "@material-ui/core";
 import { RolesTable } from "$components/RolesTable";
-import { IRole } from "../../hooks/Roles";
+import { IVolunteer } from "$hooks";
+import styles from "./styles.module.scss";
+import { LoadingSpinner } from "../LoadingSpinner";
 
-export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = props => (
+export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = ({ volunteer }) => (
   <div className={styles.mainContainer}>
     <Card className={styles.cardPersonalData}>
       <h3>Información personal</h3>
       <form className={styles.form}>
         <div className={styles.fieldContainer}>
           <div className={styles.field}>
-            <TextField
-              label={"Número de documento"}
-              defaultValue={props.dni}
-              variant={"outlined"}
-              fullWidth
-              InputProps={{
-                readOnly: true
-              }}
-            />
+            {!volunteer && <LoadingSpinner />}
+            {volunteer && (
+              <TextField
+                label={"Número de documento"}
+                defaultValue={volunteer.dni}
+                variant={"outlined"}
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            )}
           </div>
         </div>
         <div className={styles.fieldContainer}>
           <div className={styles.field}>
-            <TextField
-              label={"Correo electrónico"}
-              defaultValue={props.email}
-              variant={"outlined"}
-              fullWidth
-              InputProps={{
-                readOnly: true
-              }}
-            />
+            {!volunteer && <LoadingSpinner />}
+            {volunteer && (
+              <TextField
+                label={"Correo electrónico"}
+                defaultValue={volunteer.email}
+                variant={"outlined"}
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            )}
           </div>
         </div>
         <div className={styles.fieldContainer}>
           <div className={styles.field}>
-            <TextField
-              label={"Teléfono"}
-              defaultValue={props.phoneNumber}
-              variant={"outlined"}
-              fullWidth
-              InputProps={{
-                readOnly: true
-              }}
-            />
+            {!volunteer && <LoadingSpinner />}
+            {volunteer && (
+              <TextField
+                label={"Teléfono"}
+                defaultValue={volunteer.phoneNumber}
+                variant={"outlined"}
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            )}
           </div>
         </div>
-        {props.telegram && (
+        {volunteer && volunteer.telegram && (
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
                 label={"Telegram"}
-                defaultValue={props.telegram}
+                defaultValue={volunteer.telegram}
                 variant={"outlined"}
                 fullWidth
                 InputProps={{
@@ -67,12 +76,12 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             </div>
           </div>
         )}
-        {props.admissionYear && (
+        {volunteer && volunteer.admissionYear && (
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
                 label={"Año de ingreso"}
-                defaultValue={props.admissionYear}
+                defaultValue={volunteer.admissionYear}
                 variant={"outlined"}
                 fullWidth
                 InputProps={{
@@ -82,12 +91,12 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             </div>
           </div>
         )}
-        {props.graduationYear && (
+        {volunteer && volunteer.graduationYear && (
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
                 label={"Año de graduación"}
-                defaultValue={props.graduationYear}
+                defaultValue={volunteer.graduationYear}
                 variant={"outlined"}
                 fullWidth
                 InputProps={{
@@ -97,12 +106,12 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             </div>
           </div>
         )}
-        {props.country && (
+        {volunteer && volunteer.country && (
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
                 label={"Nacionalidad"}
-                defaultValue={props.country}
+                defaultValue={volunteer.country}
                 variant={"outlined"}
                 fullWidth
                 InputProps={{
@@ -112,12 +121,12 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             </div>
           </div>
         )}
-        {props.notes && (
+        {volunteer && volunteer.notes && (
           <div className={styles.notesFieldContainer}>
             <div className={styles.field}>
               <TextField
                 label={"Notas"}
-                defaultValue={props.notes}
+                defaultValue={volunteer.notes}
                 variant={"outlined"}
                 multiline
                 fullWidth
@@ -130,32 +139,25 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
         )}
       </form>
     </Card>
-    <Card className={classNames(styles.commissions, styles.card)}>
-      <h3>Comisiones</h3>
-      <CommissionsTable
-        readonly
-        className={styles.commissionsTable}
-        commissions={props.commissions}
-      />
-    </Card>
-    {props.roles.length > 0 && (
+    {volunteer && volunteer.commissions.length > 0 && (
+      <Card className={classNames(styles.commissions, styles.card)}>
+        <h3>Comisiones</h3>
+        <CommissionsTable
+          readonly
+          className={styles.commissionsTable}
+          commissions={volunteer.commissions}
+        />
+      </Card>
+    )}
+    {volunteer && volunteer.roles.length > 0 && (
       <Card className={classNames(styles.roles, styles.card)}>
         <h3>Roles</h3>
-        <RolesTable readonly className={styles.rolesTable} roles={props.roles} />
+        <RolesTable readonly className={styles.rolesTable} roles={volunteer.roles} />
       </Card>
     )}
   </div>
 );
 
 export interface IVolunteerPersonalCard {
-  dni: string;
-  email: string;
-  phoneNumber: string;
-  telegram?: string;
-  admissionYear?: string;
-  graduationYear?: string;
-  country?: string;
-  notes?: string;
-  commissions: ICommission[];
-  roles: IRole[];
+  volunteer?: IVolunteer;
 }

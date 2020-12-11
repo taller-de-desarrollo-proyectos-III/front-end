@@ -7,45 +7,31 @@ import { VolunteerPersonalCard } from "$components/VolunteerPersonalCard";
 import styles from "./styles.module.scss";
 import linkedinLogo from "$images/LI-In-Bug.png";
 import { Button } from "$components/Button";
-import { RoutesBuilder } from "$models";
-import { useHistory } from "react-router-dom";
 
-export const VolunteerDetail: FunctionComponent<IVolunteer> = volunteer => {
-  const history = useHistory();
-  return (
-    <MainContent>
-      <NavBar />
-      <div className={styles.titleContainer}>
-        <Title title={`${volunteer.name} ${volunteer.surname}`} />
-        {volunteer.linkedin && (
-          <a
-            className={styles.linkedinLink}
-            href={volunteer.linkedin}
-            target={"_blank"}
-            rel={"noopener noreferrer"}
-          >
-            <img className={styles.linkedinLogo} src={linkedinLogo} alt="linkedin-logo" />
-          </a>
-        )}
-        <Button
-          className={styles.button}
-          onClick={() => history.push(RoutesBuilder.volunteers.edit(volunteer.uuid))}
+export const VolunteerDetail: FunctionComponent<IComponentProps> = ({ volunteer, onClickEdit }) => (
+  <MainContent>
+    <NavBar />
+    <div className={styles.titleContainer}>
+      <Title title={`${volunteer?.name} ${volunteer?.surname}`} />
+      {volunteer?.linkedin && (
+        <a
+          className={styles.linkedinLink}
+          href={volunteer?.linkedin}
+          target={"_blank"}
+          rel={"noopener noreferrer"}
         >
-          Editar
-        </Button>
-      </div>
-      <VolunteerPersonalCard
-        dni={volunteer.dni}
-        email={volunteer.email}
-        phoneNumber={volunteer.phoneNumber}
-        telegram={volunteer.telegram}
-        admissionYear={volunteer.admissionYear}
-        graduationYear={volunteer.graduationYear}
-        country={volunteer.country}
-        notes={volunteer.notes}
-        commissions={volunteer.commissions}
-        roles={volunteer.roles}
-      />
-    </MainContent>
-  );
-};
+          <img className={styles.linkedinLogo} src={linkedinLogo} alt="linkedin-logo" />
+        </a>
+      )}
+      <Button className={styles.button} onClick={onClickEdit}>
+        Editar
+      </Button>
+    </div>
+    <VolunteerPersonalCard volunteer={volunteer} />
+  </MainContent>
+);
+
+interface IComponentProps {
+  volunteer?: IVolunteer;
+  onClickEdit: () => void;
+}
