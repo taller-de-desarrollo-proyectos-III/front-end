@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IState } from "$hooks";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableItem } from "$components/Table/TableItem";
@@ -17,9 +18,9 @@ export const StatesTable: FunctionComponent<IComponentProps> = ({
       {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>
-      {states.map(state => (
-        <StateItem readonly={readonly} key={state.uuid} state={state} />
-      ))}
+      {!states && <LoadingSpinner />}
+      {states &&
+        states.map(state => <StateItem readonly={readonly} key={state.uuid} state={state} />)}
     </TableBody>
   </Table>
 );
@@ -27,5 +28,5 @@ export const StatesTable: FunctionComponent<IComponentProps> = ({
 interface IComponentProps {
   readonly?: boolean;
   className?: string;
-  states: IState[];
+  states?: IState[];
 }

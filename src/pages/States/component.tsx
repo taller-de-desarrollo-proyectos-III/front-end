@@ -27,7 +27,7 @@ export const States: FunctionComponent<IComponentProps> = ({
 );
 
 interface IComponentProps {
-  states: IState[];
+  states?: IState[];
   setOpenStateForm: (isOpen: boolean) => void;
   openStateForm: boolean;
 }
