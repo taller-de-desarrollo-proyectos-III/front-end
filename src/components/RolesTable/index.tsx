@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { IRole } from "$hooks";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
@@ -13,9 +14,8 @@ export const RolesTable: FunctionComponent<IComponentProps> = ({ roles, classNam
       {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>
-      {roles.map(role => (
-        <RoleItem readonly={readonly} key={role.uuid} role={role} />
-      ))}
+      {!roles && <LoadingSpinner />}
+      {roles && roles.map(role => <RoleItem readonly={readonly} key={role.uuid} role={role} />)}
     </TableBody>
   </Table>
 );
@@ -23,5 +23,5 @@ export const RolesTable: FunctionComponent<IComponentProps> = ({ roles, classNam
 interface IComponentProps {
   readonly?: boolean;
   className?: string;
-  roles: IRole[];
+  roles?: IRole[];
 }

@@ -27,7 +27,7 @@ export const Roles: FunctionComponent<IComponentProps> = ({
 );
 
 interface IComponentProps {
-  roles: IRole[];
+  roles?: IRole[];
   setOpenRoleForm: (isOpen: boolean) => void;
   openRoleForm: boolean;
 }
