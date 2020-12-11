@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { ICommission } from "$hooks";
+import { LoadingSpinner } from "$components/LoadingSpinner";
 import { Table } from "$components/Table";
 import { TableHeader } from "$components/Table/TableHeader";
 import { TableBody } from "$components/Table/TableBody";
@@ -17,9 +18,11 @@ export const CommissionsTable: FunctionComponent<IComponentProps> = ({
       {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>
-      {commissions.map(commission => (
-        <CommissionItem readonly={readonly} key={commission.uuid} commission={commission} />
-      ))}
+      {!commissions && <LoadingSpinner />}
+      {commissions &&
+        commissions.map(commission => (
+          <CommissionItem readonly={readonly} key={commission.uuid} commission={commission} />
+        ))}
     </TableBody>
   </Table>
 );
@@ -27,5 +30,5 @@ export const CommissionsTable: FunctionComponent<IComponentProps> = ({
 interface IComponentProps {
   readonly?: boolean;
   className?: string;
-  commissions: ICommission[];
+  commissions?: ICommission[];
 }

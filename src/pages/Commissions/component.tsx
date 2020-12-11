@@ -30,7 +30,7 @@ export const Commissions: FunctionComponent<IComponentProps> = ({
 );
 
 interface IComponentProps {
-  commissions: ICommission[];
+  commissions?: ICommission[];
   setOpenCommissionForm: (isOpen: boolean) => void;
   openCommissionForm: boolean;
 }
