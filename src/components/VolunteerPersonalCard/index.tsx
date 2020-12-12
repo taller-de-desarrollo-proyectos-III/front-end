@@ -50,6 +50,22 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             {!volunteer && <LoadingSpinner />}
             {volunteer && (
               <TextField
+                label={"Estado"}
+                defaultValue={volunteer.stateUuid}
+                variant={"outlined"}
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            )}
+          </div>
+        </div>
+        <div className={styles.fieldContainer}>
+          <div className={styles.field}>
+            {!volunteer && <LoadingSpinner />}
+            {volunteer && (
+              <TextField
                 label={"Teléfono"}
                 defaultValue={volunteer.phoneNumber}
                 variant={"outlined"}

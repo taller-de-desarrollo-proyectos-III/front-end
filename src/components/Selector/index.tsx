@@ -12,6 +12,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 export const Selector: FunctionComponent<IComponent> = ({
   className,
   label,
+  multiple,
   options,
   selectedOptions,
   setSelectedOptions,
@@ -20,13 +21,14 @@ export const Selector: FunctionComponent<IComponent> = ({
   const allOption = { uuid: "ALL", name: "TODOS" };
   const getOptions = () => {
     if (options.length === 0) return [];
-    return [allOption].concat(options);
+    if (multiple) return [allOption].concat(options);
+    return options;
   };
 
   const getDefaultValue = () => {
     if (initialValues) return initialValues;
     if (options.length === 0) return [];
-    if (options.length === selectedOptions.length) return [allOption];
+    if (options.length === selectedOptions.length && multiple) return [allOption];
     return selectedOptions;
   };
 
@@ -35,12 +37,20 @@ export const Selector: FunctionComponent<IComponent> = ({
   return (
     <Autocomplete
       className={className}
-      multiple
+      multiple={multiple}
       defaultValue={defaultValue}
       options={getOptions()}
       disableCloseOnSelect
       getOptionSelected={(option, value) => option.uuid === value.uuid}
-      onChange={(_, selected) => setSelectedOptions(selected)}
+      onChange={(_, selected) => {
+        let selectedItems: IOption[] = [];
+        if (Array.isArray(selected)) {
+          selectedItems = selected;
+        } else if (selected) {
+          selectedItems = [selected];
+        }
+        setSelectedOptions(selectedItems);
+      }}
       getOptionLabel={option => option.name}
       renderOption={(option, state) => {
         const all = selectedOptions.find(selected => selected.uuid === "ALL");
@@ -68,6 +78,7 @@ interface IOption {
 interface IComponent {
   label: string;
   className?: string;
+  multiple: boolean;
   options: IOption[];
   selectedOptions: IOption[];
   initialValues?: IOption[];

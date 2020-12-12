@@ -13,7 +13,8 @@ describe("VolunteerSerializer", () => {
     admissionYear: "2016",
     graduationYear: "2016",
     country: "Argentina",
-    notes: "Notes"
+    notes: "Notes",
+    stateUuid: "stateUuid"
   };
 
   it("serializes a volunteer with commissions an roles", async () => {

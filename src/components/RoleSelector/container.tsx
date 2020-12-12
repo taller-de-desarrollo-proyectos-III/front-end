@@ -38,6 +38,7 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
         <Selector
           label={label}
           className={className}
+          multiple
           options={roles}
           setSelectedOptions={onChange}
           selectedOptions={selectedOptions}

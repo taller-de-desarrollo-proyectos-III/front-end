@@ -14,6 +14,7 @@ export type TCommissionUuids = string[] | "ALL";
 export interface IInitialValues {
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
+  stateUuid: string;
 }
 
 export interface IComponentProps extends ICommonProps {

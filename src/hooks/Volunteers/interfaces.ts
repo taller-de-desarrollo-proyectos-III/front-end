@@ -16,4 +16,5 @@ export interface IVolunteer {
   notes?: string;
   commissions: ICommission[];
   roles: IRole[];
+  stateUuid: string;
 }

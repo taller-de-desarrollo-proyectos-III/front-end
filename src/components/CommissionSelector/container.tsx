@@ -37,6 +37,7 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
         <Selector
           label={label}
           className={className}
+          multiple
           options={commissions}
           setSelectedOptions={onChange}
           selectedOptions={selectedOptions}
