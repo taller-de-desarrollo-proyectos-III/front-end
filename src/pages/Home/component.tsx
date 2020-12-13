@@ -23,6 +23,9 @@ export const Home: FunctionComponent<IComponentProps> = ({
   <MainContent>
     <NavBar />
     <Title className={styles.title} title={"Listado de Voluntaries"} />
+    <Button className={styles.addVolunteer} onClick={onClickAddVolunteers}>
+      Agregar
+    </Button>
     <div className={styles.tableContainer}>
       <div className={styles.columnFilter}>
         <VolunteersFilter initialValues={filter} onApplyFilter={setFilter} />
@@ -39,9 +42,6 @@ export const Home: FunctionComponent<IComponentProps> = ({
         </Card>
       </div>
       <div className={styles.tableContent}>
-        <Button className={styles.addVolunteer} onClick={onClickAddVolunteers}>
-          Agregar
-        </Button>
         <VolunteersTable volunteers={volunteers} />
       </div>
     </div>
