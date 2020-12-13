@@ -17,7 +17,7 @@ export const StateSelectorContainer: FunctionComponent<FieldAttributes<any>> = (
   if (states === undefined) return <LoadingSpinner />;
 
   const onChange = (selectedStates: IState[]) => {
-    if (selectedStates.length > 0) setFieldValue("stateUuid", selectedStates[0].uuid);
+    if (selectedStates.length > 0) return setFieldValue("stateUuid", selectedStates[0].uuid);
     setFieldValue("stateUuid", null);
   };
 
