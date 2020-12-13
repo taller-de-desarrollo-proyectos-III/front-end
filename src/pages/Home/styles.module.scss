@@ -29,12 +29,14 @@
 }
 
 .exportButton {
+  cursor: unset;
   display: flex;
   flex: 1;
 }
 
 .downloadButton {
   color: #fff;
+  cursor: pointer;
 }
 
 .downloadForm {
