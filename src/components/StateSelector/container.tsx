@@ -17,12 +17,11 @@ export const StateSelectorContainer: FunctionComponent<FieldAttributes<any>> = (
   if (states === undefined) return <LoadingSpinner />;
 
   const onChange = (selectedStates: IState[]) => {
-    let selectedState = null;
-    if (selectedStates.length > 0) selectedState = selectedStates[0].uuid;
-    setFieldValue("stateUuid", selectedState);
+    if (selectedStates.length > 0) setFieldValue("stateUuid", selectedStates[0].uuid);
+    setFieldValue("stateUuid", null);
   };
 
-  const selectedOption = states.filter(state => state.uuid !== values.stateUuid);
+  const selectedOption = states.filter(state => state.uuid === values.stateUuid);
 
   return (
     <FastField {...props}>

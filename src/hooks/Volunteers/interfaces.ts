@@ -1,5 +1,6 @@
 import { ICommission } from "../Commissions";
 import { IRole } from "../Roles";
+import { IState } from "../States";
 
 export interface IVolunteer {
   uuid: string;
@@ -16,5 +17,5 @@ export interface IVolunteer {
   notes?: string;
   commissions: ICommission[];
   roles: IRole[];
-  stateUuid: string;
+  state: IState;
 }

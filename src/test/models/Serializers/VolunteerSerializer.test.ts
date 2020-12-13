@@ -14,7 +14,7 @@ describe("VolunteerSerializer", () => {
     graduationYear: "2016",
     country: "Argentina",
     notes: "Notes",
-    stateUuid: "stateUuid"
+    state: { uuid: "uuid", name: "state" }
   };
 
   it("serializes a volunteer with commissions an roles", async () => {
@@ -34,7 +34,8 @@ describe("VolunteerSerializer", () => {
     expect(serializedVolunteer).toEqual({
       ...attributes,
       commissions: "firstCommission, secondCommission",
-      roles: "firstRole, secondRole"
+      roles: "firstRole, secondRole",
+      state: "state"
     });
   });
 
@@ -42,6 +43,11 @@ describe("VolunteerSerializer", () => {
     const volunteer = { ...volunteerAttributes, commissions: [], roles: [] };
     const serializedVolunteer = VolunteerSerializer.serialize(volunteer);
     const { uuid, ...attributes } = volunteerAttributes;
-    expect(serializedVolunteer).toEqual({ ...attributes, commissions: "", roles: "" });
+    expect(serializedVolunteer).toEqual({
+      ...attributes,
+      commissions: "",
+      roles: "",
+      state: "state"
+    });
   });
 });

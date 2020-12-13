@@ -51,7 +51,7 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             {volunteer && (
               <TextField
                 label={"Estado"}
-                defaultValue={volunteer.stateUuid}
+                defaultValue={volunteer.state.name}
                 variant={"outlined"}
                 fullWidth
                 InputProps={{

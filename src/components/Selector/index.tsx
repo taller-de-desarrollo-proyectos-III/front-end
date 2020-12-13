@@ -29,6 +29,7 @@ export const Selector: FunctionComponent<IComponent> = ({
     if (initialValues) return initialValues;
     if (options.length === 0) return [];
     if (options.length === selectedOptions.length && multiple) return [allOption];
+    if (selectedOptions.length === 0 && !multiple) return null;
     return selectedOptions;
   };
 
@@ -41,17 +42,25 @@ export const Selector: FunctionComponent<IComponent> = ({
       defaultValue={defaultValue}
       options={getOptions()}
       disableCloseOnSelect
-      getOptionSelected={(option, value) => option.uuid === value.uuid}
-      onChange={(_, selected) => {
-        let selectedItems: IOption[] = [];
-        if (Array.isArray(selected)) {
-          selectedItems = selected;
-        } else if (selected) {
-          selectedItems = [selected];
+      getOptionSelected={(option, value) => {
+        if (Array.isArray(value) && value[0]) {
+          return option.uuid === value[0].uuid;
         }
-        setSelectedOptions(selectedItems);
+        return option.uuid === value.uuid;
       }}
-      getOptionLabel={option => option.name}
+      onChange={(_, selected) => {
+        if (Array.isArray(selected)) {
+          setSelectedOptions(selected);
+        } else if (selected) {
+          setSelectedOptions([selected]);
+        }
+      }}
+      getOptionLabel={option => {
+        if (Array.isArray(option) && option[0]) {
+          return option[0].name;
+        }
+        return option.name;
+      }}
       renderOption={(option, state) => {
         const all = selectedOptions.find(selected => selected.uuid === "ALL");
         if (all) state.selected = true;
