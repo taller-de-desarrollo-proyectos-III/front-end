@@ -10,11 +10,12 @@ export interface IContainerProps extends ICommonProps {
 
 export type TRoleUuids = string[] | "ALL";
 export type TCommissionUuids = string[] | "ALL";
+export type TStateUuids = string[] | "ALL";
 
 export interface IInitialValues {
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
-  stateUuid: string;
+  stateUuids: TStateUuids;
 }
 
 export interface IComponentProps extends ICommonProps {

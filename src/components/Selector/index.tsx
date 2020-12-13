@@ -87,7 +87,7 @@ interface IOption {
 interface IComponent {
   label: string;
   className?: string;
-  multiple: boolean;
+  multiple?: boolean;
   options: IOption[];
   selectedOptions: IOption[];
   initialValues?: IOption[];

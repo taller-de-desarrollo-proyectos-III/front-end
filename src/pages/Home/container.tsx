@@ -7,7 +7,7 @@ export const HomeContainer: FunctionComponent = () => {
   const [filter, setFilter] = useState<IInitialValues>({
     commissionUuids: "ALL",
     roleUuids: "ALL",
-    stateUuid: "ALL"
+    stateUuids: "ALL"
   });
   const volunteers = useGetVolunteers({ filter });
   return <Home volunteers={volunteers} filter={filter} setFilter={setFilter} />;
