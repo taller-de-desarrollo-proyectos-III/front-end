@@ -23,7 +23,7 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
       setFieldValue("stateUuid", null);
     } else {
       if (selectedStates.map(({ uuid }) => uuid).includes("ALL")) {
-        return setFieldValue("roleUuids", "ALL");
+        return setFieldValue("stateUuids", "ALL");
       }
       setFieldValue(
         "stateUuids",
