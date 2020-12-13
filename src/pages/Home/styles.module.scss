@@ -29,14 +29,18 @@
   margin-bottom: $spacing-l;
 }
 
+.exportButton {
+  display: flex;
+  flex: 1;
+}
+
 .downloadButton {
   color: #fff;
 }
 
 .downloadForm {
   border-color: $greenTableHeader;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   margin-top: $spacing-m;
-  max-width: 50%;
-  position: center;
 }

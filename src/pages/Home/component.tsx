@@ -27,7 +27,7 @@ export const Home: FunctionComponent<IComponentProps> = ({
       <div className={styles.columnFilter}>
         <VolunteersFilter initialValues={filter} onApplyFilter={setFilter} />
         <Card className={styles.downloadForm}>
-          <Button>
+          <Button className={styles.exportButton}>
             <CSVLink
               data={volunteers.map(VolunteerSerializer.serialize)}
               filename={"Voluntaries.csv"}
