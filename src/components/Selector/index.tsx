@@ -12,6 +12,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 export const Selector: FunctionComponent<IComponent> = ({
   className,
   label,
+  multiple,
   options,
   selectedOptions,
   setSelectedOptions,
@@ -20,13 +21,15 @@ export const Selector: FunctionComponent<IComponent> = ({
   const allOption = { uuid: "ALL", name: "TODOS" };
   const getOptions = () => {
     if (options.length === 0) return [];
-    return [allOption].concat(options);
+    if (multiple) return [allOption].concat(options);
+    return options;
   };
 
   const getDefaultValue = () => {
     if (initialValues) return initialValues;
     if (options.length === 0) return [];
-    if (options.length === selectedOptions.length) return [allOption];
+    if (options.length === selectedOptions.length && multiple) return [allOption];
+    if (selectedOptions.length === 0 && !multiple) return null;
     return selectedOptions;
   };
 
@@ -35,13 +38,29 @@ export const Selector: FunctionComponent<IComponent> = ({
   return (
     <Autocomplete
       className={className}
-      multiple
+      multiple={multiple}
       defaultValue={defaultValue}
       options={getOptions()}
       disableCloseOnSelect
-      getOptionSelected={(option, value) => option.uuid === value.uuid}
-      onChange={(_, selected) => setSelectedOptions(selected)}
-      getOptionLabel={option => option.name}
+      getOptionSelected={(option, value) => {
+        if (Array.isArray(value) && value[0]) {
+          return option.uuid === value[0].uuid;
+        }
+        return option.uuid === value.uuid;
+      }}
+      onChange={(_, selected) => {
+        if (Array.isArray(selected)) {
+          setSelectedOptions(selected);
+        } else if (selected) {
+          setSelectedOptions([selected]);
+        }
+      }}
+      getOptionLabel={option => {
+        if (Array.isArray(option) && option[0]) {
+          return option[0].name;
+        }
+        return option.name;
+      }}
       renderOption={(option, state) => {
         const all = selectedOptions.find(selected => selected.uuid === "ALL");
         if (all) state.selected = true;
@@ -68,6 +87,7 @@ interface IOption {
 interface IComponent {
   label: string;
   className?: string;
+  multiple: boolean;
   options: IOption[];
   selectedOptions: IOption[];
   initialValues?: IOption[];

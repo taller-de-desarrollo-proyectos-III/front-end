@@ -21,4 +21,5 @@ export interface IUseCreateVolunteerVariables {
   notes?: string;
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
+  stateUuid?: string;
 }

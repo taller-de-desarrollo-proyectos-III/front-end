@@ -6,7 +6,8 @@ import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 export const HomeContainer: FunctionComponent = () => {
   const [filter, setFilter] = useState<IInitialValues>({
     commissionUuids: "ALL",
-    roleUuids: "ALL"
+    roleUuids: "ALL",
+    stateUuid: "ALL"
   });
   const volunteers = useGetVolunteers({ filter });
   return <Home volunteers={volunteers} filter={filter} setFilter={setFilter} />;
