@@ -14,6 +14,7 @@ export const VolunteerItem: FunctionComponent<IVolunteer> = volunteer => {
       <TableItem>{volunteer.surname}</TableItem>
       <TableItem>{CommissionsSerializer.serialize(volunteer.commissions) || "No tiene"}</TableItem>
       <TableItem>{RolesSerializer.serialize(volunteer.roles) || "No tiene"}</TableItem>
+      <TableItem>{volunteer.state.name}</TableItem>
       <ActionItem onClick={() => history.push(RoutesBuilder.volunteers.detail(volunteer.uuid))}>
         Ver
       </ActionItem>

@@ -13,6 +13,7 @@ export const VolunteersTable: FunctionComponent<VolunteersProps> = ({ volunteers
       <TableItem>APELLIDO</TableItem>
       <TableItem>COMISIONES</TableItem>
       <TableItem>ROLES</TableItem>
+      <TableItem>ESTADO</TableItem>
       <TableItem />
     </TableHeader>
     <TableBody>

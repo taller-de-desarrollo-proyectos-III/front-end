@@ -1,11 +1,13 @@
 @import "~$styles/variables";
 
 .tableContainer {
+  display: flex;
   margin-top: $spacing-s;
 }
 
 .columnFilter {
-  float: left;
+  display: flex;
+  flex-direction: column;
   width: 20%;
 }
 
@@ -15,29 +17,31 @@
 }
 
 .tableContent {
-  float: right;
-  width: 75%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 50px;
 }
 
-.formControl {
-  border-color: $greenTableHeader;
-  display: flex;
-  max-width: 20%;
+.addVolunteer {
+  align-self: flex-end;
+  margin-bottom: $spacing-l;
 }
 
-.labelFilter {
+.exportButton {
+  cursor: unset;
   display: flex;
-  font-palette: light;
+  flex: 1;
 }
 
 .downloadButton {
   color: #fff;
+  cursor: pointer;
 }
 
 .downloadForm {
   border-color: $greenTableHeader;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   margin-top: $spacing-m;
-  max-width: 50%;
-  position: center;
 }

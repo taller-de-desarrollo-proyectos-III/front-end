@@ -6,7 +6,7 @@ import { Card } from "$components/Card";
 import { Button } from "$components/Button";
 import { MainContent } from "$components/MainContent";
 import { NavBar } from "$components/NavBar";
-import { NavBarVolunteerList } from "$components/NavBarVoluntariesList";
+import { Title } from "$components/Title";
 import { VolunteersFilter } from "$components/VolunteersFilter";
 import { IInitialValues } from "$components/VolunteersFilter/interfaces";
 
@@ -14,15 +14,23 @@ import { IVolunteer } from "$hooks";
 
 import styles from "./styles.module.scss";
 
-export const Home: FunctionComponent<IComponentProps> = ({ volunteers, setFilter, filter }) => (
+export const Home: FunctionComponent<IComponentProps> = ({
+  volunteers,
+  setFilter,
+  filter,
+  onClickAddVolunteers
+}) => (
   <MainContent>
     <NavBar />
-    <NavBarVolunteerList />
+    <Title className={styles.title} title={"Listado de Voluntaries"} />
+    <Button className={styles.addVolunteer} onClick={onClickAddVolunteers}>
+      Agregar
+    </Button>
     <div className={styles.tableContainer}>
       <div className={styles.columnFilter}>
         <VolunteersFilter initialValues={filter} onApplyFilter={setFilter} />
         <Card className={styles.downloadForm}>
-          <Button>
+          <Button className={styles.exportButton}>
             <CSVLink
               data={volunteers.map(VolunteerSerializer.serialize)}
               filename={"Voluntaries.csv"}
@@ -44,4 +52,5 @@ interface IComponentProps {
   filter: IInitialValues;
   setFilter: (values: IInitialValues) => void;
   volunteers: IVolunteer[];
+  onClickAddVolunteers: () => void;
 }

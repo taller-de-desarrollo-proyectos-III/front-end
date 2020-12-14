@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { Form, Formik } from "formik";
 import { CommissionSelector } from "$components/CommissionSelector";
 import { RoleSelector } from "$components/RoleSelector";
+import { StateSelector } from "$components/StateSelector";
 import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 import { Card } from "$components/Card";
@@ -28,6 +29,14 @@ export const VolunteersFilter: FunctionComponent<IComponentProps> = ({
             name={"roleUuids"}
             label={"Roles"}
             disabled={isSubmitting}
+            fullWidth
+          />
+          <StateSelector
+            className={styles.selector}
+            name={"stateUuids"}
+            label={"Estados"}
+            disabled={isSubmitting}
+            multiple={true}
             fullWidth
           />
           <Button type="submit" disabled={isSubmitting}>
