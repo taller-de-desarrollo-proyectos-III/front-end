@@ -96,7 +96,7 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
-                label={"Año de ingreso"}
+                label={"Año de inicio como voluntarie"}
                 defaultValue={volunteer.admissionYear}
                 variant={"outlined"}
                 fullWidth
@@ -111,7 +111,7 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
           <div className={styles.fieldContainer}>
             <div className={styles.field}>
               <TextField
-                label={"Año de graduación"}
+                label={"Año de egreso si es egresado de Nahual"}
                 defaultValue={volunteer.graduationYear}
                 variant={"outlined"}
                 fullWidth

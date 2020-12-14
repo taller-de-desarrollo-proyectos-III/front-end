@@ -149,7 +149,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
                 <div className={styles.field}>
                   <TextField
                     name={"admissionYear"}
-                    label={"Año de ingreso"}
+                    label={"Año de inicio como voluntarie"}
                     disabled={isSubmitting}
                     fullWidth
                   />
@@ -159,7 +159,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
                 <div className={styles.field}>
                   <TextField
                     name={"graduationYear"}
-                    label={"Año de egreso"}
+                    label={"Año de egreso si es egresado de Nahual"}
                     disabled={isSubmitting}
                     fullWidth
                   />
