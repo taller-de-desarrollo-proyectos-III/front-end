@@ -15,6 +15,7 @@ export interface IVolunteer {
   graduationYear?: string;
   country?: string;
   notes?: string;
+  pronoun?: string;
   commissions: ICommission[];
   roles: IRole[];
   state: IState;

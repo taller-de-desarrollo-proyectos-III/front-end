@@ -19,6 +19,7 @@ export interface IUseCreateVolunteerVariables {
   graduationYear?: string;
   country?: string;
   notes?: string;
+  pronoun?: string;
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
   stateUuids?: string;

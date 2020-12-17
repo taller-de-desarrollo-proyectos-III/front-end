@@ -29,6 +29,21 @@ export const VolunteerPersonalCard: FunctionComponent<IVolunteerPersonalCard> = 
             )}
           </div>
         </div>
+        {volunteer && volunteer.pronoun && (
+          <div className={styles.fieldContainer}>
+            <div className={styles.field}>
+              <TextField
+                label={"Pronombre"}
+                defaultValue={volunteer.pronoun}
+                variant={"outlined"}
+                fullWidth
+                InputProps={{
+                  readOnly: true
+                }}
+              />
+            </div>
+          </div>
+        )}
         <div className={styles.fieldContainer}>
           <div className={styles.field}>
             {!volunteer && <LoadingSpinner />}

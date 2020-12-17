@@ -77,6 +77,16 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
               </div>
               <div className={styles.fieldContainer}>
                 <div className={styles.field}>
+                  <TextField
+                    name={"pronoun"}
+                    label={"Pronombre"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
                   <CommissionSelector
                     name={"commissionUuids"}
                     label={"Comisiones"}
