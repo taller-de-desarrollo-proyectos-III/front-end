@@ -14,7 +14,7 @@ export const CommissionItem: FunctionComponent<IComponentProps> = ({
   <>
     <TableRow>
       <TableItem>{commission.name}</TableItem>
-      <TableItem>{commission.description}</TableItem>
+      <TableItem>{commission.description || "No tiene"}</TableItem>
       {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
     </TableRow>
     {!readonly && (
