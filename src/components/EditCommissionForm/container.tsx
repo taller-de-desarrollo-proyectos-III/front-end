@@ -9,7 +9,7 @@ export const EditCommissionFormContainer: FunctionComponent<IContainerProps> = (
 }) => {
   const { updateCommission } = useUpdateCommission();
 
-  const onSubmit = async (values: { name: string; description: string }) => {
+  const onSubmit = async (values: { name: string; description?: string }) => {
     await updateCommission({ ...values, uuid });
     onClose();
   };

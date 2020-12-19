@@ -2,11 +2,11 @@ import { RolesSerializer } from "$models";
 
 describe("RolesSerializer", () => {
   it("serializes all roles by joining their names by commas", async () => {
-    const commissions = [
-      { uuid: "uuid", name: "firstRole", description: "first role" },
-      { uuid: "uuid", name: "secondRole", description: "second role" }
+    const roles = [
+      { uuid: "uuid", name: "firstRole" },
+      { uuid: "uuid", name: "secondRole" }
     ];
-    const serializedRoles = RolesSerializer.serialize(commissions);
+    const serializedRoles = RolesSerializer.serialize(roles);
     expect(serializedRoles).toEqual("firstRole, secondRole");
   });
 

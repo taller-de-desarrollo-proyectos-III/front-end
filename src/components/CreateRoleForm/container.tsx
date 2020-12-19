@@ -8,7 +8,7 @@ export const CreateRoleFormContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   const { createRole } = useCreateRole();
 
-  const onSubmit = async ({ name, description }: { name: string; description: string }) => {
+  const onSubmit = async ({ name, description }: { name: string; description?: string }) => {
     await createRole({ name, description });
     onClose();
   };

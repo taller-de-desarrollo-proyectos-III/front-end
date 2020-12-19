@@ -13,5 +13,5 @@ export const useGetRoles = <T = []>(dependencies: T[] = []) => {
 export interface IRole {
   uuid: string;
   name: string;
-  description: string;
+  description?: string;
 }

@@ -18,7 +18,7 @@ export const Selector: FunctionComponent<IComponent> = ({
   setSelectedOptions,
   initialValues
 }) => {
-  const allOption = { uuid: "ALL", name: "TODOS", description: "TODOS" };
+  const allOption = { uuid: "ALL", name: "TODOS" };
   const getOptions = () => {
     if (options.length === 0) return [];
     if (multiple) return [allOption].concat(options);
@@ -82,7 +82,7 @@ export const Selector: FunctionComponent<IComponent> = ({
 interface IOption {
   uuid: string;
   name: string;
-  description: string;
+  description?: string;
 }
 
 interface IComponent {

@@ -8,5 +8,5 @@ export const useCreateCommission = () => {
 
 export interface IUseCreateCommissionVariables {
   name: string;
-  description: string;
+  description?: string;
 }

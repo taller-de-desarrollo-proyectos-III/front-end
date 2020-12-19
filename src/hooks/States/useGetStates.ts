@@ -13,5 +13,5 @@ export const useGetStates = <T>(dependencies: T[] = []) => {
 export interface IState {
   uuid: string;
   name: string;
-  description: string;
+  description?: string;
 }

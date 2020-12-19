@@ -9,7 +9,7 @@ export const EditRoleFormContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   const { updateRole } = useUpdateRole();
 
-  const onSubmit = async (values: { name: string; description: string }) => {
+  const onSubmit = async (values: { name: string; description?: string }) => {
     await updateRole({ ...values, uuid });
     onClose();
   };

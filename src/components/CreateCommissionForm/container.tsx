@@ -8,7 +8,7 @@ export const CreateCommissionFormContainer: FunctionComponent<IContainerProps> =
 }) => {
   const { createCommission } = useCreateCommission();
 
-  const onSubmit = async ({ name, description }: { name: string; description: string }) => {
+  const onSubmit = async ({ name, description }: { name: string; description?: string }) => {
     await createCommission({ name, description });
     onClose();
   };

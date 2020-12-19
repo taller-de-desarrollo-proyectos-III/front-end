@@ -26,7 +26,7 @@ export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>
   };
 
   const isAll = () => values.commissionUuids === "ALL";
-  const allOption = { uuid: "ALL", name: "TODOS", description: "Todas las comisiones" };
+  const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOptions = isAll()
     ? [allOption]
     : commissions.filter(commission => values.commissionUuids.includes(commission.uuid));

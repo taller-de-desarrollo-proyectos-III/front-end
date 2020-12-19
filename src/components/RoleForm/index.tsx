@@ -41,6 +41,6 @@ export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
 interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  initialValues: { name: string; description: string };
-  onSubmit: (values: { name: string; description: string }) => void;
+  initialValues: { name: string; description?: string };
+  onSubmit: (values: { name: string; description?: string }) => void;
 }

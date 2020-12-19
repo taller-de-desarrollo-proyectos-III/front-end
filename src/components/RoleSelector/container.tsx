@@ -27,7 +27,7 @@ export const RoleSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
   };
 
   const isAll = () => values.roleUuids === "ALL";
-  const allOption = { uuid: "ALL", name: "TODOS", description: "Todos los roles" };
+  const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOptions = isAll()
     ? [allOption]
     : roles.filter(role => values.roleUuids.includes(role.uuid));
