@@ -24,7 +24,7 @@ export const VolunteersFilter: FunctionComponent<IComponentProps> = ({
             disabled={isSubmitting}
             fullWidth
           />
-          <RoleSelector
+          <RoleSelector<IInitialValues>
             className={styles.selector}
             name={"roleUuids"}
             label={"Roles"}
