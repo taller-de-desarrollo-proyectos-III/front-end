@@ -6,7 +6,7 @@ import { StateSelector } from "$components/StateSelector";
 import { Button } from "$components/Button";
 import styles from "./styles.module.scss";
 import { Card } from "$components/Card";
-import { IComponentProps } from "./interfaces";
+import { IComponentProps, IInitialValues } from "./interfaces";
 
 export const VolunteersFilter: FunctionComponent<IComponentProps> = ({
   initialValues,
@@ -31,7 +31,7 @@ export const VolunteersFilter: FunctionComponent<IComponentProps> = ({
             disabled={isSubmitting}
             fullWidth
           />
-          <StateSelector
+          <StateSelector<IInitialValues>
             className={styles.selector}
             name={"stateUuids"}
             label={"Estados"}

@@ -106,7 +106,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
               </div>
               <div className={styles.fieldContainer}>
                 <div className={styles.field}>
-                  <StateSelector
+                  <StateSelector<IUseCreateVolunteerVariables>
                     name={"stateUuid"}
                     label={"Estado"}
                     disabled={isSubmitting}

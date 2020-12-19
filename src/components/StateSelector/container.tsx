@@ -1,20 +1,20 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { IState, useGetStates } from "$hooks";
 import { Selector } from "$components/Selector";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FastField } from "formik";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { get } from "lodash";
 
-export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
+export const StateSelectorContainer = <Values extends object>({
   className,
   label,
   multiple,
   name,
   ...props
-}) => {
+}: IContainerProps) => {
   const states = useGetStates();
-  const { values, setFieldValue } = useFormikContext<IInitialValues>();
+  const { values, setFieldValue } = useFormikContext<Values>();
 
   if (states === undefined) return <LoadingSpinner />;
 
@@ -33,12 +33,12 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
     }
   };
 
-  const isAll = () => values.stateUuids === "ALL";
+  const isAll = () => get(values, name) === "ALL";
   const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOption = () => {
-    if (!multiple) return states.filter(state => state.uuid === values.stateUuids);
+    if (!multiple) return states.filter(state => state.uuid === get(values, name));
     if (isAll()) return [allOption];
-    return states.filter(state => values.stateUuids.includes(state.uuid));
+    return states.filter(state => get(values, name).includes(state.uuid));
   };
 
   return (
