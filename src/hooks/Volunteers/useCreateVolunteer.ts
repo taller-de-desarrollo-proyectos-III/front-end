@@ -22,5 +22,5 @@ export interface IUseCreateVolunteerVariables {
   pronoun?: string;
   commissionUuids: TCommissionUuids;
   roleUuids: TRoleUuids;
-  stateUuids?: string;
+  stateUuid?: string;
 }

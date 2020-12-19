@@ -10,6 +10,7 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
   className,
   label,
   multiple,
+  name,
   ...props
 }) => {
   const states = useGetStates();
@@ -19,14 +20,14 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
 
   const onChange = (selectedStates: IState[]) => {
     if (!multiple) {
-      if (selectedStates.length > 0) return setFieldValue("stateUuid", selectedStates[0].uuid);
-      setFieldValue("stateUuid", null);
+      if (selectedStates.length > 0) return setFieldValue(name, selectedStates[0].uuid);
+      setFieldValue(name, null);
     } else {
       if (selectedStates.map(({ uuid }) => uuid).includes("ALL")) {
-        return setFieldValue("stateUuids", "ALL");
+        return setFieldValue(name, "ALL");
       }
       setFieldValue(
-        "stateUuids",
+        name,
         selectedStates.map(({ uuid }) => uuid)
       );
     }
@@ -41,7 +42,7 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
   };
 
   return (
-    <FastField {...props}>
+    <FastField name={name} {...props}>
       {() => (
         <Selector
           label={label}
