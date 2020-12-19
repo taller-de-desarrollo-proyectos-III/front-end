@@ -11,6 +11,7 @@ export const RolesTable: FunctionComponent<IComponentProps> = ({ roles, classNam
   <Table className={className}>
     <TableHeader>
       <TableItem>NOMBRE</TableItem>
+      <TableItem>DESCRIPCION</TableItem>
       {!readonly && <TableItem />}
     </TableHeader>
     <TableBody>

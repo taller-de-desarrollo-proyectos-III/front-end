@@ -8,8 +8,8 @@ export const CreateCommissionFormContainer: FunctionComponent<IContainerProps> =
 }) => {
   const { createCommission } = useCreateCommission();
 
-  const onSubmit = async ({ name }: { name: string }) => {
-    await createCommission({ name });
+  const onSubmit = async ({ name, description }: { name: string; description?: string }) => {
+    await createCommission({ name, description });
     onClose();
   };
 
@@ -17,7 +17,7 @@ export const CreateCommissionFormContainer: FunctionComponent<IContainerProps> =
     <CommissionForm
       isOpen={isOpen}
       onClose={onClose}
-      initialValues={{ name: "" }}
+      initialValues={{ name: "", description: "" }}
       onSubmit={onSubmit}
     />
   );

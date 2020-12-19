@@ -8,13 +8,18 @@ export const CreateRoleFormContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   const { createRole } = useCreateRole();
 
-  const onSubmit = async ({ name }: { name: string }) => {
-    await createRole({ name });
+  const onSubmit = async ({ name, description }: { name: string; description?: string }) => {
+    await createRole({ name, description });
     onClose();
   };
 
   return (
-    <RoleForm isOpen={isOpen} onClose={onClose} initialValues={{ name: "" }} onSubmit={onSubmit} />
+    <RoleForm
+      isOpen={isOpen}
+      onClose={onClose}
+      initialValues={{ name: "", description: "" }}
+      onSubmit={onSubmit}
+    />
   );
 };
 

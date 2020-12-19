@@ -5,11 +5,11 @@ import { CommissionForm } from "$components/CommissionForm";
 export const EditCommissionFormContainer: FunctionComponent<IContainerProps> = ({
   isOpen,
   onClose,
-  initialValues: { uuid, name }
+  initialValues: { uuid, name, description }
 }) => {
   const { updateCommission } = useUpdateCommission();
 
-  const onSubmit = async (values: { name: string }) => {
+  const onSubmit = async (values: { name: string; description?: string }) => {
     await updateCommission({ ...values, uuid });
     onClose();
   };
@@ -18,7 +18,7 @@ export const EditCommissionFormContainer: FunctionComponent<IContainerProps> = (
     <CommissionForm
       isOpen={isOpen}
       onClose={onClose}
-      initialValues={{ name }}
+      initialValues={{ name, description }}
       onSubmit={onSubmit}
     />
   );

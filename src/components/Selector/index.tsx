@@ -82,6 +82,7 @@ export const Selector: FunctionComponent<IComponent> = ({
 interface IOption {
   uuid: string;
   name: string;
+  description?: string;
 }
 
 interface IComponent {
