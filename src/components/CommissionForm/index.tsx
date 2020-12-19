@@ -26,15 +26,9 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
               label="Nombre"
               disabled={isSubmitting}
               fullWidth
-              className="formField"
+              className={styles.formField}
             />
-            <TextField
-              name="description"
-              label="Descripción"
-              disabled={isSubmitting}
-              fullWidth
-              className="formField"
-            />
+            <TextField name="description" label="Descripción" disabled={isSubmitting} fullWidth />
           </Form>
         )}
       </Formik>

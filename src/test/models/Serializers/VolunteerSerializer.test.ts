@@ -14,6 +14,7 @@ describe("VolunteerSerializer", () => {
     graduationYear: "2016",
     country: "Argentina",
     notes: "Notes",
+    pronoun: "They",
     state: { uuid: "uuid", name: "state" }
   };
 

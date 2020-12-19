@@ -38,7 +38,6 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
           .max(new Date().getFullYear(), "Tiene que ser un año anterior o igual al actual"),
         graduationYear: number()
           .typeError("Ingresá un número")
-          .min(Yup.ref("admissionYear"), "El año de egreso no puede ser menor al de ingreso")
           .max(new Date().getFullYear(), "Tiene que ser un año anterior o igual al actual"),
         country: string().typeError("Ingresá un nombre de país válido"),
         stateUuid: string().required("Tenés que asignar un estado")
@@ -73,6 +72,16 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
               <div className={styles.fieldContainer}>
                 <div className={styles.field}>
                   <TextField name={"dni"} label={"DNI"} disabled={isSubmitting} fullWidth />
+                </div>
+              </div>
+              <div className={styles.fieldContainer}>
+                <div className={styles.field}>
+                  <TextField
+                    name={"pronoun"}
+                    label={"Pronombre"}
+                    disabled={isSubmitting}
+                    fullWidth
+                  />
                 </div>
               </div>
               <div className={styles.fieldContainer}>

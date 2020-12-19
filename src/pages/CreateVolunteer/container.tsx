@@ -22,7 +22,8 @@ export const CreateVolunteerContainer: FunctionComponent = () => {
         email: "",
         phoneNumber: "",
         commissionUuids: [],
-        roleUuids: []
+        roleUuids: [],
+        stateUuid: ""
       }}
       onSubmit={onSubmit}
     />

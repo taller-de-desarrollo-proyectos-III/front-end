@@ -21,7 +21,13 @@ export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         {({ isSubmitting }) => (
           <Form id={formName}>
-            <TextField name="name" label="Nombre" disabled={isSubmitting} fullWidth />
+            <TextField
+              className={styles.formField}
+              name="name"
+              label="Nombre"
+              disabled={isSubmitting}
+              fullWidth
+            />
             <TextField name="description" label="Description" disabled={isSubmitting} fullWidth />
           </Form>
         )}
