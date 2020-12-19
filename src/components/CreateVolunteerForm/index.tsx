@@ -40,7 +40,7 @@ export const CreateVolunteerForm: FunctionComponent<ICreateVolunteerFormProps> =
           .typeError("Ingresá un número")
           .max(new Date().getFullYear(), "Tiene que ser un año anterior o igual al actual"),
         country: string().typeError("Ingresá un nombre de país válido"),
-        stateUuid: string().required("Tenés que asignar un estado")
+        stateUuids: string().required("Tenés que asignar un estado")
       })}
     >
       {props => {
