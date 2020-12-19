@@ -7,4 +7,5 @@ export const useCreateRole = () => {
 
 export interface IUseCreateRoleVariables {
   name: string;
+  description: string;
 }

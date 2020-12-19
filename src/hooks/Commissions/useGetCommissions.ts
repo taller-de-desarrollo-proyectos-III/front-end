@@ -13,4 +13,5 @@ export const useGetCommissions = <T>(dependencies: T[] = []) => {
 export interface ICommission {
   uuid: string;
   name: string;
+  description: string;
 }

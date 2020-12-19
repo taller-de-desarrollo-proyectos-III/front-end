@@ -15,13 +15,26 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
 }) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
-      <span className={styles.title}>{"Escriba el nombre de la comisión"}</span>
+      <span className={styles.title}>{"Escriba el nombre y la descripción de la comisión"}</span>
     </DialogTitle>
     <DialogContent>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         {({ isSubmitting }) => (
           <Form id={formName}>
-            <TextField name="name" label="Nombre" disabled={isSubmitting} fullWidth />
+            <TextField
+              name="name"
+              label="Nombre"
+              disabled={isSubmitting}
+              fullWidth
+              className="formField"
+            />
+            <TextField
+              name="description"
+              label="Descripción"
+              disabled={isSubmitting}
+              fullWidth
+              className="formField"
+            />
           </Form>
         )}
       </Formik>
@@ -40,6 +53,6 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
 interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  initialValues: { name: string };
-  onSubmit: (values: { name: string }) => void;
+  initialValues: { name: string; description: string };
+  onSubmit: (values: { name: string; description: string }) => void;
 }

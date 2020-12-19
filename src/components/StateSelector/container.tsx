@@ -33,7 +33,7 @@ export const StateSelectorContainer: FunctionComponent<IContainerProps> = ({
   };
 
   const isAll = () => values.stateUuids === "ALL";
-  const allOption = { uuid: "ALL", name: "TODOS" };
+  const allOption = { uuid: "ALL", name: "TODOS", description: "Todos los estados" };
   const selectedOption = () => {
     if (!multiple) return states.filter(state => state.uuid === values.stateUuids);
     if (isAll()) return [allOption];

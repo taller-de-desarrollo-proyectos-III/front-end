@@ -14,19 +14,19 @@ describe("VolunteerSerializer", () => {
     graduationYear: "2016",
     country: "Argentina",
     notes: "Notes",
-    state: { uuid: "uuid", name: "state" }
+    state: { uuid: "uuid", name: "state", description: "state" }
   };
 
   it("serializes a volunteer with commissions an roles", async () => {
     const volunteer = {
       ...volunteerAttributes,
       commissions: [
-        { uuid: "uuid", name: "firstCommission" },
-        { uuid: "uuid", name: "secondCommission" }
+        { uuid: "uuid", name: "firstCommission", description: "first commission" },
+        { uuid: "uuid", name: "secondCommission", description: "second commission" }
       ],
       roles: [
-        { uuid: "uuid", name: "firstRole" },
-        { uuid: "uuid", name: "secondRole" }
+        { uuid: "uuid", name: "firstRole", description: "first role" },
+        { uuid: "uuid", name: "secondRole", description: "second role" }
       ]
     };
     const serializedVolunteer = VolunteerSerializer.serialize(volunteer);

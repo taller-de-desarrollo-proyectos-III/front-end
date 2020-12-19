@@ -15,13 +15,14 @@ export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
 }) => (
   <Dialog open={isOpen} onClose={onClose}>
     <DialogTitle>
-      <span className={styles.title}>{"Escriba el nombre del rol"}</span>
+      <span className={styles.title}>{"Escriba el nombre y la descripcion del rol"}</span>
     </DialogTitle>
     <DialogContent>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         {({ isSubmitting }) => (
           <Form id={formName}>
             <TextField name="name" label="Nombre" disabled={isSubmitting} fullWidth />
+            <TextField name="description" label="Description" disabled={isSubmitting} fullWidth />
           </Form>
         )}
       </Formik>
@@ -40,6 +41,6 @@ export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
 interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  initialValues: { name: string };
-  onSubmit: (values: { name: string }) => void;
+  initialValues: { name: string; description: string };
+  onSubmit: (values: { name: string; description: string }) => void;
 }
