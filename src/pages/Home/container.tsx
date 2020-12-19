@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import { Home } from "./component";
 import { useGetVolunteers } from "$hooks";
 import { RoutesBuilder } from "$models";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 
 export const HomeContainer: FunctionComponent = () => {
   const history = useHistory();
-  const [filter, setFilter] = useState<IInitialValues>({
+  const [filter, setFilter] = useState<IVolunteersFilter>({
     commissionUuids: "ALL",
     roleUuids: "ALL",
     stateUuids: "ALL"

@@ -1,7 +1,7 @@
 import React from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { useGetCommissions, ICommission } from "$hooks";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 import { Selector } from "$components/Selector";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FastField } from "formik";
@@ -14,7 +14,7 @@ export const CommissionSelectorContainer = ({
   ...props
 }: FieldAttributes<any>) => {
   const commissions = useGetCommissions();
-  const { values, setFieldValue } = useFormikContext<IInitialValues>();
+  const { values, setFieldValue } = useFormikContext<IVolunteersFilter>();
   if (!commissions) return <LoadingSpinner />;
 
   const onChange = (selectedCommissions: ICommission[]) => {
