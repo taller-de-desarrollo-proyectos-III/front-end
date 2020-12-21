@@ -15,7 +15,7 @@ This project has Node.js as a server-side and React as front-end framework to cr
 
 ## Deployment
 
-- Using [Heroku buildpack] (https://github.com/mars/create-react-app-buildpack)
+- Using [Heroku buildpack](https://github.com/mars/create-react-app-buildpack)
 
 ## Available scripts
 
