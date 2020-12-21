@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IVolunteer } from "$hooks";
 import { BackendService } from "$services";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 
 export const useGetVolunteers = ({ filter }: IUseGetVolunteers) => {
   const [volunteers, setVolunteers] = useState<IVolunteer[]>([]);
@@ -12,5 +12,5 @@ export const useGetVolunteers = ({ filter }: IUseGetVolunteers) => {
 };
 
 interface IUseGetVolunteers {
-  filter: IInitialValues;
+  filter: IVolunteersFilter;
 }

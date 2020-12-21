@@ -1,38 +1,40 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { FieldAttributes, useFormikContext } from "formik";
 import { useGetCommissions, ICommission } from "$hooks";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 import { Selector } from "$components/Selector";
 import { LoadingSpinner } from "$components/LoadingSpinner";
 import { FastField } from "formik";
+import { get } from "lodash";
 
-export const CommissionSelectorContainer: FunctionComponent<FieldAttributes<any>> = ({
+export const CommissionSelectorContainer = ({
   className,
   label,
+  name,
   ...props
-}) => {
+}: FieldAttributes<any>) => {
   const commissions = useGetCommissions();
-  const { values, setFieldValue } = useFormikContext<IInitialValues>();
+  const { values, setFieldValue } = useFormikContext<IVolunteersFilter>();
   if (!commissions) return <LoadingSpinner />;
 
   const onChange = (selectedCommissions: ICommission[]) => {
     if (selectedCommissions.map(({ uuid }) => uuid).includes("ALL")) {
-      return setFieldValue("commissionUuids", "ALL");
+      return setFieldValue(name, "ALL");
     }
     setFieldValue(
-      "commissionUuids",
+      name,
       selectedCommissions.map(({ uuid }) => uuid)
     );
   };
 
-  const isAll = () => values.commissionUuids === "ALL";
+  const isAll = () => get(values, name) === "ALL";
   const allOption = { uuid: "ALL", name: "TODOS" };
   const selectedOptions = isAll()
     ? [allOption]
-    : commissions.filter(commission => values.commissionUuids.includes(commission.uuid));
+    : commissions.filter(commission => get(values, name).includes(commission.uuid));
 
   return (
-    <FastField {...props}>
+    <FastField name={name} {...props}>
       {() => (
         <Selector
           label={label}

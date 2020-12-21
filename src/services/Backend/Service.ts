@@ -3,7 +3,7 @@ import { BackendConfig } from "$config";
 import { IUseCreateVolunteerVariables, IUseUpdateVolunteerVariables } from "$hooks";
 import { IUseCreateCommissionVariables, IUseUpdateCommissionVariables } from "$hooks";
 import { IUseCreateRoleVariables, IUseUpdateRoleVariables } from "$hooks";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 import { IUseCreateStateVariables, IUseUpdateStateVariables } from "$hooks";
 
 export const BackendService = {
@@ -33,7 +33,7 @@ export const BackendService = {
     const body = await response.json();
     return { body, status: response.status };
   },
-  getVolunteers: (attributes: IInitialValues) => BackendService.get("volunteers", attributes),
+  getVolunteers: (attributes: IVolunteersFilter) => BackendService.get("volunteers", attributes),
   getVolunteerByUuid: (uuid: string) => BackendService.get(`volunteers/${uuid}`),
   getCommissions: () => BackendService.get("commissions"),
   createVolunteer: (variables: IUseCreateVolunteerVariables) =>

@@ -14,7 +14,7 @@ export const RoleItem: FunctionComponent<IComponentProps> = ({
   <>
     <TableRow>
       <TableItem>{role.name}</TableItem>
-      <TableItem>{role.description}</TableItem>
+      <TableItem>{role.description || "No tiene"}</TableItem>
       {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
     </TableRow>
     {!readonly && (

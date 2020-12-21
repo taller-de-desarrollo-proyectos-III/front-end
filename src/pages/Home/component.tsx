@@ -8,7 +8,7 @@ import { MainContent } from "$components/MainContent";
 import { NavBar } from "$components/NavBar";
 import { Title } from "$components/Title";
 import { VolunteersFilter } from "$components/VolunteersFilter";
-import { IInitialValues } from "$components/VolunteersFilter/interfaces";
+import { IVolunteersFilter } from "$components/VolunteersFilter/interfaces";
 
 import { IVolunteer } from "$hooks";
 
@@ -49,8 +49,8 @@ export const Home: FunctionComponent<IComponentProps> = ({
 );
 
 interface IComponentProps {
-  filter: IInitialValues;
-  setFilter: (values: IInitialValues) => void;
+  filter: IVolunteersFilter;
+  setFilter: (values: IVolunteersFilter) => void;
   volunteers: IVolunteer[];
   onClickAddVolunteers: () => void;
 }

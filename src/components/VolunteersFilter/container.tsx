@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Fragment } from "react";
 import { VolunteersFilter } from "./component";
-import { IContainerProps, IInitialValues } from "./interfaces";
+import { IContainerProps, IVolunteersFilter } from "./interfaces";
 import { FormikHelpers } from "formik/dist/types";
 
 export const VolunteersFilterContainer: FunctionComponent<IContainerProps> = ({
@@ -9,7 +9,10 @@ export const VolunteersFilterContainer: FunctionComponent<IContainerProps> = ({
 }) => {
   if (!initialValues) return <Fragment />;
 
-  const onSubmit = (values: IInitialValues, { setSubmitting }: FormikHelpers<IInitialValues>) => {
+  const onSubmit = (
+    values: IVolunteersFilter,
+    { setSubmitting }: FormikHelpers<IVolunteersFilter>
+  ) => {
     onApplyFilter(values);
     setSubmitting(false);
   };
