@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { DialogForm } from "$components/DialogForm";
+import { DialogForm, IValues } from "$components/DialogForm";
 
 export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
   isOpen,
@@ -20,6 +20,6 @@ export const RoleForm: FunctionComponent<IConfirmDialogProps> = ({
 interface IConfirmDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  initialValues: { name: string; description?: string };
-  onSubmit: (values: { name: string; description?: string }) => void;
+  initialValues: IValues;
+  onSubmit: (values: IValues) => void;
 }

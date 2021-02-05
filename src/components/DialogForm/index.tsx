@@ -49,7 +49,7 @@ export const DialogForm: FunctionComponent<IComponentProps> = ({
   </Dialog>
 );
 
-interface IValues {
+export interface IValues {
   name: string;
   description?: string;
 }
