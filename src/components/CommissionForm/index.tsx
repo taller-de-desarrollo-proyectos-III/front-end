@@ -1,11 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Dialog, DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
-import { Form, Formik } from "formik";
-import { Button } from "$components/Button";
-import styles from "./styles.module.scss";
-import { TextField } from "../TextField";
-
-const formName = "CommissionForm";
+import { DialogForm } from "../DialogForm";
 
 export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
   isOpen,
@@ -13,35 +7,14 @@ export const CommissionForm: FunctionComponent<IConfirmDialogProps> = ({
   initialValues,
   onSubmit
 }) => (
-  <Dialog open={isOpen} onClose={onClose}>
-    <DialogTitle>
-      <span className={styles.title}>{"Escriba el nombre y la descripción de la comisión"}</span>
-    </DialogTitle>
-    <DialogContent>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
-        {({ isSubmitting }) => (
-          <Form id={formName}>
-            <TextField
-              name="name"
-              label="Nombre"
-              disabled={isSubmitting}
-              fullWidth
-              className={styles.formField}
-            />
-            <TextField name="description" label="Descripción" disabled={isSubmitting} fullWidth />
-          </Form>
-        )}
-      </Formik>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose} kind="secondary">
-        Cancelar
-      </Button>
-      <Button form={formName} kind="primary" type="submit">
-        Confirmar
-      </Button>
-    </DialogActions>
-  </Dialog>
+  <DialogForm
+    withDescription
+    title="Escriba el nombre y la descripción de la comisión"
+    isOpen={isOpen}
+    onClose={onClose}
+    initialValues={initialValues}
+    onSubmit={onSubmit}
+  />
 );
 
 interface IConfirmDialogProps {
