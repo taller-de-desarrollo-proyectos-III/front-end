@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { EditStateForm } from "$components/EditStateForm";
+import { useUpdateState } from "$hooks";
+import { CreateOrUpdateFormDialog } from "$components/CreateOrUpdateFormDialog";
 import { TableRow } from "$components/Table/TableRow";
 import { TableItem } from "$components/Table/TableItem";
 import { ActionItem } from "$components/Table/ActionItem";
@@ -10,14 +11,26 @@ export const StateItem: FunctionComponent<IComponentProps> = ({
   isOpen,
   setIsOpen,
   readonly
-}) => (
-  <>
-    <TableRow>
-      <TableItem>{state.name}</TableItem>
-      {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
-    </TableRow>
-    {!readonly && (
-      <EditStateForm initialValues={state} isOpen={isOpen} onClose={() => setIsOpen(false)} />
-    )}
-  </>
-);
+}) => {
+  const { updateState } = useUpdateState();
+
+  return (
+    <>
+      <TableRow>
+        <TableItem>{state.name}</TableItem>
+        {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
+      </TableRow>
+      {!readonly && (
+        <CreateOrUpdateFormDialog
+          title="Escriba el nombre del estado"
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          withDescription={false}
+          initialValues={state}
+          update={true}
+          createOrUpdate={updateState}
+        />
+      )}
+    </>
+  );
+};

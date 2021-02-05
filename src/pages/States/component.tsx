@@ -27,7 +27,7 @@ export const States: FunctionComponent<IComponentProps> = ({
           title="Escriba el nombre del estado"
           isOpen={openStateForm}
           onClose={() => setOpenStateForm(false)}
-          withDescription
+          withDescription={false}
           initialValues={{ name: "" }}
           update={false}
           createOrUpdate={createState}
