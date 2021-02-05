@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { EditRoleForm } from "$components/EditRoleForm";
+import { useUpdateRole } from "$hooks";
+import { CreateOrUpdateFormDialog } from "$components/CreateOrUpdateFormDialog";
 import { TableRow } from "$components/Table/TableRow";
 import { TableItem } from "$components/Table/TableItem";
 import { ActionItem } from "$components/Table/ActionItem";
@@ -10,15 +11,26 @@ export const RoleItem: FunctionComponent<IComponentProps> = ({
   isOpen,
   setIsOpen,
   readonly
-}) => (
-  <>
-    <TableRow>
-      <TableItem>{role.name}</TableItem>
-      <TableItem>{role.description || "No tiene"}</TableItem>
-      {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
-    </TableRow>
-    {!readonly && (
-      <EditRoleForm initialValues={role} isOpen={isOpen} onClose={() => setIsOpen(false)} />
-    )}
-  </>
-);
+}) => {
+  const { updateRole } = useUpdateRole();
+  return (
+    <>
+      <TableRow>
+        <TableItem>{role.name}</TableItem>
+        <TableItem>{role.description || "No tiene"}</TableItem>
+        {!readonly && <ActionItem onClick={() => setIsOpen(true)}>Editar</ActionItem>}
+      </TableRow>
+      {!readonly && (
+        <CreateOrUpdateFormDialog
+          title="Escriba el nombre y la descripción del rol"
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          withDescription
+          initialValues={role}
+          update={true}
+          createOrUpdate={updateRole}
+        />
+      )}
+    </>
+  );
+};

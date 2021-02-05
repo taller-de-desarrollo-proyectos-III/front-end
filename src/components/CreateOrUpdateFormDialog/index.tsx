@@ -3,10 +3,8 @@ import { DialogForm, IValues } from "$components/DialogForm";
 
 export const CreateOrUpdateFormDialog: FunctionComponent<ContainerProps> = props => {
   const onSubmit = async (values: IValues) => {
-    if (props.update) {
-      await props.useCreateOrUpdate().createOrUpdate({ uuid: props.initialValues.uuid, ...values });
-    }
-    if (!props.update) await props.useCreateOrUpdate().createOrUpdate(values);
+    if (props.update) await props.createOrUpdate({ uuid: props.initialValues.uuid, ...values });
+    if (!props.update) await props.createOrUpdate(values);
     props.onClose();
   };
 
@@ -35,13 +33,13 @@ interface ICommonProps {
 interface ICreateProps extends ICommonProps {
   update: false;
   initialValues: IValues;
-  useCreateOrUpdate: () => { createOrUpdate: (values: IValues) => Promise<void> };
+  createOrUpdate: (values: IValues) => Promise<any>;
 }
 
 interface IUpdateProps extends ICommonProps {
   update: true;
   initialValues: UpdateValues;
-  useCreateOrUpdate: () => { createOrUpdate: (values: UpdateValues) => Promise<void> };
+  createOrUpdate: (values: UpdateValues) => Promise<any>;
 }
 
 type ContainerProps = ICreateProps | IUpdateProps;
