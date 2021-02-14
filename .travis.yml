@@ -16,14 +16,6 @@ deploy:
     skip_cleanup: true
     api_key:
       secure: 1EsTrKJs/NbZoIhb+CA346qZbqL9wijLmwtmoEwxmQNYKI/oAvxLUj6f3Bim7VSi7YKf5JG4urBcTKrM+auMHrAectasT3JnZ5lMrej8HLgaHAHx2fNviVoLlDguZIz2oAFQpdV7p82X3amcuKVCih9cAOoBFkYpbjPXu/Wn3TLc5CsmJIqFhB+nZHMfnYIUhuyKwP8ajgsJA8IBYN0cV0QrbzKrrEZlcG8UZljGbhSEGCByd4tvk/JMsaXhKJ1O/ggblE7zS3jYU1a1NvP0rnsLLbnN8HSAnbCVwp70u7nKoHklcBlDibhAqn5DoJE3QY56Ds1mmv26mA4gymgUOsGnqCcwMOuxCrSluyXVrYiCddJb1aFyDmQbgxFwZrHvHcTI+vaFoDTZ5WqTMH9pHPlGgTVdq37ii0kog0VThbOMcLiwM8RB/QUi551hoBQ3bzSw/0m4BEuzCxasBaXrYuPwIeB/shGAU6jtYBvRs5PRd9zV0JtsJA9uE4gPWouYrjFC5U3NI2uoUP5eKm+/5aCI3/88Sb4v3RqlOmwGuhzU3KEc2zfH2pgpdc6aLCCFVX2Gi6GbAA88ozz8hJ6zwmargGVWUgE0dcYEzsNhkMDnxoRK0nVbB+AwxxSisa4k0TwgwWG7+NKSFxB8hantha213WQXCogfSgGVvC4bAb0=
-    app: tdp3-frontend
-    on:
-      branch: staging
-      repo: taller-de-desarrollo-proyectos-III/front-end
-  - provider: heroku
-    skip_cleanup: true
-    api_key:
-      secure: 1EsTrKJs/NbZoIhb+CA346qZbqL9wijLmwtmoEwxmQNYKI/oAvxLUj6f3Bim7VSi7YKf5JG4urBcTKrM+auMHrAectasT3JnZ5lMrej8HLgaHAHx2fNviVoLlDguZIz2oAFQpdV7p82X3amcuKVCih9cAOoBFkYpbjPXu/Wn3TLc5CsmJIqFhB+nZHMfnYIUhuyKwP8ajgsJA8IBYN0cV0QrbzKrrEZlcG8UZljGbhSEGCByd4tvk/JMsaXhKJ1O/ggblE7zS3jYU1a1NvP0rnsLLbnN8HSAnbCVwp70u7nKoHklcBlDibhAqn5DoJE3QY56Ds1mmv26mA4gymgUOsGnqCcwMOuxCrSluyXVrYiCddJb1aFyDmQbgxFwZrHvHcTI+vaFoDTZ5WqTMH9pHPlGgTVdq37ii0kog0VThbOMcLiwM8RB/QUi551hoBQ3bzSw/0m4BEuzCxasBaXrYuPwIeB/shGAU6jtYBvRs5PRd9zV0JtsJA9uE4gPWouYrjFC5U3NI2uoUP5eKm+/5aCI3/88Sb4v3RqlOmwGuhzU3KEc2zfH2pgpdc6aLCCFVX2Gi6GbAA88ozz8hJ6zwmargGVWUgE0dcYEzsNhkMDnxoRK0nVbB+AwxxSisa4k0TwgwWG7+NKSFxB8hantha213WQXCogfSgGVvC4bAb0=
     app: nahual-portal-voluntaries
     on:
       branch: production
