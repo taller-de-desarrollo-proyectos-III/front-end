@@ -1,11 +1,8 @@
-type Env = "production" | "staging" | "development" | "test";
+type Env = "production" | "development" | "test";
 
 export const BackendConfig = {
   production: {
     url: "https://nahual-datos-voluntaries.herokuapp.com"
-  },
-  staging: {
-    url: "https://tdp3-backend.herokuapp.com"
   },
   development: {
     url: "http://localhost:5000"
