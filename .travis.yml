@@ -7,15 +7,12 @@ script:
 notifications:
   email:
     recipients:
-      - sebastian.e.blanco@gmail.com
-      - nerenap@gmail.com
-      - sebastian.leo.perez@gmail.com
-      - lautarodelosheros@gmail.com
+      - martin.salias@kleer.la
 deploy:
   - provider: heroku
     skip_cleanup: true
     api_key:
-      secure: 1EsTrKJs/NbZoIhb+CA346qZbqL9wijLmwtmoEwxmQNYKI/oAvxLUj6f3Bim7VSi7YKf5JG4urBcTKrM+auMHrAectasT3JnZ5lMrej8HLgaHAHx2fNviVoLlDguZIz2oAFQpdV7p82X3amcuKVCih9cAOoBFkYpbjPXu/Wn3TLc5CsmJIqFhB+nZHMfnYIUhuyKwP8ajgsJA8IBYN0cV0QrbzKrrEZlcG8UZljGbhSEGCByd4tvk/JMsaXhKJ1O/ggblE7zS3jYU1a1NvP0rnsLLbnN8HSAnbCVwp70u7nKoHklcBlDibhAqn5DoJE3QY56Ds1mmv26mA4gymgUOsGnqCcwMOuxCrSluyXVrYiCddJb1aFyDmQbgxFwZrHvHcTI+vaFoDTZ5WqTMH9pHPlGgTVdq37ii0kog0VThbOMcLiwM8RB/QUi551hoBQ3bzSw/0m4BEuzCxasBaXrYuPwIeB/shGAU6jtYBvRs5PRd9zV0JtsJA9uE4gPWouYrjFC5U3NI2uoUP5eKm+/5aCI3/88Sb4v3RqlOmwGuhzU3KEc2zfH2pgpdc6aLCCFVX2Gi6GbAA88ozz8hJ6zwmargGVWUgE0dcYEzsNhkMDnxoRK0nVbB+AwxxSisa4k0TwgwWG7+NKSFxB8hantha213WQXCogfSgGVvC4bAb0=
+      secure: zu1OM+Zzh9WUpVJ8mShk/A92YFx1gJ8LxIUizRSxTZw+SUCXKPSAcLOD4ZsA1EMbQSxLMQx11J76VOXT/A/lcceEpDroA37hdcipjyM0EsaYo+g6ZnastVIU/uI4jxKEa37gBXbdasgCq+fXyGJ+6x244owtqrJ0/cWqdp7+0w+sSOH6XI4yg6carBmSjNNsQYACjLkOnLNpmtPEdx12tDFFks66zyV58gIvBEDU/klduuyqsZLJBYp9t8hfMtdS85DEdA8HUsYPIeahce+B5iyJYkOzvcnHAylz87DZPElKogEIwgPJXdbxyQofTL5FZhTmDVPLN+jTbbaKTKXcgRfscbIN4mBIFhHuXs4hi4IJ5jlO5BXpZEIK44Q5JuF5rfszYs8mv0fiZzn7mUslAhxxFWZmUS08hW7ECAuF4QXpDVIN8Vz+3IQ9ZJCAoRB/PUlK83VO9FjhxXPi+MrABLetUrr0FCiVclNhbIE+eDTmB9FYNH0/p+YWq4KYzUda/46IMpbdK2Jse5uuRZYeDhd8w+L5mMW++Ei0+PPRMJfBntRKGqKNzLLN2EKIPuUmLMWkMj2TBSWF94AoGyGRdsdHDmMxS3qYY/xhcXsac7NZPx2Gw3PKwdBV9z3lbWzcywZPEuJwz64o3XE/aO5jFsgsP2iKltdNKrUSSUTTeRo=
     app: nahual-portal-voluntaries
     on:
       branch: production
